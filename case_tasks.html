@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статуси задач Blum — кейс | Макс Злидар</title>
+  <meta name="description" content="Кейс про зрозумілі статуси задач у Blum. Як маленька деталь зменшила звернення в підтримку.">
+  <link rel="stylesheet" href="css/css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/lgn.svg">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="header__nav">
+      <div class="header__left">
+        <a href="index.html#hero" class="header__link">Головна</a>
+        <a href="index.html#cases" class="header__link">Кейси</a>
+      </div>
+      <a href="index.html#hero" class="header__logo">
+        <img src="images/lgn.svg" alt="Logo" width="36" height="36">
+      </a>
+      <div class="header__right">
+        <a href="mailto:maxz4web@gmail.com" class="header__link">Пошта</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="case-page">
+    <article class="case-content">
+      <section class="case-intro">
+        <div class="case-intro__tags">
+          <span>Blum.io</span>
+          <span>Кейси 2025</span>
+          <span>Підтримка</span>
+        </div>
+        <h1 class="case-intro__title">
+          Як маленька іконка в статусі задач зменшила навантаження на сапорт із 75% → 15%.
+        </h1>
+      </section>
+
+      <section class="case-team">
+        <div class="case-team__group">
+          <div class="case-team__info">
+            <span class="case-team__role">Дизайн</span>
+            <span class="case-team__count">2 дизайнери</span>
+          </div>
+          <div class="case-team__info">
+            <span class="case-team__role">Сапорт</span>
+            <span class="case-team__count">2 сапорт‑інженери</span>
+          </div>
+          <div class="case-team__info">
+            <span class="case-team__role">Продукт</span>
+            <span class="case-team__count">1 продакт‑менеджер</span>
+          </div>
+        </div>
+        <div class="case-team__group">
+          <div class="case-team__info">
+            <span class="case-team__role">Моя роль</span>
+            <span class="case-team__count">Старший продуктовий дизайнер</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-role">
+        <span class="case-role__label">Задача:</span>
+        <span class="case-role__value">
+          Зменшити навантаження на підтримку, зробивши зрозумілішими статуси виконання задач.
+        </span>
+      </section>
+
+      <section class="case-results case-results--simple">
+        <h2 class="case-results__title">Результати</h2>
+        <div class="case-results__numbers">
+          <div class="case-results__item">
+            <div class="case-results__value">75% → 15%</div>
+            <div class="case-results__label">частка звернень у сапорт щодо перевірки виконання задач</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-cover">
+        <div class="case-cover__meta">
+          <div class="case-cover__block">
+            <h2 class="case-cover__heading">Проблема</h2>
+            <p class="case-cover__text">
+              Виконані задачі довго валідовувалися, і спінер, який бачив користувач після завершення, міг крутитися до 24 годин.
+              Люди хвилювалися, що не отримають нагороду, й одразу йшли в сапорт.
+            </p>
+            <p class="case-cover__text">
+              Чіпати бекенд було не можна: будь‑яка правка перетворювалася на по‑когортне розгортання на кілька тижнів (90M+ юзерів). Тож рішення шукали тільки на фронті.
+            </p>
+          </div>
+          <div class="case-cover__block">
+            <h2 class="case-cover__heading">Обмеження</h2>
+            <p class="case-cover__text">
+              Задача маленька, усі завалені роботою, дизайнери у відпустках. Треба було зробити швидко, акуратно і без зайвої складності.
+            </p>
+          </div>
+        </div>
+        <img src="images/case_tasks.png" alt="Task Statuses" class="case-cover__image case-card__image--centered">
+      </section>
+
+      <section class="case-block">
+        <div class="case-block__text">
+          <h2 class="case-block__title">Варіанти рішень</h2>
+          <p class="case-block__desc">
+            Зібрав близько 7 варіантів на базі патернів дизайн‑системи: банер поверх списку задач, поповер за іконкою, верхнє повідомлення, модальне вікно тощо.
+          </p>
+          <p class="case-block__desc">
+            Відібрали ті, що не ламають сценарій і не відволікають від інших дій. Далі лишилося зрозуміти, як показати статус так, щоб його не плутали з помилкою.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-block">
+        <div class="case-block__text">
+          <h2 class="case-block__title">Тестування</h2>
+          <p class="case-block__desc">
+            Єдиний варіант, який не перебивав основний сценарій і з’являвся лише за запитом, — маленька іконка з підказкою по кліку.
+          </p>
+          <p class="case-block__desc">
+            Усередині фокус‑групи 77% людей одразу зрозуміли, що означає новий статус (за опитуванням).
+          </p>
+        </div>
+      </section>
+
+      <section class="case-block">
+        <div class="case-block__text">
+          <h2 class="case-block__title">Колірні альтернативи</h2>
+          <p class="case-block__desc">
+            Ми тестували різні колірні схеми, але занадто яскраві відтінки виглядали як помилки і збивали користувача з пантелику.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-results case-results--simple case-block--last">
+        <h2 class="case-results__title">Фінальне рішення</h2>
+        <p class="case-results__text">
+          Якщо перевірка виконання задачі триває більше 7 секунд, фронт замінює спінер на іконку «годинник» і показує підказку по кліку.
+        </p>
+        <p class="case-results__text">
+          Завдання спроєктували, погодили й розгорнули на всіх користувачів за 3 дні.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <span class="footer__copy">Max Zlydar © 2026</span>
+    </div>
+  </footer>
+</body>
+</html>
