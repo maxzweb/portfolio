@@ -11,8 +11,8 @@
   // ===================================
 
   const CONFIG = {
-    defaultLang: 'ru',
-    supportedLangs: ['ru', 'en'],
+    defaultLang: 'uk',
+    supportedLangs: ['uk', 'en'],
     storageKey: 'site-language',
     themeKey: 'site-theme'
   };

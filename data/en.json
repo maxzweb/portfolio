@@ -1,0 +1,54 @@
+{
+  "header": {
+    "cv": "CV",
+    "blog": "Blog",
+    "tg": "TG channel",
+    "mail": "Email",
+    "lang": "EN",
+    "menu": "Menu"
+  },
+  "footer": {
+    "version": "Version 1.0"
+  },
+  "links": {
+    "cv": "https://drive.google.com/file/d/1axxJw3daCwaCgN9GU-7rp8e-l1PM7tqg/view?usp=sharing"
+  },
+  "index": {
+    "hero": {
+      "title": "Max Zlydar, product designer, building high‑load services for the real world, not just for slides.",
+      "subtitle": "Growth, B2B SaaS, ERP, fintech, web3.",
+      "cta": "Text me in Telegram",
+      "years": "9+ years in products.",
+      "exp1": "I inspire the team.",
+      "exp2": "I work with chaos.",
+      "exp3": "I’m all for data‑driven and efficiency.",
+      "exp4": "Choice #1 in hard times."
+    },
+    "cases": {
+      "blum": {
+        "title": "Design and launch of the Blum.io trading platform",
+        "desc": "How we converted 95M+ users of a top‑2 Telegram mini‑app (Blum) into active traders."
+      },
+      "tasks": {
+        "title": "Clear task statuses in Blum",
+        "desc": "How a tiny UI detail reduced support requests from 75% down to 15%."
+      },
+      "levels": {
+        "title": "Updating the Blum levels system",
+        "desc": "We reworked the levels and made them clearer to boost conversion to paid subscriptions."
+      },
+      "templates": {
+        "title": "Template design for Yandex Vzglyad",
+        "desc": "We helped business solve their tasks with ready research scenarios at each step."
+      },
+      "vzglyad": {
+        "title": "Rethinking Yandex Vzglyad",
+        "desc": "How testing a small hypothesis turned into a separate successful product."
+      }
+    },
+    "widgets": {
+      "label1": "Just widgets",
+      "label2": "Just widgets 2"
+    }
+  }
+}
