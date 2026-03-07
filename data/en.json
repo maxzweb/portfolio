@@ -8,7 +8,7 @@
     "menu": "Menu"
   },
   "footer": {
-    "version": "Version 1.0"
+    "version": "Version 1.01b"
   },
   "case": {
     "nav": {
@@ -33,11 +33,11 @@
     "cases": {
       "case1": {
         "title": "Case 1",
-        "desc": "How we converted 95M+ users of a top‑2 Telegram mini‑app (Blum) into active traders."
+        "desc": "How we converted 95M+ users of a top‑2 Telegram mini‑app <br class=\"br-tablet\">(Blum) into active traders."
       },
       "case2": {
         "title": "Case 2",
-        "desc": "How a tiny UI detail reduced support requests from 75% down to 15%."
+        "desc": "How a tiny UI detail reduced support <br class=\"br-tablet\">requests from 75% down to 15%."
       },
       "case3": {
         "title": "Case 3",
