@@ -342,6 +342,18 @@ button {
   justify-content: flex-end;
 }
 
+.header__menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.header__menu-btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .header__link {
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-base);
@@ -359,8 +371,9 @@ button {
 }
 
 .header__logo img {
-  width: 36px;
-  height: 36px;
+  width: auto;
+  height: 60px;
+  object-fit: contain;
 }
 
 .header__lang {
@@ -800,6 +813,17 @@ button {
 .case-content {
   width: 100%;
   max-width: 960px;
+}
+
+/* Consistent spacing between case sections */
+.case-content > section + section {
+  margin-top: 48px;
+}
+
+@media (min-width: 640px) {
+  .case-content > section + section {
+    margin-top: 64px;
+  }
 }
 
 /* Case: Intro */

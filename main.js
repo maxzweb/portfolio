@@ -93,12 +93,11 @@
   }
 
   /**
-   * Переключает язык между ru и en
+   * Переключает язык между uk и en
    */
   async function toggleLanguage() {
-    const newLang = currentLang === 'ru' ? 'en' : 'ru';
+    const newLang = currentLang === 'uk' ? 'en' : 'uk';
 
-    // Загружаем переводы если ещё не загружены
     if (!translations[newLang]) {
       translations[newLang] = await loadTranslations(newLang);
     }
@@ -119,7 +118,6 @@
     const browserLangs = navigator.languages || [navigator.language || navigator.userLanguage];
 
     for (const lang of browserLangs) {
-      // Проверяем начало кода языка (en-US → en, ru-RU → ru)
       const langCode = lang.split('-')[0].toLowerCase();
       if (CONFIG.supportedLangs.includes(langCode)) {
         return langCode;
@@ -146,13 +144,8 @@
     // Загружаем переводы для текущего языка
     translations[currentLang] = await loadTranslations(currentLang);
 
-    // Применяем переводы только если язык отличается от дефолтного
-    // (HTML уже содержит русский текст с нужной разметкой)
-    if (currentLang !== CONFIG.defaultLang && translations[currentLang]) {
+    if (translations[currentLang]) {
       applyTranslations(currentLang);
-    } else if (translations[currentLang]) {
-      // Для дефолтного языка всё равно устанавливаем динамические ссылки
-      applyDynamicLinks(currentLang);
     }
   }
 

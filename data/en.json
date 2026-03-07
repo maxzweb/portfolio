@@ -10,6 +10,12 @@
   "footer": {
     "version": "Version 1.0"
   },
+  "case": {
+    "nav": {
+      "home": "Home",
+      "cases": "Cases"
+    }
+  },
   "links": {
     "cv": "https://drive.google.com/file/d/1axxJw3daCwaCgN9GU-7rp8e-l1PM7tqg/view?usp=sharing"
   },
@@ -25,24 +31,24 @@
       "exp4": "Choice #1 in hard times."
     },
     "cases": {
-      "blum": {
-        "title": "Design and launch of the Blum.io trading platform",
+      "case1": {
+        "title": "Case 1",
         "desc": "How we converted 95M+ users of a top‑2 Telegram mini‑app (Blum) into active traders."
       },
-      "tasks": {
-        "title": "Clear task statuses in Blum",
+      "case2": {
+        "title": "Case 2",
         "desc": "How a tiny UI detail reduced support requests from 75% down to 15%."
       },
-      "levels": {
-        "title": "Updating the Blum levels system",
+      "case3": {
+        "title": "Case 3",
         "desc": "We reworked the levels and made them clearer to boost conversion to paid subscriptions."
       },
-      "templates": {
-        "title": "Template design for Yandex Vzglyad",
+      "case4": {
+        "title": "Case 4",
         "desc": "We helped business solve their tasks with ready research scenarios at each step."
       },
-      "vzglyad": {
-        "title": "Rethinking Yandex Vzglyad",
+      "case5": {
+        "title": "Case 5",
         "desc": "How testing a small hypothesis turned into a separate successful product."
       }
     },
