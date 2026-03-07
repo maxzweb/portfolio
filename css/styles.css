@@ -370,9 +370,10 @@ button {
   flex-shrink: 0;
 }
 
+/* mylogo size: 50% of original, aspect ratio preserved */
 .header__logo img {
   width: auto;
-  height: 60px;
+  height: 30px;
   object-fit: contain;
 }
 
@@ -509,9 +510,11 @@ button {
   height: 56px;
 }
 
+/* mylogo in mobile menu footer: 50%, aspect ratio preserved */
 .mobile-menu__footer img {
-  height: 23px;
+  height: 30px;
   width: auto;
+  object-fit: contain;
 }
 
 /* ===================================
@@ -551,6 +554,7 @@ button {
   color: var(--color-accent);
 }
 
+/* Company logos container */
 .hero__logos {
   display: flex;
   flex-wrap: wrap;
@@ -559,13 +563,14 @@ button {
   gap: 0;
 }
 
+/* Company logo sizes: CSS only, natural aspect ratio */
 .hero__logo {
   height: 20px;
   width: auto;
   object-fit: contain;
 }
 
-/* Hero: Mobile */
+/* Hero: Mobile (breakpoint ≤639px) */
 @media (max-width: 639px) {
   .hero {
     padding: 40px 20px;
@@ -595,6 +600,22 @@ button {
     gap: 0;
   }
 
+  .hero__logo {
+    height: 20px;
+    width: auto;
+  }
+}
+
+/* Logo breakpoints: tablet 768px */
+@media (min-width: 768px) {
+  .hero__logo {
+    height: 20px;
+    width: auto;
+  }
+}
+
+/* Logo breakpoints: desktop ≥1024px */
+@media (min-width: 1024px) {
   .hero__logo {
     height: 20px;
     width: auto;
