@@ -560,7 +560,7 @@ button {
 }
 
 .hero__logo {
-  height: 40px;
+  height: 20px;
   width: auto;
   object-fit: contain;
 }
@@ -596,7 +596,7 @@ button {
   }
 
   .hero__logo {
-    height: 40px;
+    height: 20px;
     width: auto;
   }
 }
