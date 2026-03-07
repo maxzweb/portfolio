@@ -144,12 +144,16 @@ button {
    Компоненты
    =================================== */
 
-/* Кнопка Telegram */
+/* === TELEGRAM BUTTON: width 280px, height 45px === */
 .btn-telegram {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  height: 40px;
+  width: 280px;
+  height: 45px;
+  min-width: 280px;
+  min-height: 45px;
   padding: 0 16px;
   background-color: var(--color-telegram);
   color: #ffffff;
@@ -161,6 +165,7 @@ button {
     0 8px 12px rgba(68, 179, 227, 0.14),
     inset 0 0 12px 0 white;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
 .btn-telegram:hover {
@@ -530,24 +535,28 @@ button {
   gap: 29px;
 }
 
+/* Min-height prevents layout shift when switching EN/UK (different text length) */
 .hero__title {
   font-size: var(--text-hero);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-hero);
   letter-spacing: var(--letter-spacing-hero);
   max-width: 600px;
+  min-height: 120px;
 }
 
 .hero__title--muted {
   color: var(--color-muted);
 }
 
+/* Min-height prevents layout shift when switching EN/UK (different text length) */
 .hero__experience {
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-base);
   line-height: var(--line-height-tight);
   text-align: center;
   max-width: 400px;
+  min-height: 60px;
 }
 
 .hero__experience--accent {
@@ -583,11 +592,13 @@ button {
     line-height: 30px;
     letter-spacing: -0.9px;
     max-width: 320px;
+    min-height: 90px;
   }
 
   .hero__experience {
     font-size: 14px;
     max-width: 328px;
+    min-height: 60px;
   }
 
   .hero__experience br {
@@ -667,12 +678,14 @@ button {
   color: var(--color-primary);
 }
 
+/* Min-height prevents layout shift when switching EN/UK (different text length) */
 .case-card__desc {
   font-weight: var(--font-weight-regular);
   font-size: var(--text-base);
   line-height: var(--line-height-base);
   color: var(--color-secondary);
   max-width: 464px;
+  min-height: 72px;
 }
 
 .case-card__image {
@@ -709,10 +722,12 @@ button {
   gap: 20px;
 }
 
+/* Min-height prevents layout shift when switching EN/UK (different text length) */
 .widget-card__label {
   font-size: var(--text-small);
   color: var(--color-secondary);
   text-align: center;
+  min-height: 20px;
 }
 
 .widget-card__gif {
@@ -754,6 +769,7 @@ button {
   .case-card__desc {
     font-size: 14px;
     line-height: 20px;
+    min-height: 60px;
   }
 
   .cases__widgets {
