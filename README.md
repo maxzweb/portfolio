@@ -19,7 +19,7 @@
 - `css/style.css` — додаткові стилі
 - `main.js` — перемикач мови (UA/EN), мобільне меню
 - `data/uk.json`, `data/en.json` — тексти українською та англійською
-- `images/` — зображення (логотипи logo1.png–logo9.png, кейси case1.png–case5.png, mylogo.svg, Menu.svg тощо)
+- `images/` — зображення (логотипи logo1.png–logo5.png, кейси case1.png–case5.png, mylogo.svg, Menu.svg тощо)
 
 ## Мови
 

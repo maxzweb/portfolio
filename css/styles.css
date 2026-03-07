@@ -373,7 +373,7 @@ button {
 /* mylogo size: 50% of original, aspect ratio preserved */
 .header__logo img {
   width: auto;
-  height: 30px;
+  height: 24px;
   object-fit: contain;
 }
 
@@ -555,15 +555,16 @@ button {
 }
 
 /* Company logos container */
+/* === LOGO SPACING: 34px between each logo === */
 .hero__logos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 34px;
 }
 
-/* Company logo sizes: CSS only, natural aspect ratio */
+/* === LOGO SIZES === */
 .hero__logo {
   height: 20px;
   width: auto;
@@ -593,13 +594,15 @@ button {
     display: none;
   }
 
+  /* === LOGO SPACING: 34px between each logo === */
   .hero__logos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    gap: 0;
+    gap: 34px;
   }
 
+  /* === LOGO SIZES === */
   .hero__logo {
     height: 20px;
     width: auto;
@@ -608,6 +611,7 @@ button {
 
 /* Logo breakpoints: tablet 768px */
 @media (min-width: 768px) {
+  /* === LOGO SIZES === */
   .hero__logo {
     height: 20px;
     width: auto;
@@ -616,6 +620,7 @@ button {
 
 /* Logo breakpoints: desktop ≥1024px */
 @media (min-width: 1024px) {
+  /* === LOGO SIZES === */
   .hero__logo {
     height: 20px;
     width: auto;
