@@ -145,6 +145,7 @@ button {
    =================================== */
 
 /* === TELEGRAM BUTTON: width 280px, height 45px === */
+/* === LANGUAGE SWITCH FIX: fixed size to prevent layout jump === */
 .btn-telegram {
   display: inline-flex;
   align-items: center;
@@ -359,12 +360,16 @@ button {
   display: block;
 }
 
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .header__link {
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-base);
   line-height: var(--line-height-tight);
   color: var(--color-primary);
   transition: color 0.2s ease;
+  min-height: 20px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .header__link:hover {
@@ -382,12 +387,16 @@ button {
   object-fit: contain;
 }
 
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .header__lang {
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-base);
   line-height: var(--line-height-tight);
   color: var(--color-accent);
   transition: opacity 0.2s ease;
+  min-height: 20px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .header__lang:hover {
@@ -535,7 +544,7 @@ button {
   gap: 29px;
 }
 
-/* Min-height prevents layout shift when switching EN/UK (different text length) */
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .hero__title {
   font-size: var(--text-hero);
   font-weight: var(--font-weight-medium);
@@ -549,7 +558,7 @@ button {
   color: var(--color-muted);
 }
 
-/* Min-height prevents layout shift when switching EN/UK (different text length) */
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .hero__experience {
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-base);
@@ -587,6 +596,7 @@ button {
     gap: 29px;
   }
 
+  /* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
   .hero__title {
     font-size: 22px;
     line-height: 30px;
@@ -665,10 +675,12 @@ button {
   gap: 20px;
 }
 
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .case-card__text {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-height: 96px;
 }
 
 .case-card__title {
@@ -676,9 +688,10 @@ button {
   font-size: var(--text-base);
   line-height: var(--line-height-tight);
   color: var(--color-primary);
+  min-height: 20px;
 }
 
-/* Min-height prevents layout shift when switching EN/UK (different text length) */
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .case-card__desc {
   font-weight: var(--font-weight-regular);
   font-size: var(--text-base);
@@ -722,7 +735,7 @@ button {
   gap: 20px;
 }
 
-/* Min-height prevents layout shift when switching EN/UK (different text length) */
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .widget-card__label {
   font-size: var(--text-small);
   color: var(--color-secondary);
@@ -764,6 +777,12 @@ button {
 
   .case-card__title {
     font-size: 14px;
+    min-height: 20px;
+  }
+
+  /* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
+  .case-card__text {
+    min-height: 84px;
   }
 
   .case-card__desc {
@@ -803,12 +822,14 @@ button {
   padding: 20px;
 }
 
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .footer__content {
   display: flex;
   align-items: center;
   gap: 24px;
   color: var(--color-secondary);
   font-size: var(--text-small);
+  min-height: 20px;
 }
 
 .footer__mobile-nav {
@@ -819,11 +840,15 @@ button {
   margin-top: 24px;
 }
 
+/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
 .footer__link {
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-base);
   color: var(--color-primary);
   transition: color 0.2s ease;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .footer__link:hover {
