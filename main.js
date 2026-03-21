@@ -97,6 +97,20 @@
 
     // Обновляем атрибут lang на html
     document.documentElement.lang = lang;
+
+    // Кнопки языка: показываем язык переключения (EN ↔ UA), не дублируем текущий
+    syncLangSwitchButtons(lang);
+  }
+
+  /**
+   * Подписи на кнопках смены языка: показать язык, на который переключимся
+   */
+  function syncLangSwitchButtons(activeLang) {
+    const label = activeLang === 'en' ? 'UA' : 'EN';
+    ['lang-toggle', 'menu-lang-toggle'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = label;
+    });
   }
 
   /**

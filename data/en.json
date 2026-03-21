@@ -191,5 +191,62 @@
       "summary": "Share of tickets related to task completion verification was up to 75% among all support requests. We reduced it to 15%.",
       "timeline": "Task was done and rolled out to all users in 3 days."
     }
+  },
+  "case3": {
+    "intro": {
+      "tagProject": "Blum.io",
+      "tagCasesYear": "Cases 2025",
+      "tagTopic": "Gamification",
+      "title": "Blum levels redesign that improved subscription conversion."
+    },
+    "team": {
+      "productTitle": "Product",
+      "productDesc": "1 product manager",
+      "analyticsTitle": "Analytics",
+      "analyticsDesc": "1 product analyst",
+      "myRoleTitle": "My role",
+      "myRoleDesc": "Product designer responsible for levels UX/UI"
+    },
+    "role": {
+      "label": "Challenge:",
+      "value": "Users didn’t understand how levels worked, why they mattered, or how they affected the subscription — and conversion suffered."
+    },
+    "cover": {
+      "dataTitle": "What we saw in the data",
+      "dataText": "A large share of users dropped off one or two steps before subscribing. Interviews showed people didn’t understand what levels gave them or how far they had progressed.",
+      "hypothesisTitle": "Hypothesis",
+      "hypothesisText": "If we make the level system transparent and tie it to concrete value (bonuses, limits, perks), users can decide on a subscription more easily."
+    },
+    "changes": {
+      "title": "What we changed",
+      "desc1": "Simpler progress logic, a clear visual level path, and plain descriptions of what unlocks at each stage.",
+      "desc2": "We emphasized actions that move users forward: completing tasks, trading, and engaging with the product."
+    },
+    "next": {
+      "title": "What’s next",
+      "body": "The full case covers hypotheses, level maps, A/B tests, and impact on key metrics. Reach out if you’d like a detailed walkthrough."
+    }
+  },
+  "case4": {
+    "intro": {
+      "tagClient": "Yandex Vzglyad",
+      "tagResearch": "Research",
+      "tagSegment": "B2B",
+      "title": "Research template design for Yandex Vzglyad"
+    },
+    "cover": {
+      "contextTitle": "Context",
+      "contextText": "The business wanted to launch research faster and spend less analyst time explaining “what exactly we need.”",
+      "productTitle": "Templates as a product",
+      "productText": "We mapped typical business tasks and turned them into ready-made research scenarios with a clear structure, questions, and expected outcomes."
+    },
+    "how": {
+      "title": "How it works",
+      "body": "The client picks a task (e.g. creative testing or concept validation), gets a template with questions and structure, and sees what output they’ll receive."
+    },
+    "business": {
+      "title": "Business value",
+      "body": "Businesses get a fast start on research without extra calls and emails, while the team can focus on complex requests instead of repetitive ones."
+    }
   }
 }

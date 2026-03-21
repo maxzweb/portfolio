@@ -703,7 +703,9 @@ button {
 
 .case-card__image {
   width: 100%;
+  max-width: 100%;
   height: auto;
+  display: block;
   border-radius: 0;
 }
 
@@ -994,6 +996,13 @@ button {
   gap: 20px;
 }
 
+@media (max-width: 767px) {
+  .case-cover__meta {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
 .case-cover__block {
   flex: 1;
   display: flex;
@@ -1021,6 +1030,9 @@ button {
 
 .case-cover__image {
   width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
   border-radius: var(--border-radius);
   background-color: var(--color-bg-card);
 }
@@ -1153,7 +1165,7 @@ button {
 
 /* Case: Results */
 .case-results {
-  border: 3px dashed #d9d9d9;
+  border: 3px dashed var(--color-border);
   border-radius: var(--border-radius);
   padding: 40px;
   display: flex;
@@ -1284,7 +1296,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  border: 3px dashed #d9d9d9;
+  border: 3px dashed var(--color-border);
   padding: 40px;
   border-radius: 20px;
   margin-top: 20px;
@@ -1564,11 +1576,11 @@ button {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -0.0234375em;
-  color: #7c7c7c;
+  color: var(--color-secondary);
 }
 
 .case-fig-body--dark {
-  color: #000000;
+  color: var(--color-primary);
 }
 
 .case-cover__metrics {
@@ -1578,7 +1590,7 @@ button {
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: -0.0234375em;
-  color: #ff5900;
+  color: var(--color-accent);
 }
 
 .case-cover__metric {
@@ -1590,7 +1602,7 @@ button {
   width: 100%;
   height: auto;
   border-radius: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--color-bg-card);
 }
 
 .case-fig-media--hero {
@@ -1636,14 +1648,14 @@ button {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -0.0234375em;
-  color: #000000;
+  color: var(--color-primary);
   margin: 0;
 }
 
 .case-insight-stack {
   display: flex;
   flex-direction: column;
-  gap: 19.8px;
+  gap: 20px;
   padding-bottom: 100px;
 }
 
@@ -1656,7 +1668,7 @@ button {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -0.015625em;
-  color: #000000;
+  color: var(--color-primary);
 }
 
 .case-insight__list--fig .case-insight__item {
@@ -1674,13 +1686,13 @@ button {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: -0.0234375em;
-  color: #7c7c7c;
+  color: var(--color-secondary);
 }
 
 .case-results--fig {
   gap: 40px;
   padding: 40px;
-  border: 3px dashed #d9d9d9;
+  border: 3px dashed var(--color-border);
   border-radius: 20px;
 }
 
@@ -1710,13 +1722,13 @@ button {
   padding: 12px 20px;
   border: none;
   border-radius: 16px;
-  background-color: #f2f2f2;
+  background-color: var(--color-bg-card);
   cursor: pointer;
   font-family: var(--font-family);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
-  color: #000000;
+  color: var(--color-primary);
 }
 
 .case-cover__image-wrap--fig {
@@ -1725,7 +1737,7 @@ button {
   align-items: center;
   padding: 20px;
   border-radius: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--color-bg-card);
 }
 
 .case-cover__image--fig {
@@ -1826,158 +1838,154 @@ button {
 /* === CASE PAGES: LANGUAGE SWITCH FIX === */
 /* Same idea as index (.hero__title, .case-card__text): reserve vertical space for longest EN/UK string. Scoped to .case-page only — index is unchanged. */
 
-.case-page .case-intro__tags {
+.case-page--fig .case-intro__tags {
   min-height: 28px;
   align-items: center;
 }
 
-.case-page .case-intro__title {
+.case-page--fig .case-intro__title {
   min-height: 200px;
 }
 
-.case-page .case-team__role {
+.case-page--fig .case-team__role {
   min-height: 20px;
 }
 
-.case-page .case-team__count {
+.case-page--fig .case-team__count {
   min-height: 52px;
 }
 
-.case-page .case-role__label {
+.case-page--fig .case-role__label {
   min-height: 24px;
   flex-shrink: 0;
 }
 
-.case-page .case-role__value {
+.case-page--fig .case-role__value {
   min-height: 96px;
 }
 
-.case-page .case-cover__heading {
+.case-page--fig .case-cover__heading {
   min-height: 140px;
 }
 
-.case-page .case-cover__text {
+.case-page--fig .case-cover__text {
   min-height: 120px;
 }
 
-.case-page .case-block__title {
+.case-page--fig .case-block__title {
   min-height: 140px;
 }
 
-.case-page .case-block__desc {
+.case-page--fig .case-block__desc {
   min-height: 160px;
 }
 
-.case-page .case-intersection__text {
+.case-page--fig .case-intersection__text {
   min-height: 200px;
 }
 
-.case-page .case-insight__label {
+.case-page--fig .case-insight__label {
   min-height: 24px;
 }
 
-.case-page .case-insight__title {
+.case-page--fig .case-insight__title {
   min-height: 120px;
 }
 
-.case-page .case-insight__desc {
+.case-page--fig .case-insight__desc {
   min-height: 120px;
 }
 
-.case-page .case-insight__item {
+.case-page--fig .case-insight__item {
   min-height: 52px;
 }
 
-.case-page .case-results__title {
+.case-page--fig .case-results__title {
   min-height: 48px;
 }
 
-.case-page .case-results__value {
+.case-page--fig .case-results__value {
   min-height: 40px;
 }
 
-.case-page .case-results__label {
+.case-page--fig .case-results__label {
   min-height: 120px;
 }
 
-.case-page .case-results__numbers--fig .case-results__label {
+.case-page--fig .case-results__numbers--fig .case-results__label {
   min-height: 220px;
 }
 
-.case-page .case-results__text {
+.case-page--fig .case-results__text {
   min-height: 96px;
 }
 
-.case-page .case-results__text--large {
+.case-page--fig .case-results__text--large {
   min-height: 120px;
 }
 
-.case-page .case-results__toggle {
+.case-page--fig .case-results__toggle {
   min-height: 44px;
 }
 
 /* Figma case pages (case1/case2): additional text classes */
-.case-page .case-fig-body {
+.case-page--fig .case-fig-body {
   min-height: 144px;
 }
 
-.case-page .case-cover__metrics {
+.case-page--fig .case-cover__metrics {
   min-height: 56px;
 }
 
-.case-page .case-intersection__text--fig {
+.case-page--fig .case-intersection__text--fig {
   min-height: 120px;
 }
 
-.case-page .case-insight__title--fig {
+.case-page--fig .case-insight__title--fig {
   min-height: 144px;
 }
 
-.case-page .case-insight-speed {
+.case-page--fig .case-insight-speed {
   min-height: 32px;
 }
 
-.case-page .case-results__value--fig {
+.case-page--fig .case-results__value--fig {
   min-height: 48px;
 }
 
-.case-page .case-results__toggle--fig {
+.case-page--fig .case-results__toggle--fig {
   min-height: 48px;
 }
 
-.case-page .case-results__summary,
-.case-page .case-results__timeline {
+.case-page--fig .case-results__summary,
+.case-page--fig .case-results__timeline {
   min-height: 120px;
 }
 
-.case-page .case-results__details-inner .case-fig-body {
+.case-page--fig .case-results__details-inner .case-fig-body {
   min-height: 120px;
 }
 
 @media (max-width: 1079px) {
   /* === CASE PAGES: LANGUAGE SWITCH FIX === */
-  .case-page .case-intro__title {
-    min-height: 260px;
-  }
-
-  .case-page .case-cover__heading,
-  .case-page .case-block__title {
+  .case-page--fig .case-cover__heading,
+  .case-page--fig .case-block__title {
     min-height: 120px;
   }
 
-  .case-page .case-cover__text {
+  .case-page--fig .case-cover__text {
     min-height: 140px;
   }
 
-  .case-page .case-block__desc {
+  .case-page--fig .case-block__desc {
     min-height: 180px;
   }
 
-  .case-page .case-intersection__text {
+  .case-page--fig .case-intersection__text {
     min-height: 240px;
   }
 
-  .case-page .case-role__value {
+  .case-page--fig .case-role__value {
     min-height: 120px;
   }
 
@@ -1985,19 +1993,19 @@ button {
     min-height: 240px;
   }
 
-  .case-page .case-fig-body {
+  .case-page--fig .case-fig-body {
     min-height: 168px;
   }
 
-  .case-page .case-insight__title--fig {
+  .case-page--fig .case-insight__title--fig {
     min-height: 168px;
   }
 
-  .case-page .case-intersection__text--fig {
+  .case-page--fig .case-intersection__text--fig {
     min-height: 140px;
   }
 
-  .case-page .case-results__numbers--fig .case-results__label {
+  .case-page--fig .case-results__numbers--fig .case-results__label {
     min-height: 260px;
   }
 }
@@ -2005,10 +2013,6 @@ button {
 @media (min-width: 768px) and (max-width: 1023px) {
   /* === CASE PAGES: LANGUAGE SWITCH FIX === */
   /* Tablet 768–1023px: same reserves as ≤1079 for case typography */
-  .case-page .case-intro__title {
-    min-height: 260px;
-  }
-
   .case-page--fig .case-intro__title {
     min-height: 240px;
   }
@@ -2016,88 +2020,80 @@ button {
 
 @media (max-width: 639px) {
   /* === CASE PAGES: LANGUAGE SWITCH FIX === */
-  .case-page .case-intro__title {
-    min-height: 280px;
-  }
-
   .case-page--fig .case-intro__title {
     min-height: 260px;
   }
 
-  .case-page .case-cover__heading,
-  .case-page .case-block__title {
+  .case-page--fig .case-cover__heading,
+  .case-page--fig .case-block__title {
     min-height: 144px;
   }
 
-  .case-page .case-cover__text {
+  .case-page--fig .case-cover__text {
     min-height: 160px;
   }
 
-  .case-page .case-block__desc {
+  .case-page--fig .case-block__desc {
     min-height: 200px;
   }
 
-  .case-page .case-intersection__text {
+  .case-page--fig .case-intersection__text {
     min-height: 280px;
   }
 
-  .case-page .case-role__value {
+  .case-page--fig .case-role__value {
     min-height: 140px;
   }
 
-  .case-page .case-team__count {
+  .case-page--fig .case-team__count {
     min-height: 60px;
   }
 
-  .case-page .case-fig-body {
+  .case-page--fig .case-fig-body {
     min-height: 200px;
   }
 
-  .case-page .case-insight__title--fig {
+  .case-page--fig .case-insight__title--fig {
     min-height: 200px;
   }
 
-  .case-page .case-intersection__text--fig {
+  .case-page--fig .case-intersection__text--fig {
     min-height: 168px;
   }
 
-  .case-page .case-insight-speed {
+  .case-page--fig .case-insight-speed {
     min-height: 40px;
   }
 
-  .case-page .case-results__label {
+  .case-page--fig .case-results__label {
     min-height: 160px;
   }
 
-  .case-page .case-results__summary,
-  .case-page .case-results__timeline {
+  .case-page--fig .case-results__summary,
+  .case-page--fig .case-results__timeline {
     min-height: 160px;
   }
 
-  .case-page .case-results__numbers--fig .case-results__label {
+  .case-page--fig .case-results__numbers--fig .case-results__label {
     min-height: 280px;
   }
 }
 
 @media (max-width: 480px) {
   /* === CASE PAGES: LANGUAGE SWITCH FIX === */
-  .case-page .case-intro__title {
-    min-height: 320px;
-  }
-
   .case-page--fig .case-intro__title {
     min-height: 300px;
   }
 
-  .case-page .case-intersection__text {
+  .case-page--fig .case-intersection__text {
     min-height: 320px;
   }
 
-  .case-page .case-role__value {
+  .case-page--fig .case-role__value {
     min-height: 180px;
   }
 
-  .case-page .case-fig-body {
+  .case-page--fig .case-fig-body {
     min-height: 240px;
   }
 }
