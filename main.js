@@ -36,11 +36,18 @@
   }
 
   /**
+   * Префикс к data/*.json: на страницах в /cases/ нужен ../
+   */
+  function getI18nDataPrefix() {
+    return /\/cases\//.test(window.location.pathname) ? '../' : '';
+  }
+
+  /**
    * Загружает JSON файл с переводами
    */
   async function loadTranslations(lang) {
     try {
-      const response = await fetch(`data/${lang}.json`);
+      const response = await fetch(`${getI18nDataPrefix()}data/${lang}.json`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -274,6 +281,17 @@
         if (link && link.href) {
           window.location.href = link.href;
         }
+      });
+    });
+
+    // Раскрытие блока результатов на страницах кейсов (Figma: «More details»)
+    document.querySelectorAll('.case-results__toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const block = btn.closest('.case-results');
+        if (!block) return;
+        block.classList.toggle('is-expanded');
+        const open = block.classList.contains('is-expanded');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
   }

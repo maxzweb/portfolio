@@ -46,15 +46,150 @@
       "case4": {
         "title": "Case 4",
         "desc": "We helped business solve their tasks with ready research scenarios at each step."
-      },
-      "case5": {
-        "title": "Case 5",
-        "desc": "How testing a small hypothesis turned into a separate successful product."
       }
     },
     "widgets": {
       "label1": "Just widgets",
       "label2": "Just widgets 2"
+    }
+  },
+  "case1": {
+    "intro": {
+      "tagCases": "Cases",
+      "tagProject": "Blum.io",
+      "year": "2025",
+      "title": "Blum trading hub is a young startup within Blum.io, specializing in developing Telegram bots for memecoin trading."
+    },
+    "team": {
+      "cLevelTitle": "C-level",
+      "cLevelDesc": "4 co-founders",
+      "devTitle": "Developers",
+      "devDesc": "2 engineers",
+      "designTitle": "Design",
+      "designDesc": "1 designer"
+    },
+    "role": {
+      "label": "My role",
+      "value": "Lead Product Designer"
+    },
+    "cover": {
+      "challengeTitle": "Challenge",
+      "challengeText": "Create a multichain trading terminal to replace the old Telegram bot for the Blum ecosystem with 90M users.",
+      "resultsTitle": "Results",
+      "resultsLine1": "2M activated traders",
+      "resultsLine2": "300K DAU"
+    },
+    "problem": {
+      "title": "Problem",
+      "body": "The Telegram interface scared off potential customers. It was successful among a small circle of traders, but scaling such a product was difficult."
+    },
+    "competitors": {
+      "title": "Nobody really knew the right way to do it.",
+      "body": "The field is young, less than a year old. Competitors were navigating this path for the first time, without looking back, borrowing a lot from traditional trading."
+    },
+    "intersection": {
+      "body": "Copying competitors' solutions was risky: Dynamic market, raw products, everything changed every month!"
+    },
+    "mvp": {
+      "body": "Based on the Telegram bot interface, the team assembled an MVP design in a month. No components, no styles, no auto-layouts. And no designer."
+    },
+    "designSystem": {
+      "body": "The task for designers sounded like this: Apply the design system from the main service, draw edge cases and hand off to development."
+    },
+    "insight": {
+      "label": "Interesting insight",
+      "headline": "In trading, the exchange makes money on commissions.",
+      "detail": "Up to 80% of profit comes from a dozen major traders who trade directly via API. Other players often make asset purchase decisions based on emotions. Two things matter here:",
+      "item1": "Emotions need to be triggered (indicators and casino-style)",
+      "item2": "Ability to buy instantly while emotions are still hot",
+      "speedLine": "Speed is helped by ⚡ Quickbuy. One-click buy and sell."
+    },
+    "tokenCompetitor": {
+      "body": "And the \"I'll get lucky now\" feeling is activated by a frightening amount of pseudo-indicators on the token page. Also, competitors aren't afraid to go small: many components are 12px tall."
+    },
+    "tokenOurs": {
+      "body": "In adapting our design system, we tried to find a compromise between analysis and emotions, between scale and informativeness. Important stuff first, the rest later."
+    },
+    "final": {
+      "title": "Final result",
+      "body": "Key indicators and a purchase widget fit on the main screen, allowing one-click buy and sell from the token screen."
+    },
+    "buyModal": {
+      "body": "In one iteration, you could expand the widget and configure the transaction in more detail right in the modal window without loading new components, but due to technical limitations, we made the purchase in a separate window."
+    },
+    "wallet": {
+      "body": "Wallet manager — a space for working with dozens of wallets across dozens of blockchains. There's no convenient way to work with hundreds of coins — but they can be converted and withdrawn as SOL/TON or stablecoins."
+    },
+    "waitlist": {
+      "body": "Before launching the service, we created a waitlist and actively funneled all traffic here using the Telegram bot and social networks."
+    },
+    "results": {
+      "title": "Results",
+      "stat1Value": "1.5m+",
+      "stat1Label": "Users attracted to the waitlist<br>before launch",
+      "stat2Value": "2m+",
+      "stat2Label": "Traders activated at launch who<br>made at least 1 transaction",
+      "stat3Value": "300K DAU",
+      "stat3Label": "Maintained for 6 months on the<br>new platform → UI showed<br>adoption",
+      "details": "Blum Trading Hub became the largest multichain trading platform in the world by number of activated traders and the largest application in the TON ecosystem by revenue.",
+      "moreDetails": "More details"
+    }
+  },
+  "case2": {
+    "intro": {
+      "tagCases": "Cases",
+      "tagProject": "Blum.io",
+      "year": "2025",
+      "title": "How a small icon in task statuses reduced support engineer<br>workload from 70% → 15%."
+    },
+    "team": {
+      "designTitle": "Design",
+      "designDesc": "2 designers",
+      "supportTitle": "Support",
+      "supportDesc": "2 Support engineers",
+      "productTitle": "Product",
+      "productDesc": "1 Product manager"
+    },
+    "role": {
+      "label": "My role",
+      "value": "Senior Product Designer"
+    },
+    "cover": {
+      "challengeTitle": "Challenge",
+      "challengeText": "Reduce support workload by making task completion statuses clearer.",
+      "resultsTitle": "Results",
+      "resultsText": "Share of tickets related to task completion verification dropped from 75 → 15% among all support requests."
+    },
+    "problem": {
+      "title": "Problem",
+      "body": "Completed tasks took a long time to validate and the spinner users saw after completion could spin for up to 24 hours. Users worried they wouldn't get their reward and went to complain to support."
+    },
+    "intersection": {
+      "body": "But we couldn't touch the backend — any small change turned into a multi-week cohort rollout (90M users is no joke)"
+    },
+    "context": {
+      "body": "The task was small, but no one took it on due to massive workload across all tracks + all designers were on vacation. Had to move fast. To save time, I started by cutting the unnecessary."
+    },
+    "solutions": {
+      "title": "Solution options",
+      "body": "Created about 7 solutions from design system patterns. Selected the most adequate: Banner appearing over tasks; popover on hover over changed icon; top notification and modal."
+    },
+    "testing": {
+      "title": "Testing",
+      "body": "Of all options, only one didn't interrupt the main flow, didn't distract users from other actions, and appeared only on request. We tested it with a focus group, where 77% immediately understood what the icon meant (survey)."
+    },
+    "colors": {
+      "title": "Color alternatives",
+      "body": "We explored alternative color schemes, but bright tones looked odd for hints + some resembled errors."
+    },
+    "final": {
+      "title": "Rolled out two solutions at once:",
+      "body": "Now: if task verification took more than 7 seconds, we changed the spinner to a clock icon on the frontend + gave a hint on click."
+    },
+    "results": {
+      "title": "Result",
+      "summary": "Share of tickets related to task completion verification was up to 75% among all support requests. We reduced it to 15%.",
+      "timeline": "Task was done and rolled out to all users in 3 days."
     }
   }
 }
