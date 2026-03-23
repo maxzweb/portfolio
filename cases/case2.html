@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{if(localStorage.getItem('site-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <title>Case 2 | Макс Злидар — Продуктовий дизайнер</title>
   <meta name="description" content="Case 2 — task statuses icon. Макс Злидар, продуктовий дизайнер.">
   <meta name="keywords" content="Case 2, продуктовий дизайн, Blum, Макс Злидар, кейс">
@@ -23,12 +24,17 @@
         <a href="../index.html#cases" class="header__link" data-i18n="case.nav.cases">Cases</a>
       </div>
       <a href="../index.html#" class="header__logo">
-        <img src="../images/mylogo.svg" alt="Logo">
+        <img src="../images/mylogo-dark.svg" class="logo--dark" alt="Logo">
+        <img src="../images/mylogo-light.svg" class="logo--light" alt="Logo">
       </a>
       <div class="header__right">
         <a href="https://www.upwork.com/freelancers/maxzweb" class="header__link header__link--desktop" target="_blank" rel="noopener">Upwork</a>
         <a href="mailto:maxz4web@gmail.com" class="header__link header__link--desktop" data-i18n="header.mail">Email</a>
         <button class="header__lang header__link--desktop" id="lang-toggle" data-i18n="header.lang">EN</button>
+        <button type="button" class="header__theme header__link--desktop" id="theme-toggle" aria-label="Switch to dark mode">
+          <img class="header__theme-icon header__theme-icon--dark" src="../images/dark.svg" alt="" width="20" height="20">
+          <img class="header__theme-icon header__theme-icon--light" src="../images/light.svg" alt="" width="20" height="20">
+        </button>
         <button class="header__menu-btn" id="menu-toggle" type="button" aria-label="Menu">
           <img src="../images/Menu.svg" alt="" width="24" height="24">
         </button>
@@ -205,9 +211,14 @@
         <a href="https://www.upwork.com/freelancers/maxzweb" class="mobile-menu__link" target="_blank" rel="noopener">Upwork</a>
         <a href="mailto:maxz4web@gmail.com" class="mobile-menu__link" data-i18n="header.mail">Email</a>
         <button class="mobile-menu__link" id="menu-lang-toggle" data-i18n="header.lang">EN</button>
+        <button type="button" class="mobile-menu__theme" id="menu-theme-toggle" aria-label="Switch to dark mode">
+          <img class="mobile-menu__theme-icon mobile-menu__theme-icon--dark" src="../images/dark.svg" alt="" width="24" height="24">
+          <img class="mobile-menu__theme-icon mobile-menu__theme-icon--light" src="../images/light.svg" alt="" width="24" height="24">
+        </button>
       </nav>
       <div class="mobile-menu__footer">
-        <img src="../images/mylogo.svg" alt="Logo">
+        <img src="../images/mylogo-dark.svg" class="logo--dark" alt="Logo">
+        <img src="../images/mylogo-light.svg" class="logo--light" alt="Logo">
       </div>
     </div>
   </div>

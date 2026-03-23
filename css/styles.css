@@ -23,6 +23,7 @@
   --color-bg-card: #f2f2f2;
   --color-telegram: #34ace1;
   --color-button-dark: #0d0d0d;
+  --color-button-icon: #ffffff;
   --color-border: #e5e5e5;
 
   /* Типографика */
@@ -44,17 +45,44 @@
   --max-content-width: 1040px;
 }
 
-/* Dark тема (подготовка на будущее) */
-[data-theme="dark"] {
+/* === DARK THEME VARIABLES === */
+:root[data-theme="dark"] {
   --color-primary: #ffffff;
   --color-secondary: #a0a0a0;
-  --color-muted: #666666;
+  --color-muted: #8a8a8a;
   --color-accent: #ff5900;
   --color-bg: #121212;
   --color-bg-card: #1e1e1e;
   --color-telegram: #34ace1;
-  --color-button-dark: #ffffff;
+  --color-button-dark: #f5f5f5;
+  --color-button-icon: #0d0d0d;
   --color-border: #333333;
+}
+
+/* === LOGO THEME SWITCH === */
+[data-theme="dark"] .logo--dark { display: none; }
+[data-theme="dark"] .logo--light { display: block; }
+.logo--light { display: none; }
+.logo--dark { display: block; }
+
+/* Theme color transitions (no layout properties) */
+.case-card,
+.widget-card,
+.mobile-menu,
+.btn-telegram,
+.btn-dark,
+.case-cover__image,
+.case-block__image,
+.case-fig-media,
+.case-cover__image-wrap--fig,
+.case-results__toggle--fig,
+.case-results,
+.case-results--fig,
+.case-results--simple,
+.case-cover__image-wrapper--centered,
+.case-results__toggle-icon,
+.case-insight {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ===================================
@@ -82,6 +110,7 @@ body {
   color: var(--color-primary);
   background-color: var(--color-bg);
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -201,7 +230,7 @@ button {
 }
 
 .btn-dark {
-  color: #ffffff;
+  color: var(--color-button-icon);
 }
 
 .btn-dark svg {
@@ -216,14 +245,6 @@ button {
     min-width: 44px;
     padding: 0 10px;
   }
-}
-
-[data-theme="dark"] .btn-dark {
-  color: #000000;
-}
-
-[data-theme="dark"] .btn-dark svg {
-  fill: #000000;
 }
 
 /* Карточка кейса */
@@ -319,7 +340,7 @@ button {
   z-index: -1;
 }
 
-[data-theme="dark"] .header::before {
+:root[data-theme="dark"] .header::before {
   background: linear-gradient(
     to bottom,
     var(--color-bg) 0%,
@@ -358,6 +379,11 @@ button {
   width: 24px;
   height: 24px;
   display: block;
+  transition: filter 0.3s ease;
+}
+
+:root[data-theme="dark"] .header__menu-btn img {
+  filter: brightness(0) invert(1);
 }
 
 /* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
@@ -380,7 +406,7 @@ button {
   flex-shrink: 0;
 }
 
-/* mylogo size: 50% of original, aspect ratio preserved */
+/* Header logo (mylogo-dark.svg / mylogo-light.svg): 50% of original, aspect ratio preserved */
 .header__logo img {
   width: auto;
   height: 24px;
@@ -401,6 +427,47 @@ button {
 
 .header__lang:hover {
   opacity: 0.7;
+}
+
+/* Theme toggle: same footprint as language switcher */
+.header__theme {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-base);
+  line-height: var(--line-height-tight);
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.header__theme:hover {
+  opacity: 0.7;
+}
+
+.header__theme-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.header__theme-icon--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .header__theme-icon--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .header__theme-icon--light {
+  display: block;
+}
+
+:root[data-theme="dark"] .header__theme img {
+  filter: brightness(0) invert(1);
 }
 
 /* Кнопка меню (скрыта на десктопе) */
@@ -524,11 +591,41 @@ button {
   height: 56px;
 }
 
-/* mylogo in mobile menu footer: 50%, aspect ratio preserved */
+/* Mobile menu footer logo (mylogo-dark.svg / mylogo-light.svg): 50%, aspect ratio preserved */
 .mobile-menu__footer img {
   height: 30px;
   width: auto;
   object-fit: contain;
+}
+
+.mobile-menu__theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.mobile-menu__theme-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-menu__theme-icon--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .mobile-menu__theme-icon--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .mobile-menu__theme-icon--light {
+  display: block;
 }
 
 /* ===================================
@@ -1524,44 +1621,6 @@ button {
 }
 }
 
-/* Базовые CSS‑переменные (дублируем для совместимости) */
-:root {
-  /* Шрифты */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-
-  /* Цвета — Light тема (по умолчанию) */
-  --color-primary: #000000;
-  --color-secondary: #7c7c7c;
-  --color-muted: #b4b4b4;
-  --color-accent: #ff5900;
-  --color-bg: #ffffff;
-  --color-bg-card: #f2f2f2;
-  --color-telegram: #34ace1;
-  --color-button-dark: #0d0d0d;
-  --color-border: #e5e5e5;
-
-  /* Типографика */
-  --text-hero: 36px;
-  --text-base: 16px;
-  --text-small: 14px;
-  --line-height-hero: 40px;
-  --line-height-base: 24px;
-  --line-height-tight: 20px;
-  --letter-spacing-hero: -0.9px;
-  --letter-spacing-base: -0.375px;
-
-  /* Размеры */
-  --header-height: 64px;
-  --footer-height: 100px;
-  --border-radius: 20px;
-  --border-radius-button: 9999px;
-  --border-radius-small: 12px;
-  --max-content-width: 1040px;
-}
-
 /* === CASE1 PAGE STYLES === */
 /* Figma node 3:469 — typography: Inter H1/H2 32px/1.375, body 16px/1.5, Boulder #7C7C7C, accent #FF5900 */
 
@@ -1773,7 +1832,7 @@ button {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -0.0234375em;
-  color: #b4b4b4;
+  color: var(--color-muted);
 }
 
 @media (max-width: 1079px) {

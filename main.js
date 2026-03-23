@@ -218,27 +218,44 @@
   // Темы (подготовка)
   // ===================================
 
-  /**
-   * Переключает тему между light и dark
-   */
-  function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem(CONFIG.themeKey, newTheme);
+  function syncThemeAria() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    ['theme-toggle', 'menu-theme-toggle'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.setAttribute('aria-label', label);
+    });
   }
 
   /**
-   * Инициализирует тему из localStorage или системных настроек
+   * Переключает тему между light и dark
+   */
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem(CONFIG.themeKey, theme);
+    syncThemeAria();
+  }
+
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    setTheme(isDark ? 'light' : 'dark');
+  }
+
+  /**
+   * Инициализирует тему из localStorage (синхронно с inline-скриптом в head)
    */
   function initTheme() {
-    const savedTheme = localStorage.getItem(CONFIG.themeKey);
-
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
+    const saved = localStorage.getItem(CONFIG.themeKey);
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
     }
-    // По умолчанию light тема (не устанавливаем атрибут)
+    syncThemeAria();
   }
 
   // ===================================
@@ -276,6 +293,16 @@
         toggleLanguage();
         closeMobileMenu();
       });
+    }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    const menuThemeToggle = document.getElementById('menu-theme-toggle');
+    if (menuThemeToggle) {
+      menuThemeToggle.addEventListener('click', toggleTheme);
     }
 
     // Закрытие меню по клику на ссылку
