@@ -263,6 +263,12 @@
   // ===================================
 
   function init() {
+    // Inject shared UI skeleton (header/footer/mobile menu)
+    // before i18n/theme initialization so event handlers and labels attach correctly.
+    if (window.siteComponents && typeof window.siteComponents.renderAll === 'function') {
+      window.siteComponents.renderAll();
+    }
+
     // Инициализируем тему
     initTheme();
 
