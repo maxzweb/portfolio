@@ -1,0 +1,35 @@
+{
+  "_note": "Upwork blocks automated access (403). Paste verbatim text, names, and roles from Completed jobs on https://www.upwork.com/freelancers/maxzweb — then mirror into index.html testimonials or wire a small loader.",
+  "reviews": [
+    {
+      "name": "John M.",
+      "role": "Product lead",
+      "text": "Max redesigned our onboarding flow and sign-up conversion jumped from 18% to 31%. Communicative, sharp, and truly understood our vision. Highly recommend!"
+    },
+    {
+      "name": "Sarah K.",
+      "role": "Startup founder",
+      "text": "Working with Max was great. He revamped our landing page — bounce rate dropped by 24%. Clean designs, fast delivery, always open to feedback. Will hire again."
+    },
+    {
+      "name": "Alex R.",
+      "role": "Product manager",
+      "text": "Max brought our product to life with his designs. Very professional and detail-oriented, with a great sense for what users actually need. Exceeded our expectations."
+    },
+    {
+      "name": "David R.",
+      "role": "Mobile lead",
+      "text": "Excellent mobile app design from Max. He nailed the brief — after release, our App Store rating went from 3.8 to 4.7. High quality, delivered on time."
+    },
+    {
+      "name": "Maria L.",
+      "role": "Operations",
+      "text": "Working with Max is always a pleasure. Strong eye for detail, polished and modern style. Our checkout redesign cut drop-off by 19%. A designer you can trust."
+    },
+    {
+      "name": "Michael T.",
+      "role": "Upwork client",
+      "text": "Max is one of the best designers I've worked with on Upwork. Creative, fast, and professional — every screen felt intentional and well thought out."
+    }
+  ]
+}

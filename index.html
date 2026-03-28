@@ -4,13 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>(function(){try{if(localStorage.getItem('site-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
-  <title>Макс Злидар — Продуктовий дизайнер</title>
-  <meta name="description" content="Макс Злидар — продуктовий дизайнер. Проєктую high-load сервіси для реального світу." />
-  <meta name="keywords" content="продуктовий дизайн, UX, UI, B2B,B2C SaaS, фінтех, web3, Макс Злидар, portfolio" />
+  <title data-i18n="index.seo.title">Max Zlydar — Product designer</title>
+  <meta name="description" content="Product designer for high‑load B2B/B2C SaaS and fintech. UX, UI, and growth-focused digital products." data-i18n-content="index.seo.description" />
+  <meta name="keywords" content="product design, UX, UI, portfolio, Max Zlydar, SaaS, fintech, B2B, B2C" data-i18n-content="index.seo.keywords" />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Макс Злидар — Продуктовий дизайнер" />
-  <meta property="og:description" content="Макс Злидар — продуктовий дизайнер. Проєктую high-load сервіси для реального світу." />
-  <meta property="og:image" content="images/og-image.png" />
+  <link rel="canonical" id="seo-canonical" href="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" id="seo-og-url" />
+  <meta property="og:title" content="Max Zlydar — Product designer" data-i18n-content="index.seo.ogTitle" />
+  <meta property="og:description" content="Product designer for high‑load B2B/B2C SaaS and fintech. UX, UI, and growth-focused digital products." data-i18n-content="index.seo.description" />
+  <meta property="og:image" content="images/case1.png" id="seo-og-image" />
+  <meta property="og:locale" content="en_US" id="seo-og-locale" />
+  <meta property="og:locale:alternate" content="uk_UA" id="seo-og-locale-alt" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Max Zlydar — Product designer" data-i18n-content="index.seo.ogTitle" />
+  <meta name="twitter:description" content="Product designer for high‑load B2B/B2C SaaS and fintech. UX, UI, and growth-focused digital products." data-i18n-content="index.seo.description" />
+  <meta name="twitter:image" content="images/case1.png" id="seo-twitter-image" />
 
   <!-- Стили -->
   <link rel="stylesheet" href="css/fonts.css" />
@@ -19,22 +28,31 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/fav.png" />
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6FXL5E13Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y6FXL5E13Z');
+  </script>
+
   <!-- Скрипты -->
   <script src="js/components.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/contact-modal.js" defer></script>
 </head>
 
 <body>
   <!-- Header -->
   <header class="header" id="header"></header>
 
-  <!-- Main content -->
   <main>
-    <!-- Hero Section -->
+    <!-- Hero (SEO-critical copy stays in HTML) -->
     <section class="hero" id="hero">
       <h1 class="hero__title">
         <span data-i18n="index.hero.title">Макс Злидар, продуктовий дизайнер, проєктую high-load сервіси для реального світу, а не для презентацій.</span>
-        <span class="hero__title--muted" data-i18n="index.hero.subtitle">Growth, B2B, B2C SaaS, фінтех, web3.</span>
+        <span class="hero__title--muted" data-i18n="index.hero.subtitle">Growth, B2B, B2C SaaS, Fintech.</span>
       </h1>
 
       <!-- Telegram button -->
@@ -48,7 +66,6 @@
         <span data-i18n="index.hero.exp1">Надихаю команду.</span><br>
         <span data-i18n="index.hero.exp2">Працюю з хаосом.</span>
         <span data-i18n="index.hero.exp3">Та забезпечую data-driven ефективність.</span><br>
-        <!-- <span data-i18n="index.hero.exp4">Вибір №1 у складні часи.</span> -->
       </p>
 
       <!-- Company logos (hero): 5 logos, size and spacing in CSS -->
@@ -61,7 +78,7 @@
       </div>
     </section>
 
-    <!-- Content: Cases -->
+    <!-- Case previews & widgets (SEO-critical copy stays in HTML) -->
     <section class="cases" id="cases">
       <!-- Case 1 -->
       <article class="case-card case-card--link">
@@ -76,7 +93,7 @@
             </svg>
           </a>
         </div>
-        <img src="images/case1.png" alt="Case 1" class="case-card__image">
+        <img src="images/case1.png" alt="Case 1" class="case-card__image" loading="lazy">
       </article>
 
       <!-- Case 2 -->
@@ -92,51 +109,51 @@
             </svg>
           </a>
         </div>
-        <img src="images/case2.png" alt="Case 2" class="case-card__image case-card__image--centered">
+        <img src="images/case2.png" alt="Case 2" class="case-card__image case-card__image--centered" loading="lazy">
       </article>
 
       <!-- Case 3 -->
       <article class="case-card case-card--link">
-        <img src="images/Coming_soon.svg" alt="Coming soon" class="coming-soon">
+        <img src="images/Coming_soon.svg" alt="Coming soon" class="coming-soon" loading="lazy">
         <div class="case-card__text">
           <h2 class="case-card__title" data-i18n="index.cases.case3.title">Case 3</h2>
           <p class="case-card__desc" data-i18n="index.cases.case3.desc">Переробили систему рівнів і зробили її зрозумілішою, щоб підвищити конверсію в активацію підписок.</p>
         </div>
         <a href="cases/case3.html" class="case-card__image-link">
-          <img src="images/case3.png" alt="Case 3" class="case-card__image">
+          <img src="images/case3.png" alt="Case 3" class="case-card__image" loading="lazy">
         </a>
       </article>
 
       <!-- Case 4 -->
       <article class="case-card case-card--link">
-        <img src="images/Coming_soon.svg" alt="Coming soon" class="coming-soon">
+        <img src="images/Coming_soon.svg" alt="Coming soon" class="coming-soon" loading="lazy">
         <div class="case-card__text">
           <h2 class="case-card__title" data-i18n="index.cases.case4.title">Case 4</h2>
           <p class="case-card__desc" data-i18n="index.cases.case4.desc">Запропонували бізнесу вирішувати їхні задачі за допомогою різних досліджень на кожному етапі.</p>
         </div>
         <a href="cases/case4.html" class="case-card__image-link">
-          <img src="images/case4/case4.png" alt="Case 4" class="case-card__image case-card__image--rounded">
+          <img src="images/case4/case4.png" alt="Case 4" class="case-card__image case-card__image--rounded" loading="lazy">
         </a>
       </article>
 
-      <!-- Widgets (GIFs) -->
       <div class="cases__widgets">
         <div class="widget-card">
           <p class="widget-card__label" data-i18n="index.widgets.label1">Просто віджети</p>
-          <img src="images/gif1.gif" alt="Widget animation" class="widget-card__gif">
+          <img src="images/gif1.gif" alt="Widget animation" class="widget-card__gif" loading="lazy">
         </div>
         <div class="widget-card">
           <p class="widget-card__label" data-i18n="index.widgets.label2">Просто віджети 2</p>
-          <img src="images/gif2b.gif" alt="Widget animation" class="widget-card__gif">
+          <img src="images/gif2b.gif" alt="Widget animation" class="widget-card__gif" loading="lazy">
         </div>
       </div>
+
+      <!-- Testimonials: injected by js/components.js (renderTestimonials); i18n via data-i18n -->
+      <div id="site-testimonials-root"></div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer" id="footer"></footer>
 
-  <!-- Mobile Menu Overlay -->
   <div class="mobile-menu" id="mobile-menu"></div>
 </body>
 </html>

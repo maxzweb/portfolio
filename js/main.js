@@ -17,6 +17,11 @@
     themeKey: 'site-theme'
   };
 
+  function trackGtag() {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag.apply(window, arguments);
+  }
+
   // ===================================
   // Состояние приложения
   // ===================================
@@ -33,6 +38,125 @@
    */
   function getNestedValue(obj, key) {
     return key.split('.').reduce((acc, part) => acc && acc[part], obj);
+  }
+
+  /**
+   * Чистый URL страницы без query и hash (canonical, og:url).
+   */
+  function getCleanPageUrl() {
+    try {
+      const u = new URL(window.location.href);
+      u.hash = '';
+      u.search = '';
+      return u.href;
+    } catch (e) {
+      return window.location.href.replace(/[?#].*$/, '');
+    }
+  }
+
+  /**
+   * Абсолютные canonical, og:url, og:image, twitter:image (если разметка есть в DOM).
+   */
+  function updateAbsoluteUrlMeta() {
+    const clean = getCleanPageUrl();
+    const canonical = document.getElementById('seo-canonical');
+    if (canonical) canonical.setAttribute('href', clean);
+
+    const ogUrl = document.getElementById('seo-og-url');
+    if (ogUrl) ogUrl.setAttribute('content', clean);
+
+    const ogImg = document.getElementById('seo-og-image');
+    const twImg = document.getElementById('seo-twitter-image');
+    const relPath =
+      (ogImg && ogImg.getAttribute('content')) || 'images/case1.png';
+    let absImg;
+    try {
+      absImg = /^(https?:|data:)/i.test(relPath)
+        ? relPath
+        : new URL(relPath, clean).href;
+    } catch (err) {
+      absImg = relPath;
+    }
+    if (ogImg) ogImg.setAttribute('content', absImg);
+    if (twImg) twImg.setAttribute('content', absImg);
+  }
+
+  /**
+   * JSON-LD: Person + WebSite на главной (после загрузки переводов).
+   */
+  function syncIndexJsonLd(langData) {
+    if (!document.getElementById('hero')) return;
+
+    const desc = getNestedValue(langData, 'index.seo.description') || '';
+    const clean = getCleanPageUrl();
+    const graph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': `${clean}#website`,
+          url: clean,
+          name: 'Max Zlydar',
+          description: desc,
+          inLanguage: ['en', 'uk'],
+          publisher: { '@id': `${clean}#person` }
+        },
+        {
+          '@type': 'Person',
+          '@id': `${clean}#person`,
+          name: 'Max Zlydar',
+          url: clean,
+          jobTitle: 'Product designer',
+          sameAs: [
+            'https://www.linkedin.com/in/maxzweb/',
+            'https://dribbble.com/max4web',
+            'https://www.upwork.com/freelancers/maxzweb',
+            'https://t.me/MaxZweb'
+          ]
+        }
+      ]
+    };
+
+    let script = document.getElementById('schema-portfolio');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'schema-portfolio';
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(graph);
+  }
+
+  /**
+   * JSON-LD: CreativeWork на страницах кейсов (data-case-schema="case1" … на <html>).
+   */
+  function syncCaseJsonLd(langData) {
+    const slug = document.documentElement.getAttribute('data-case-schema');
+    if (!slug || !/^case[1-4]$/.test(slug)) return;
+
+    const title = getNestedValue(langData, `${slug}.seo.title`) || '';
+    const desc = getNestedValue(langData, `${slug}.seo.description`) || '';
+    const clean = getCleanPageUrl();
+    const graph = {
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      name: title,
+      description: desc,
+      author: {
+        '@type': 'Person',
+        name: 'Max Zlydar'
+      },
+      url: clean
+    };
+
+    let script = document.getElementById('schema-case-study');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'schema-case-study';
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(graph);
   }
 
   /**
@@ -79,9 +203,37 @@
       const value = getNestedValue(langData, key);
 
       if (value !== undefined) {
-        // Используем innerHTML чтобы сохранить HTML-разметку (например, <br>)
-        el.innerHTML = value;
+        if (el.tagName === 'TITLE') {
+          el.textContent = value;
+        } else {
+          // Используем innerHTML чтобы сохранить HTML-разметку (например, <br>)
+          el.innerHTML = value;
+        }
       }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const value = getNestedValue(langData, key);
+      if (value !== undefined) el.placeholder = value;
+    });
+
+    document.querySelectorAll('[data-i18n-value]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-value');
+      const value = getNestedValue(langData, key);
+      if (value !== undefined) el.value = value;
+    });
+
+    document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-aria-label');
+      const value = getNestedValue(langData, key);
+      if (value !== undefined) el.setAttribute('aria-label', value);
+    });
+
+    document.querySelectorAll('[data-i18n-content]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-content');
+      const value = getNestedValue(langData, key);
+      if (value !== undefined) el.setAttribute('content', value);
     });
 
     // Обновляем ссылки с data-i18n-href
@@ -97,6 +249,22 @@
 
     // Обновляем атрибут lang на html
     document.documentElement.lang = lang;
+
+    const ogLocale = document.getElementById('seo-og-locale');
+    const ogLocaleAlt = document.getElementById('seo-og-locale-alt');
+    if (ogLocale && ogLocaleAlt) {
+      if (lang === 'uk') {
+        ogLocale.setAttribute('content', 'uk_UA');
+        ogLocaleAlt.setAttribute('content', 'en_US');
+      } else {
+        ogLocale.setAttribute('content', 'en_US');
+        ogLocaleAlt.setAttribute('content', 'uk_UA');
+      }
+    }
+
+    updateAbsoluteUrlMeta();
+    syncIndexJsonLd(langData);
+    syncCaseJsonLd(langData);
 
     // Кнопки языка: показываем язык переключения (EN ↔ UA), не дублируем текущий
     syncLangSwitchButtons(lang);
@@ -127,6 +295,7 @@
       currentLang = newLang;
       localStorage.setItem(CONFIG.storageKey, newLang);
       applyTranslations(newLang);
+      trackGtag('event', 'language_switch', { event_category: 'UI', event_label: newLang });
     }
   }
 
@@ -168,24 +337,6 @@
     if (translations[currentLang]) {
       applyTranslations(currentLang);
     }
-  }
-
-  /**
-   * Применяет только динамические ссылки (без перезаписи текста)
-   */
-  function applyDynamicLinks(lang) {
-    const langData = translations[lang];
-    if (!langData) return;
-
-    const hrefElements = document.querySelectorAll('[data-i18n-href]');
-    hrefElements.forEach(el => {
-      const key = el.getAttribute('data-i18n-href');
-      const value = getNestedValue(langData, key);
-
-      if (value !== undefined) {
-        el.href = value;
-      }
-    });
   }
 
   // ===================================
@@ -242,7 +393,9 @@
 
   function toggleTheme() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    setTheme(isDark ? 'light' : 'dark');
+    const newTheme = isDark ? 'light' : 'dark';
+    setTheme(newTheme);
+    trackGtag('event', 'theme_switch', { event_category: 'UI', event_label: newTheme });
   }
 
   /**
@@ -259,6 +412,48 @@
   }
 
   // ===================================
+  // Google Analytics — custom events
+  // ===================================
+
+  function initAnalytics() {
+    document.addEventListener(
+      'click',
+      function (e) {
+        if (e.target.closest('.btn-telegram')) {
+          trackGtag('event', 'click', { event_category: 'CTA', event_label: 'Telegram Button' });
+          return;
+        }
+        if (e.target.closest('a[data-i18n-href="links.cv"]')) {
+          trackGtag('event', 'click', { event_category: 'CTA', event_label: 'Resume Download' });
+          return;
+        }
+        if (e.target.closest('.js-open-contact-modal')) {
+          trackGtag('event', 'contact_form_open', { event_category: 'Modal' });
+          return;
+        }
+        const caseLink = e.target.closest('.case-card--link a[href*="cases/case"]');
+        if (caseLink) {
+          const card = caseLink.closest('.case-card--link');
+          const titleEl = card && card.querySelector('.case-card__title');
+          const caseName = titleEl ? titleEl.textContent.trim() : 'Case';
+          trackGtag('event', 'case_click', { event_category: 'Portfolio', event_label: caseName });
+        }
+      },
+      true
+    );
+
+    document.addEventListener(
+      'submit',
+      function (e) {
+        if (e.target && e.target.id === 'contact-form') {
+          trackGtag('event', 'contact_form_submit', { event_category: 'Modal' });
+        }
+      },
+      true
+    );
+  }
+
+  // ===================================
   // Инициализация
   // ===================================
 
@@ -268,6 +463,10 @@
     if (window.siteComponents && typeof window.siteComponents.renderAll === 'function') {
       window.siteComponents.renderAll();
     }
+
+    initAnalytics();
+
+    updateAbsoluteUrlMeta();
 
     // Инициализируем тему
     initTheme();
@@ -324,6 +523,10 @@
         // Не перехватываем клик по самой ссылке
         if (e.target.closest('a')) return;
 
+        const titleEl = card.querySelector('.case-card__title');
+        const caseName = titleEl ? titleEl.textContent.trim() : 'Case';
+        trackGtag('event', 'case_click', { event_category: 'Portfolio', event_label: caseName });
+
         const link = card.querySelector('a');
         if (link && link.href) {
           window.location.href = link.href;
@@ -341,6 +544,69 @@
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
+
+    // Testimonials: arrow step scroll + drag-to-scroll (only track scrollLeft changes)
+    const rhTrack = document.getElementById('rh-t-track');
+    const rhPrev = document.getElementById('rh-t-prev');
+    const rhNext = document.getElementById('rh-t-next');
+    if (rhTrack && rhPrev && rhNext) {
+      const stepScroll = () => {
+        const seg =
+          rhTrack.querySelector('.rh-t__lime') ||
+          rhTrack.querySelector('.rh-t-card') ||
+          rhTrack.querySelector('.rh-t-divider');
+        const w = seg ? seg.offsetWidth : 360;
+        return Math.min(w + 1, rhTrack.clientWidth * 0.92);
+      };
+
+      rhPrev.addEventListener('click', () => {
+        rhTrack.scrollBy({ left: -stepScroll(), behavior: 'smooth' });
+      });
+      rhNext.addEventListener('click', () => {
+        rhTrack.scrollBy({ left: stepScroll(), behavior: 'smooth' });
+      });
+
+      let dragging = false;
+      let dragMoved = false;
+      let startX = 0;
+      let startScrollLeft = 0;
+
+      const endDrag = () => {
+        if (!dragging) return;
+        dragging = false;
+        rhTrack.classList.remove('is-dragging');
+      };
+
+      rhTrack.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        dragging = true;
+        dragMoved = false;
+        startX = e.clientX;
+        startScrollLeft = rhTrack.scrollLeft;
+        rhTrack.classList.add('is-dragging');
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) dragMoved = true;
+        rhTrack.scrollLeft = startScrollLeft - dx;
+      });
+
+      document.addEventListener('mouseup', endDrag);
+      rhTrack.addEventListener('mouseleave', endDrag);
+
+      rhTrack.addEventListener(
+        'click',
+        (e) => {
+          if (dragMoved) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        },
+        true
+      );
+    }
   }
 
   // Запускаем при загрузке DOM

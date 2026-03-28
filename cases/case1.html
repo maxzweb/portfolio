@@ -1,21 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-case-schema="case1">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){try{if(localStorage.getItem('site-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
-  <title>Case 1 | Макс Злидар — Продуктовий дизайнер</title>
-  <meta name="description" content="Case 1 — Blum trading hub. Макс Злидар, продуктовий дизайнер.">
-  <meta name="keywords" content="Case 1, продуктовий дизайн, Blum, Макс Злидар, кейс">
+  <title data-i18n="case1.seo.title">Blum Trading Hub — Product design case study | Max Zlydar</title>
+  <meta name="description" content="Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI." data-i18n-content="case1.seo.description">
+  <meta name="keywords" content="Blum, trading terminal, product design, UX, UI, Telegram, TON, fintech, case study, Max Zlydar" data-i18n-content="case1.seo.keywords">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Case 1 | Макс Злидар">
-  <meta property="og:description" content="Case 1 — Blum trading hub. Макс Злидар, продуктовий дизайнер.">
-  <meta property="og:image" content="../images/case1.png">
+  <link rel="canonical" id="seo-canonical" href="">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="" id="seo-og-url">
+  <meta property="og:title" content="Blum Trading Hub — Product design case study | Max Zlydar" data-i18n-content="case1.seo.ogTitle">
+  <meta property="og:description" content="Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI." data-i18n-content="case1.seo.description">
+  <meta property="og:image" content="../images/case1.png" id="seo-og-image">
+  <meta property="og:locale" content="en_US" id="seo-og-locale">
+  <meta property="og:locale:alternate" content="uk_UA" id="seo-og-locale-alt">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blum Trading Hub — Product design case study | Max Zlydar" data-i18n-content="case1.seo.ogTitle">
+  <meta name="twitter:description" content="Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI." data-i18n-content="case1.seo.description">
+  <meta name="twitter:image" content="../images/case1.png" id="seo-twitter-image">
+  <script type="application/ld+json" id="schema-case-study">
+  {"@context":"https://schema.org","@type":"CreativeWork","name":"Blum Trading Hub — Product design case study | Max Zlydar","description":"Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI.","author":{"@type":"Person","name":"Max Zlydar"},"url":""}
+  </script>
   <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" type="image/png" href="../images/fav.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6FXL5E13Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y6FXL5E13Z');
+  </script>
+
   <script src="../js/components.js" defer></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/contact-modal.js" defer></script>
 </head>
 <body>
   <header class="header" id="header"></header>
@@ -36,10 +59,10 @@
       <section class="case-team case-team--fig" aria-label="Team">
         <div class="case-team__group">
           <div class="case-team__avatars" aria-hidden="true">
-            <img class="case-team__avatar" src="../images/case1/case1-team-01.png" alt="">
-            <img class="case-team__avatar" src="../images/case1/case1-team-02.png" alt="">
-            <img class="case-team__avatar" src="../images/case1/case1-team-03.png" alt="">
-            <img class="case-team__avatar" src="../images/case1/case1-team-04.png" alt="">
+            <img class="case-team__avatar" loading="lazy" src="../images/case1/case1-team-01.png" alt="">
+            <img class="case-team__avatar" loading="lazy" src="../images/case1/case1-team-02.png" alt="">
+            <img class="case-team__avatar" loading="lazy" src="../images/case1/case1-team-03.png" alt="">
+            <img class="case-team__avatar" loading="lazy" src="../images/case1/case1-team-04.png" alt="">
           </div>
           <div class="case-team__info">
             <span class="case-team__role" data-i18n="case1.team.cLevelTitle">C-level</span>
@@ -48,8 +71,8 @@
         </div>
         <div class="case-team__group">
           <div class="case-team__avatars" aria-hidden="true">
-            <img class="case-team__avatar" src="../images/case1/case1-team-dev1.png" alt="">
-            <img class="case-team__avatar" src="../images/case1/case1-team-dev2.png" alt="">
+            <img class="case-team__avatar" loading="lazy" src="../images/case1/case1-team-dev1.png" alt="">
+            <img class="case-team__avatar" loading="lazy" src="../images/case1/case1-team-dev2.png" alt="">
           </div>
           <div class="case-team__info">
             <span class="case-team__role" data-i18n="case1.team.devTitle">Developers</span>
@@ -58,7 +81,7 @@
         </div>
         <div class="case-team__group">
           <div class="case-team__avatars" aria-hidden="true">
-            <img class="case-team__avatar" src="../images/case1/case1-team-design.png" alt="">
+            <img class="case-team__avatar" loading="lazy" src="../images/case1/case1-team-design.png" alt="">
           </div>
           <div class="case-team__info">
             <span class="case-team__role" data-i18n="case1.team.designTitle">Design</span>

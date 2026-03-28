@@ -4,6 +4,7 @@
     "blog": "Blog",
     "tg": "TG channel",
     "mail": "Email",
+    "contact": "Contact",
     "lang": "EN",
     "menu": "Menu"
   },
@@ -20,15 +21,20 @@
     "cv": "https://www.dropbox.com/scl/fi/iwiatoqi4rarxe228n505/M.Zlydar-UI-UX-Designer-EN.pdf?rlkey=4tyqsk23btvk38p8wg84jlqmk&st=lor1nzvh&dl=0"
   },
   "index": {
+    "seo": {
+      "title": "Max Zlydar — Product designer",
+      "description": "Product designer for high‑load B2B/B2C SaaS and fintech. UX, UI, and growth-focused digital products.",
+      "keywords": "product design, UX, UI, portfolio, Max Zlydar, SaaS, fintech, B2B, B2C",
+      "ogTitle": "Max Zlydar — Product designer"
+    },
     "hero": {
       "title": "Max Zlydar, product designer, building high‑load services for the real world, not just for slides.",
-      "subtitle": "Growth, B2B, B2C SaaS, fintech, web3.",
+      "subtitle": "Growth, B2B, B2C SaaS, Fintech.",
       "cta": "Text me in Telegram",
       "years": "7+ years in products.",
       "exp1": "I inspire the team.",
       "exp2": "I work with chaos.",
-      "exp3": "I’m all for data‑driven and efficiency.",
-      "exp4": "Choice #1 in hard times."
+      "exp3": "I’m all for data‑driven and efficiency."
     },
     "cases": {
       "case1": {
@@ -51,9 +57,34 @@
     "widgets": {
       "label1": "Just widgets",
       "label2": "Just widgets 2"
+    },
+    "testimonials": {
+      "headingLine1": "A reliable partner for",
+      "headingLine2": "worldwide-class quality and on-time delivery",
+      "limeStat": "70+",
+      "limeLabel": "Successfully delivered projects",
+      "arrowsGroupAria": "Testimonials carousel",
+      "prevAria": "Previous testimonial",
+      "nextAria": "Next testimonial",
+      "reviewsMeta5": "58 reviews",
+      "reviewsMeta48": "12 reviews",
+      "dividerAria5": "5.0 rating, 58 reviews",
+      "dividerAria48": "4.8 rating, 12 reviews",
+      "quote1": "Max redesigned our onboarding flow and sign-up conversion jumped from 18% to 31%. Communicative, sharp, and truly understood our vision. Highly recommend!",
+      "quote2": "Working with Max was great. He revamped our landing page — bounce rate dropped by 24%. Clean designs, fast delivery, always open to feedback. Will hire again.",
+      "quote3": "Max brought our product to life with his designs. Very professional and detail-oriented, with a great sense for what users actually need. Exceeded our expectations.",
+      "quote4": "Excellent mobile app design from Max. He nailed the brief — after release, our App Store rating went from 3.8 to 4.7. High quality, delivered on time.",
+      "quote5": "Working with Max is always a pleasure. Strong eye for detail, polished and modern style. Our checkout redesign cut drop-off by 19%. A designer you can trust.",
+      "quote6": "Max is one of the best designers I've worked with on Upwork. Creative, fast, and professional — every screen felt intentional and well thought out."
     }
   },
   "case1": {
+    "seo": {
+      "title": "Blum Trading Hub — Product design case study | Max Zlydar",
+      "description": "Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI.",
+      "keywords": "Blum, trading terminal, product design, UX, UI, Telegram, TON, fintech, case study, Max Zlydar",
+      "ogTitle": "Blum Trading Hub — Product design case study | Max Zlydar"
+    },
     "intro": {
       "tagCases": "Cases",
       "tagProject": "Blum.io",
@@ -136,6 +167,12 @@
     }
   },
   "case2": {
+    "seo": {
+      "title": "Task status icon — Support load case study | Max Zlydar",
+      "description": "How a small task-status icon and clearer UX cut support engineers’ workload on Blum from roughly 70% down to about 15%—a focused product design case study.",
+      "keywords": "Blum, support UX, icon design, product design, SaaS, operations, case study, Max Zlydar",
+      "ogTitle": "Task status icon — Support load case study | Max Zlydar"
+    },
     "intro": {
       "tagCases": "Cases",
       "tagProject": "Blum.io",
@@ -193,6 +230,12 @@
     }
   },
   "case3": {
+    "seo": {
+      "title": "Levels & subscriptions UX — Case study | Max Zlydar",
+      "description": "Reworking levels and subscription UX for clearer progression and stronger conversion to paid plans—research-led product design case study by Max Zlydar.",
+      "keywords": "subscriptions, levels, conversion, UX, product design, growth, case study, Max Zlydar",
+      "ogTitle": "Levels & subscriptions UX — Case study | Max Zlydar"
+    },
     "intro": {
       "tagProject": "Blum.io",
       "tagCasesYear": "Cases 2025",
@@ -228,6 +271,12 @@
     }
   },
   "case4": {
+    "seo": {
+      "title": "Research templates — B2B product design case study | Max Zlydar",
+      "description": "Reusable B2B research templates for user discovery at every journey stage—UX patterns, clearer workflows, and faster handoffs. Case study by Max Zlydar.",
+      "keywords": "user research, templates, B2B, product design, UX, discovery, case study, Max Zlydar",
+      "ogTitle": "Research templates — B2B product design case study | Max Zlydar"
+    },
     "intro": {
       "tagClient": "Yandex Vzglyad",
       "tagResearch": "Research",
@@ -248,5 +297,18 @@
       "title": "Business value",
       "body": "Businesses get a fast start on research without extra calls and emails, while the team can focus on complex requests instead of repetitive ones."
     }
+  },
+  "contact": {
+    "pageTitle": "Contact — Max Zlydar",
+    "closeModal": "Close contact form",
+    "heading": "Let's start a project together",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Project description",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "messagePlaceholder": "Tell me about your project, timeline, and goals.",
+    "submit": "Send message",
+    "emailSubject": "Portfolio contact form"
   }
 }
