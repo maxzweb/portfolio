@@ -6,7 +6,10 @@
     "mail": "Пошта",
     "contact": "Контакти",
     "lang": "UA",
-    "menu": "Меню"
+    "langAria": "Змінити мову",
+    "menu": "Меню",
+    "themeAriaLight": "Перейти на світлу тему",
+    "themeAriaDark": "Перейти на темну тему"
   },
   "footer": {
     "version": "Версія 1.01b"
@@ -309,6 +312,9 @@
     "emailPlaceholder": "you@example.com",
     "messagePlaceholder": "Розкажіть про проєкт, терміни та цілі.",
     "submit": "Надіслати",
-    "emailSubject": "Повідомлення з портфоліо"
+    "emailSubject": "Повідомлення з портфоліо",
+    "sending": "Надсилаємо...",
+    "successMessage": "Повідомлення надіслано! Я зв’яжуся з вами найближчим часом.",
+    "errorMessage": "Щось пішло не так. Спробуйте ще раз."
   }
 }

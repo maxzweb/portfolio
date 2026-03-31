@@ -266,19 +266,28 @@
     syncIndexJsonLd(langData);
     syncCaseJsonLd(langData);
 
-    // Кнопки языка: показываем язык переключения (EN ↔ UA), не дублируем текущий
+    // Кнопки языка: десктоп — текущий язык / при наведении целевой; мобильное меню — только целевой
     syncLangSwitchButtons(lang);
+    syncThemeAria();
   }
 
   /**
-   * Подписи на кнопках смены языка: показать язык, на который переключимся
+   * Подписи на кнопках смены языка: десктоп — EN/UA (текущий + целевой для hover); меню — целевой
    */
   function syncLangSwitchButtons(activeLang) {
-    const label = activeLang === 'en' ? 'UA' : 'EN';
-    ['lang-toggle', 'menu-lang-toggle'].forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = label;
-    });
+    const target = activeLang === 'en' ? 'UA' : 'EN';
+    const current = activeLang === 'en' ? 'EN' : 'UA';
+
+    const desktop = document.getElementById('lang-toggle');
+    if (desktop) {
+      const curEl = desktop.querySelector('.header__lang-text--current');
+      const hovEl = desktop.querySelector('.header__lang-text--hover');
+      if (curEl) curEl.textContent = current;
+      if (hovEl) hovEl.textContent = target;
+    }
+
+    const menu = document.getElementById('menu-lang-toggle');
+    if (menu) menu.textContent = target;
   }
 
   /**
@@ -371,7 +380,12 @@
 
   function syncThemeAria() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    const langData = translations[currentLang];
+    const lightLabel =
+      (langData && getNestedValue(langData, 'header.themeAriaLight')) || 'Switch to light mode';
+    const darkLabel =
+      (langData && getNestedValue(langData, 'header.themeAriaDark')) || 'Switch to dark mode';
+    const label = isDark ? lightLabel : darkLabel;
     ['theme-toggle', 'menu-theme-toggle'].forEach((id) => {
       const el = document.getElementById(id);
       if (el) el.setAttribute('aria-label', label);
@@ -620,7 +634,11 @@
   window.siteApp = {
     toggleLanguage,
     toggleTheme,
-    getCurrentLang: () => currentLang
+    getCurrentLang: () => currentLang,
+    t: function (key) {
+      const v = getNestedValue(translations[currentLang], key);
+      return v != null && v !== '' ? v : '';
+    }
   };
 
 })();

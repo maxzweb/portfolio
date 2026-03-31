@@ -6,7 +6,10 @@
     "mail": "Email",
     "contact": "Contact",
     "lang": "EN",
-    "menu": "Menu"
+    "langAria": "Switch language",
+    "menu": "Menu",
+    "themeAriaLight": "Switch to light mode",
+    "themeAriaDark": "Switch to dark mode"
   },
   "footer": {
     "version": "Version 1.01b"
@@ -309,6 +312,9 @@
     "emailPlaceholder": "you@example.com",
     "messagePlaceholder": "Tell me about your project, timeline, and goals.",
     "submit": "Send message",
-    "emailSubject": "Portfolio contact form"
+    "emailSubject": "Portfolio contact form",
+    "sending": "Sending...",
+    "successMessage": "Message sent! I'll get back to you soon.",
+    "errorMessage": "Something went wrong. Please try again."
   }
 }

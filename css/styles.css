@@ -1,7 +1,4 @@
-/* ===================================
-   Подключение шрифта Inter
-   =================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Inter is loaded via <link> in each HTML page (avoids render-blocking @import). */
 
 /* ===================================
    CSS-переменные для тем
@@ -45,6 +42,11 @@
   --border-radius-small: 12px;
   --max-content-width: 1040px;
 
+  /* Testimonial cards & orange strip */
+  --rh-t-surface: #fdfdfd;
+  --rh-t-surface-hover: #f9f9f9;
+  --rh-t-lime-hover: #ff6e21;
+
   /* Overlays & shared button shadows */
   --color-backdrop-scrim: rgba(0, 0, 0, 0.45);
   --shadow-modal-dialog: 0 24px 75px rgba(0, 0, 0, 0.2);
@@ -65,6 +67,10 @@
   --color-button-icon: #0d0d0d;
   --color-border: #333333;
   --color-on-accent: #ffffff;
+
+  --rh-t-surface: #1e1e1e;
+  --rh-t-surface-hover: #252525;
+  --rh-t-lime-hover: #ff6e21;
 }
 
 /* === LOGO THEME SWITCH === */
@@ -503,8 +509,12 @@ button.header__link {
   border: none;
   padding: 0;
   cursor: pointer;
-  font: inherit;
+  /* Same typography as anchor .header__link; font: inherit was overriding .header__link */
   font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-base);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-base);
 }
 
 button.footer__link {
@@ -534,20 +544,67 @@ button.footer__link {
   object-fit: contain;
 }
 
-/* === LANGUAGE SWITCH FIX: min-height to prevent layout jump === */
+/* === LANGUAGE SWITCH: stacked labels, crossfade + subtle slide on hover === */
 .header__lang {
   font-weight: var(--font-weight-semibold);
   font-size: var(--text-base);
   line-height: var(--line-height-tight);
   color: var(--color-accent);
-  transition: opacity 0.2s ease;
   min-height: 20px;
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
+  transition: color 0.2s ease;
 }
 
 .header__lang:hover {
-  opacity: 0.7;
+  color: var(--color-secondary);
+}
+
+.header__lang-inner {
+  position: relative;
+  display: inline-grid;
+  grid-template-areas: 'stack';
+  place-items: center;
+  min-width: 2ch;
+}
+
+.header__lang-text {
+  grid-area: stack;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.header__lang-text--current {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header__lang-text--hover {
+  opacity: 0;
+  transform: translateY(0.12em);
+  pointer-events: none;
+}
+
+.header__lang:hover .header__lang-text--current {
+  opacity: 0;
+  transform: translateY(-0.12em);
+}
+
+.header__lang:hover .header__lang-text--hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__lang-text {
+    transition: opacity 0.18s ease;
+  }
+
+  .header__lang-text--hover,
+  .header__lang:hover .header__lang-text--current,
+  .header__lang:hover .header__lang-text--hover {
+    transform: none;
+  }
 }
 
 /* Theme toggle: same footprint as language switcher */
@@ -839,30 +896,6 @@ button.footer__link {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     gap: 34px;
-  }
-
-  /* === LOGO SIZES === */
-  .hero__logo {
-    height: 20px;
-    width: auto;
-  }
-}
-
-/* Logo breakpoints: tablet 768px */
-@media (min-width: 768px) {
-  /* === LOGO SIZES === */
-  .hero__logo {
-    height: 20px;
-    width: auto;
-  }
-}
-
-/* Logo breakpoints: desktop ≥1024px */
-@media (min-width: 1024px) {
-  /* === LOGO SIZES === */
-  .hero__logo {
-    height: 20px;
-    width: auto;
   }
 }
 
@@ -2282,6 +2315,10 @@ button.footer__link {
    Contact modal — auto height, narrow shell; submit matches .btn-telegram size
    =================================== */
 
+body.contact-modal-open {
+  overflow: hidden;
+}
+
 .contact-modal {
   position: fixed;
   inset: 0;
@@ -2321,11 +2358,13 @@ button.footer__link {
   z-index: 1;
   width: 100%;
   max-width: min(756px, calc(100vw - 36px));
-  max-height: none;
+  max-height: min(92vh, calc(100vh - 36px));
+  max-height: min(92dvh, calc(100dvh - 36px));
   height: auto;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  overflow: hidden;
   background-color: var(--color-bg);
   border-radius: 8px;
   box-shadow: var(--shadow-modal-dialog);
@@ -2365,8 +2404,13 @@ button.footer__link {
 }
 
 .contact-modal__body {
-  overflow: visible;
-  padding: 42px 33px 36px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Was 42px 33px 36px — top 42px ×3 → uniform on all sides */
+  padding: 126px;
 }
 
 .contact-modal__title {
@@ -2399,7 +2443,8 @@ button.footer__link {
 
 .contact-modal__label {
   display: block;
-  font-size: 9px;
+  font-size: 12px;
+  line-height: 1;
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -2412,7 +2457,6 @@ button.footer__link {
   display: block;
   width: 100%;
   font-family: var(--font-family);
-  font-size: 13px;
   line-height: 18px;
   letter-spacing: -0.015em;
   color: var(--color-primary);
@@ -2425,7 +2469,12 @@ button.footer__link {
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
+.contact-modal__input {
+  font-size: 18px;
+}
+
 .contact-modal__textarea {
+  font-size: 18px;
   min-height: 84px;
   resize: vertical;
   padding-top: 14px;
@@ -2441,6 +2490,7 @@ button.footer__link {
 
 .contact-modal__input::placeholder,
 .contact-modal__textarea::placeholder {
+  font-size: 18px;
   color: var(--color-muted);
   opacity: 0.9;
 }
@@ -2478,7 +2528,8 @@ button.footer__link {
 
 @media (max-width: 767px) {
   .contact-modal__body {
-    padding: 36px 21px 30px;
+    /* Was 36px 21px 30px — top 36px ×3 → all sides */
+    padding: 108px;
   }
 
   .contact-modal__title {
@@ -2499,7 +2550,8 @@ button.footer__link {
   .contact-modal__dialog {
     max-width: none;
     width: 100%;
-    max-height: none;
+    max-height: min(92vh, calc(100vh - env(safe-area-inset-bottom, 0px)));
+    max-height: min(92dvh, calc(100dvh - env(safe-area-inset-bottom, 0px)));
     border-radius: 12px 12px 0 0;
     transform: translateY(100%);
   }
@@ -2509,7 +2561,8 @@ button.footer__link {
   }
 
   .contact-modal__body {
-    padding: 33px 16px 24px;
+    /* Was 33px 16px 24px — top 33px ×3 → all sides */
+    padding: 99px;
   }
 
   .contact-modal__title {
@@ -2522,16 +2575,27 @@ button.footer__link {
    Testimonials — track scroll/drag; accent strip; bordered cards
    =================================== */
 
+/* Let .rh-t participate in .cases flex as direct child (grid-left align + right viewport bleed) */
+#site-testimonials-root {
+  display: contents;
+}
+
 .rh-t {
-  width: 100%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
+  /* Same horizontal origin as centered case cards; width reaches viewport right edge */
+  align-self: flex-start;
+  margin-left: calc((100vw - 40px - min(var(--max-content-width), 100vw - 40px)) / 2);
+  margin-right: 0;
+  width: calc(50vw + min(var(--max-content-width), 100vw - 40px) / 2);
+  max-width: none;
   padding: 40px 0 80px;
   background-color: transparent;
   transition: color 0.3s ease;
 }
 
 .rh-t__head {
+  /* Match case-card / grid column width; arrows stay here — track below remains full-bleed */
+  width: min(100%, var(--max-content-width));
+  max-width: var(--max-content-width);
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -2603,9 +2667,37 @@ button.footer__link {
 }
 
 .rh-t__viewport {
+  position: relative;
   width: 100%;
   min-width: 0;
   overflow: hidden;
+}
+
+/* Right-edge fade — overlay; same stop pattern as .header::before, horizontal (transparent → bg) */
+.rh-t__viewport::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    var(--color-bg) 100%
+  );
+}
+
+:root[data-theme="dark"] .rh-t__viewport::after {
+  background: linear-gradient(
+    to right,
+    rgba(18, 18, 18, 0) 0%,
+    rgba(18, 18, 18, 0) 50%,
+    var(--color-bg) 100%
+  );
 }
 
 .rh-t__track {
@@ -2653,6 +2745,11 @@ button.footer__link {
   padding: 30px;
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.rh-t__lime:hover {
+  background-color: var(--rh-t-lime-hover);
 }
 
 .rh-t__lime-inner {
@@ -2682,7 +2779,7 @@ button.footer__link {
   color: var(--color-on-accent);
 }
 
-/* Rating divider — same footprint as orange strip; full border; centered stack */
+/* Rating divider — same footprint as orange strip; centered stack */
 .rh-t-divider {
   box-sizing: border-box;
   flex: 0 0 calc(390px * 0.75);
@@ -2691,8 +2788,8 @@ button.footer__link {
   height: 375px;
   scroll-snap-align: start;
   flex-shrink: 0;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background-color: var(--rh-t-surface);
+  border: none !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2700,8 +2797,12 @@ button.footer__link {
   gap: 10px;
   padding: 24px;
   text-align: center;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  transition: background-color 0.3s ease;
   border-radius: var(--border-radius);
+}
+
+.rh-t-divider:hover {
+  background-color: var(--rh-t-surface-hover);
 }
 
 .rh-t-divider__score {
@@ -2749,13 +2850,23 @@ button.footer__link {
   min-height: 375px;
   height: 375px;
   padding: 30px;
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background-color: var(--rh-t-surface);
+  border: none !important;
   border-radius: var(--border-radius);
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.rh-t-card:hover {
+  background-color: var(--rh-t-surface-hover);
 }
 
 @media (max-width: 639px) {
+  /* Match .cases padding 0 12px — same bleed math as desktop */
+  .rh-t {
+    margin-left: calc((100vw - 24px - min(var(--max-content-width), 100vw - 24px)) / 2);
+    width: calc(50vw + min(var(--max-content-width), 100vw - 24px) / 2);
+  }
+
   .rh-t__lime,
   .rh-t-divider,
   .rh-t-card {
@@ -2789,6 +2900,11 @@ button.footer__link {
   width: auto;
   display: block;
   pointer-events: none;
+}
+
+:root[data-theme="dark"] .rh-t-card__quote-mark-img,
+[data-theme="dark"] .rh-t-card__quote-icon {
+  filter: brightness(0) invert(1);
 }
 
 .rh-t-card__quote {

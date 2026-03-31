@@ -29,7 +29,6 @@
       ? `
         <div class="header__left">
           <a href="${linkPrefix}index.html#hero" class="header__link" data-i18n="case.nav.home">Home</a>
-          <a href="${linkPrefix}index.html#cases" class="header__link" data-i18n="case.nav.cases">Cases</a>
           <button type="button" class="header__link js-open-contact-modal" data-i18n="header.contact">Contact</button>
         </div>
       `
@@ -42,8 +41,9 @@
         </div>
       `;
 
-    // Default labels (they will be corrected by i18n via main.js).
-    const langLabel = isCasePage ? 'EN' : 'UA';
+    // Default labels for language toggle (synced by main.js). Desktop shows current / hover target.
+    const langCurrent = isCasePage ? 'UA' : 'EN';
+    const langTarget = isCasePage ? 'EN' : 'UA';
 
     header.innerHTML = `
       <nav class="header__nav">
@@ -58,14 +58,19 @@
           <a href="https://www.upwork.com/freelancers/maxzweb" class="header__link header__link--desktop" target="_blank" rel="noopener">Upwork</a>
           <a href="mailto:maxz4web@gmail.com" class="header__link header__link--desktop" data-i18n="header.mail">${mailText}</a>
 
-          <button class="header__lang header__link--desktop" id="lang-toggle" data-i18n="header.lang">${langLabel}</button>
+          <button type="button" class="header__lang header__link--desktop" id="lang-toggle" data-i18n-aria-label="header.langAria" aria-label="Switch language">
+            <span class="header__lang-inner">
+              <span class="header__lang-text header__lang-text--current" aria-hidden="true">${langCurrent}</span>
+              <span class="header__lang-text header__lang-text--hover" aria-hidden="true">${langTarget}</span>
+            </span>
+          </button>
 
           <button type="button" class="header__theme header__link--desktop" id="theme-toggle" aria-label="Switch to dark mode">
             <img class="header__theme-icon header__theme-icon--dark" src="${assetPrefix}images/dark.svg" alt="" width="20" height="20">
             <img class="header__theme-icon header__theme-icon--light" src="${assetPrefix}images/light.svg" alt="" width="20" height="20">
           </button>
 
-          <button class="header__menu-btn" id="menu-toggle" type="button" aria-label="Menu">
+          <button class="header__menu-btn" id="menu-toggle" type="button" data-i18n-aria-label="header.menu" aria-label="Menu">
             <img src="${assetPrefix}images/Menu.svg" alt="" width="24" height="24">
           </button>
         </div>
@@ -82,7 +87,7 @@
     footer.innerHTML = `
       <div class="footer__content">
         <span class="footer__copy">Max Zlydar © 2026</span>
-        <span class="footer__version" data-i18n="footer.version">Version 1.01c</span>
+        <span class="footer__version" data-i18n="footer.version">Version 1.01b</span>
       </div>
       ${
         isCasePage
@@ -148,9 +153,12 @@
 
     const { assetPrefix } = getContext();
     const im = (path) => `${assetPrefix}${path}`;
-    const star =
-      '<svg class="rh-t-divider__star" viewBox="0 0 24 24" width="22" height="22" focusable="false"><path fill="currentColor" d="M12 1.5l3.1 7.8h8.4l-6.8 5.2 2.6 8-7.3-5.3-7.3 5.3 2.6-8-6.8-5.2h8.4L12 1.5z"/></svg>';
+    const starPath =
+      'M12 1.5l3.1 7.8h8.4l-6.8 5.2 2.6 8-7.3-5.3-7.3 5.3 2.6-8-6.8-5.2h8.4L12 1.5z';
+    const star = `<svg class="rh-t-divider__star" viewBox="0 0 24 24" width="22" height="22" focusable="false"><path fill="currentColor" d="${starPath}"/></svg>`;
     const stars5 = star.repeat(5);
+    const starHalf = `<svg class="rh-t-divider__star rh-t-divider__star--half" viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><defs><linearGradient id="rh-t-divider-48-half-grad" x1="0" y1="12" x2="24" y2="12" gradientUnits="userSpaceOnUse"><stop offset="50%" stop-color="var(--color-accent)"/><stop offset="50%" stop-color="var(--color-muted)"/></linearGradient></defs><path fill="url(#rh-t-divider-48-half-grad)" d="${starPath}"/></svg>`;
+    const stars48 = star.repeat(4) + starHalf;
 
     root.innerHTML = `
       <section class="rh-t" id="testimonials" aria-labelledby="rh-t-heading">
@@ -241,7 +249,7 @@
             </article>
             <div class="rh-t-divider" role="img" data-i18n-aria-label="index.testimonials.dividerAria48" aria-label="4.8 rating, 12 reviews">
               <p class="rh-t-divider__score">4.8</p>
-              <div class="rh-t-divider__stars" aria-hidden="true">${stars5}</div>
+              <div class="rh-t-divider__stars" aria-hidden="true">${stars48}</div>
               <p class="rh-t-divider__meta" data-i18n="index.testimonials.reviewsMeta48">12 reviews</p>
             </div>
             <article class="rh-t-card">
@@ -292,25 +300,27 @@
         <div class="contact-modal__body">
           <h2 id="contact-modal-heading" class="contact-modal__title" data-i18n="contact.heading">Let's start a project together</h2>
 
+          <p id="contact-form-feedback" role="status" aria-live="polite" hidden></p>
+
           <form class="contact-modal__form" id="contact-form" action="#" method="post" novalidate>
-            <input type="hidden" id="contact-email-subject" data-i18n-value="contact.emailSubject" value="" />
+            <div id="contact-form-fields">
+              <div class="contact-modal__field">
+                <label class="contact-modal__label" for="contact-name" data-i18n="contact.nameLabel">Name</label>
+                <input class="contact-modal__input" type="text" id="contact-name" name="from_name" autocomplete="name" required data-i18n-placeholder="contact.namePlaceholder" placeholder="" />
+              </div>
 
-            <div class="contact-modal__field">
-              <label class="contact-modal__label" for="contact-name" data-i18n="contact.nameLabel">Name</label>
-              <input class="contact-modal__input" type="text" id="contact-name" name="name" autocomplete="name" required data-i18n-placeholder="contact.namePlaceholder" placeholder="" />
+              <div class="contact-modal__field">
+                <label class="contact-modal__label" for="contact-email" data-i18n="contact.emailLabel">Email</label>
+                <input class="contact-modal__input" type="email" id="contact-email" name="from_email" autocomplete="email" required data-i18n-placeholder="contact.emailPlaceholder" placeholder="" />
+              </div>
+
+              <div class="contact-modal__field">
+                <label class="contact-modal__label" for="contact-message" data-i18n="contact.messageLabel">Project description</label>
+                <textarea class="contact-modal__textarea" id="contact-message" name="message" rows="5" required data-i18n-placeholder="contact.messagePlaceholder" placeholder=""></textarea>
+              </div>
+
+              <button type="submit" class="contact-modal__submit" id="contact-form-submit" data-i18n="contact.submit">Send message</button>
             </div>
-
-            <div class="contact-modal__field">
-              <label class="contact-modal__label" for="contact-email" data-i18n="contact.emailLabel">Email</label>
-              <input class="contact-modal__input" type="email" id="contact-email" name="email" autocomplete="email" required data-i18n-placeholder="contact.emailPlaceholder" placeholder="" />
-            </div>
-
-            <div class="contact-modal__field">
-              <label class="contact-modal__label" for="contact-message" data-i18n="contact.messageLabel">Project description</label>
-              <textarea class="contact-modal__textarea" id="contact-message" name="message" rows="5" required data-i18n-placeholder="contact.messagePlaceholder" placeholder=""></textarea>
-            </div>
-
-            <button type="submit" class="contact-modal__submit" data-i18n="contact.submit">Send message</button>
           </form>
         </div>
       </div>
