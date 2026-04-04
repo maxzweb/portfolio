@@ -187,7 +187,7 @@
               </div>
             </div>
             <article class="rh-t-card">
-              <img src="${im('images/feedback-logos/logo-feedback1.svg')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <img src="${im('images/logo1.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote1">Max redesigned our onboarding flow and sign-up conversion jumped from 18% to 31%. Communicative, sharp, and truly understood our vision. Highly recommend!</p>
@@ -201,7 +201,7 @@
               </footer>
             </article>
             <article class="rh-t-card">
-              <img src="${im('images/feedback-logos/logo-feedback2.svg')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <img src="${im('images/logo2.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote2">Working with Max was great. He revamped our landing page — bounce rate dropped by 24%. Clean designs, fast delivery, always open to feedback. Will hire again.</p>
@@ -220,7 +220,7 @@
               <p class="rh-t-divider__meta" data-i18n="index.testimonials.reviewsMeta5">58 reviews</p>
             </div>
             <article class="rh-t-card">
-              <img src="${im('images/feedback-logos/logo-feedback3.svg')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <img src="${im('images/logo3.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote3">Max brought our product to life with his designs. Very professional and detail-oriented, with a great sense for what users actually need. Exceeded our expectations.</p>
@@ -234,7 +234,7 @@
               </footer>
             </article>
             <article class="rh-t-card">
-              <img src="${im('images/feedback-logos/logo-feedback4.svg')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <img src="${im('images/logo4.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote4">Excellent mobile app design from Max. He nailed the brief — after release, our App Store rating went from 3.8 to 4.7. High quality, delivered on time.</p>
@@ -253,7 +253,7 @@
               <p class="rh-t-divider__meta" data-i18n="index.testimonials.reviewsMeta48">12 reviews</p>
             </div>
             <article class="rh-t-card">
-              <img src="${im('images/feedback-logos/logo-feedback5.svg')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <img src="${im('images/logo5.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote5">Working with Max is always a pleasure. Strong eye for detail, polished and modern style. Our checkout redesign cut drop-off by 19%. A designer you can trust.</p>

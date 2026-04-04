@@ -120,6 +120,9 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -132,6 +135,8 @@ body {
   background-color: var(--color-bg);
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 a {
@@ -194,32 +199,77 @@ button {
    Компоненты
    =================================== */
 
-/* === TELEGRAM BUTTON: width 280px, height 45px === */
-/* === LANGUAGE SWITCH FIX: fixed size to prevent layout jump === */
+/* Telegram CTA — outer glow shell + inner pill (Figma) */
 .btn-telegram {
-  display: inline-flex;
-  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 3px;
+  width: 286px;
+  height: 51px;
+  background: #fafafa;
+  border: 2px solid #fafafa;
+  box-shadow: 0 0 20.3px rgba(52, 172, 225, 0.25);
+  border-radius: 999px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-telegram__inner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  gap: 6px;
-  width: 280px;
-  height: 45px;
-  min-width: 280px;
-  min-height: 45px;
+  align-items: center;
   padding: 0 16px;
-  background-color: var(--color-telegram);
-  color: var(--color-on-accent);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--text-base);
-  line-height: var(--line-height-tight);
-  border-radius: var(--border-radius-button);
-  box-shadow: var(--shadow-telegram-rest);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 6px;
+  width: 100%;
+  height: 45px;
+  background: #34ace1;
+  box-shadow: 0 8px 12px rgba(68, 179, 227, 0.14), inset 0 0 12px #ffffff;
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+.btn-telegram__text {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.375px;
+  color: #ffffff;
+}
+
+.btn-telegram img {
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
 .btn-telegram:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-telegram-hover);
+  box-shadow: 0 0 32px rgba(52, 172, 225, 0.4);
+}
+
+.btn-telegram:hover .btn-telegram__inner {
+  background: #43bdf3;
+}
+
+[data-theme="dark"] .btn-telegram {
+  background: #2d2d2d;
+  border-color: #2d2d2d;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .btn-telegram:hover {
+  box-shadow: 0 0 32px rgba(52, 172, 225, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .btn-telegram:hover .btn-telegram__inner {
+  background: #43bdf3;
 }
 
 /* Кнопка тёмная (со стрелкой) */
@@ -2581,11 +2631,12 @@ body.contact-modal-open {
 }
 
 .rh-t {
-  /* Same horizontal origin as centered case cards; width reaches viewport right edge */
+  /* Full-bleed right: use % of .cases content box so width stays within layout (avoids 100vw + scrollbar overflow) */
   align-self: flex-start;
-  margin-left: calc((100vw - 40px - min(var(--max-content-width), 100vw - 40px)) / 2);
+  margin-left: calc((100% - min(var(--max-content-width), 100%)) / 2);
   margin-right: 0;
-  width: calc(50vw + min(var(--max-content-width), 100vw - 40px) / 2);
+  /* content width C = 100%; right padding 20px → extend to viewport: C + 20px - margin offset */
+  width: calc(100% + 20px - (100% - min(var(--max-content-width), 100%)) / 2);
   max-width: none;
   padding: 40px 0 80px;
   background-color: transparent;
@@ -2861,10 +2912,10 @@ body.contact-modal-open {
 }
 
 @media (max-width: 639px) {
-  /* Match .cases padding 0 12px — same bleed math as desktop */
+  /* Match .cases padding 0 12px — same bleed math as desktop (%, not vw) */
   .rh-t {
-    margin-left: calc((100vw - 24px - min(var(--max-content-width), 100vw - 24px)) / 2);
-    width: calc(50vw + min(var(--max-content-width), 100vw - 24px) / 2);
+    margin-left: calc((100% - min(var(--max-content-width), 100%)) / 2);
+    width: calc(100% + 12px - (100% - min(var(--max-content-width), 100%)) / 2);
   }
 
   .rh-t__lime,
@@ -2876,8 +2927,8 @@ body.contact-modal-open {
 
 .rh-t-card__logo-img {
   display: block;
-  height: 40px;
-  width: auto;
+  width: 150px;
+  height: auto;
   max-width: 100%;
   margin-bottom: 66px;
   object-fit: contain;
@@ -3053,7 +3104,9 @@ body.contact-modal-open {
 
   .rh-t-card__logo-img {
     margin-bottom: 40px;
-    height: 36px;
+    width: 150px;
+    height: auto;
+    object-fit: contain;
   }
 
   .rh-t-card__quote {
