@@ -14,6 +14,10 @@
   "footer": {
     "version": "Version 1.01b"
   },
+  "scrollPill": {
+    "marquee": "Back to top · Product design · UI/UX · ",
+    "ariaLabel": "Back to top"
+  },
   "case": {
     "nav": {
       "home": "Home",
@@ -300,6 +304,11 @@
       "title": "Business value",
       "body": "Businesses get a fast start on research without extra calls and emails, while the team can focus on complex requests instead of repetitive ones."
     }
+  },
+  "404": {
+    "title": "Page not found",
+    "description": "Looks like this page doesn't exist or was moved.",
+    "button": "Go Home"
   },
   "contact": {
     "pageTitle": "Contact — Max Zlydar",

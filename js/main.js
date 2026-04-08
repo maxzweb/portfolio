@@ -17,6 +17,23 @@
     themeKey: 'site-theme'
   };
 
+  const UI_THRESHOLDS = {
+    scrollPillVisibleAt: 300,
+    hideHeaderAfter: 80,
+    testimonialFallbackWidth: 360,
+    testimonialViewportRatio: 0.92
+  };
+
+  const ANALYTICS = {
+    categoryUI: 'UI',
+    categoryCTA: 'CTA',
+    categoryPortfolio: 'Portfolio',
+    categoryModal: 'Modal',
+    labelTelegram: 'Telegram Button',
+    labelResume: 'Resume Download',
+    labelFallbackCase: 'Case'
+  };
+
   function trackGtag() {
     if (typeof window.gtag !== 'function') return;
     window.gtag.apply(window, arguments);
@@ -28,6 +45,7 @@
 
   let currentLang = CONFIG.defaultLang;
   let translations = {};
+  let lastScrollY = 0;
 
   // ===================================
   // Утилиты
@@ -304,7 +322,7 @@
       currentLang = newLang;
       localStorage.setItem(CONFIG.storageKey, newLang);
       applyTranslations(newLang);
-      trackGtag('event', 'language_switch', { event_category: 'UI', event_label: newLang });
+      trackGtag('event', 'language_switch', { event_category: ANALYTICS.categoryUI, event_label: newLang });
     }
   }
 
@@ -346,6 +364,66 @@
     if (translations[currentLang]) {
       applyTranslations(currentLang);
     }
+  }
+
+  // ===================================
+  // Shopify-style scroll pill (visibility + scroll to top)
+  // ===================================
+
+  function initScrollPill() {
+    const pill = document.getElementById('pill-scroll-top');
+    if (!pill) return;
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (window.scrollY > UI_THRESHOLDS.scrollPillVisibleAt) {
+          pill.classList.add('sd-scroll-pill--visible');
+        } else {
+          pill.classList.remove('sd-scroll-pill--visible');
+        }
+      },
+      { passive: true }
+    );
+
+    if (window.scrollY > UI_THRESHOLDS.scrollPillVisibleAt) {
+      pill.classList.add('sd-scroll-pill--visible');
+    }
+
+    pill.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ===================================
+  // Sticky header hide/show
+  // ===================================
+
+  function initScrollHeaderAndTopButton() {
+    const header = document.getElementById('header');
+
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (header) {
+        if (currentScrollY > 0) {
+          header.classList.add('header--scrolled');
+        } else {
+          header.classList.remove('header--scrolled');
+        }
+
+        if (currentScrollY < lastScrollY) {
+          header.classList.remove('header--hidden');
+        } else if (currentScrollY > lastScrollY && currentScrollY > UI_THRESHOLDS.hideHeaderAfter) {
+          header.classList.add('header--hidden');
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   // ===================================
@@ -409,7 +487,7 @@
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const newTheme = isDark ? 'light' : 'dark';
     setTheme(newTheme);
-    trackGtag('event', 'theme_switch', { event_category: 'UI', event_label: newTheme });
+    trackGtag('event', 'theme_switch', { event_category: ANALYTICS.categoryUI, event_label: newTheme });
   }
 
   /**
@@ -434,23 +512,23 @@
       'click',
       function (e) {
         if (e.target.closest('.btn-telegram')) {
-          trackGtag('event', 'click', { event_category: 'CTA', event_label: 'Telegram Button' });
+          trackGtag('event', 'click', { event_category: ANALYTICS.categoryCTA, event_label: ANALYTICS.labelTelegram });
           return;
         }
         if (e.target.closest('a[data-i18n-href="links.cv"]')) {
-          trackGtag('event', 'click', { event_category: 'CTA', event_label: 'Resume Download' });
+          trackGtag('event', 'click', { event_category: ANALYTICS.categoryCTA, event_label: ANALYTICS.labelResume });
           return;
         }
         if (e.target.closest('.js-open-contact-modal')) {
-          trackGtag('event', 'contact_form_open', { event_category: 'Modal' });
+          trackGtag('event', 'contact_form_open', { event_category: ANALYTICS.categoryModal });
           return;
         }
         const caseLink = e.target.closest('.case-card--link a[href*="cases/case"]');
         if (caseLink) {
           const card = caseLink.closest('.case-card--link');
           const titleEl = card && card.querySelector('.case-card__title');
-          const caseName = titleEl ? titleEl.textContent.trim() : 'Case';
-          trackGtag('event', 'case_click', { event_category: 'Portfolio', event_label: caseName });
+          const caseName = titleEl ? titleEl.textContent.trim() : ANALYTICS.labelFallbackCase;
+          trackGtag('event', 'case_click', { event_category: ANALYTICS.categoryPortfolio, event_label: caseName });
         }
       },
       true
@@ -460,7 +538,7 @@
       'submit',
       function (e) {
         if (e.target && e.target.id === 'contact-form') {
-          trackGtag('event', 'contact_form_submit', { event_category: 'Modal' });
+          trackGtag('event', 'contact_form_submit', { event_category: ANALYTICS.categoryModal });
         }
       },
       true
@@ -477,6 +555,9 @@
     if (window.siteComponents && typeof window.siteComponents.renderAll === 'function') {
       window.siteComponents.renderAll();
     }
+
+    initScrollPill();
+    initScrollHeaderAndTopButton();
 
     initAnalytics();
 
@@ -538,8 +619,8 @@
         if (e.target.closest('a')) return;
 
         const titleEl = card.querySelector('.case-card__title');
-        const caseName = titleEl ? titleEl.textContent.trim() : 'Case';
-        trackGtag('event', 'case_click', { event_category: 'Portfolio', event_label: caseName });
+        const caseName = titleEl ? titleEl.textContent.trim() : ANALYTICS.labelFallbackCase;
+        trackGtag('event', 'case_click', { event_category: ANALYTICS.categoryPortfolio, event_label: caseName });
 
         const link = card.querySelector('a');
         if (link && link.href) {
@@ -569,8 +650,8 @@
           rhTrack.querySelector('.rh-t__lime') ||
           rhTrack.querySelector('.rh-t-card') ||
           rhTrack.querySelector('.rh-t-divider');
-        const w = seg ? seg.offsetWidth : 360;
-        return Math.min(w + 1, rhTrack.clientWidth * 0.92);
+        const w = seg ? seg.offsetWidth : UI_THRESHOLDS.testimonialFallbackWidth;
+        return Math.min(w + 1, rhTrack.clientWidth * UI_THRESHOLDS.testimonialViewportRatio);
       };
 
       rhPrev.addEventListener('click', () => {
@@ -600,6 +681,19 @@
         rhTrack.classList.add('is-dragging');
       });
 
+      rhTrack.addEventListener(
+        'touchstart',
+        (e) => {
+          if (!e.touches || e.touches.length !== 1) return;
+          dragging = true;
+          dragMoved = false;
+          startX = e.touches[0].clientX;
+          startScrollLeft = rhTrack.scrollLeft;
+          rhTrack.classList.add('is-dragging');
+        },
+        { passive: true }
+      );
+
       document.addEventListener('mousemove', (e) => {
         if (!dragging) return;
         const dx = e.clientX - startX;
@@ -609,6 +703,20 @@
 
       document.addEventListener('mouseup', endDrag);
       rhTrack.addEventListener('mouseleave', endDrag);
+
+      rhTrack.addEventListener(
+        'touchmove',
+        (e) => {
+          if (!dragging || !e.touches || e.touches.length !== 1) return;
+          const dx = e.touches[0].clientX - startX;
+          if (Math.abs(dx) > 4) dragMoved = true;
+          rhTrack.scrollLeft = startScrollLeft - dx;
+        },
+        { passive: true }
+      );
+
+      rhTrack.addEventListener('touchend', endDrag, { passive: true });
+      rhTrack.addEventListener('touchcancel', endDrag, { passive: true });
 
       rhTrack.addEventListener(
         'click',

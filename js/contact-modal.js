@@ -49,6 +49,7 @@
     var menu = document.getElementById('mobile-menu');
     if (menu && menu.classList.contains('is-open')) {
       menu.classList.remove('is-open');
+      document.body.style.overflow = '';
     }
 
     resetFormUI();

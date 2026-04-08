@@ -29,7 +29,10 @@
       ? `
         <div class="header__left">
           <a href="${linkPrefix}index.html#hero" class="header__link" data-i18n="case.nav.home">Home</a>
-          <button type="button" class="header__link js-open-contact-modal" data-i18n="header.contact">Contact</button>
+          <a href="#" class="header__link contact-link js-open-contact-modal">
+            <img src="${assetPrefix}images/chat.svg" class="contact-icon--mobile" alt="Contact" width="20" height="20">
+            <span class="contact-text--desktop" data-i18n="header.contact">Contact</span>
+          </a>
         </div>
       `
       : `
@@ -37,7 +40,10 @@
           <a href="https://www.dropbox.com/scl/fi/iwiatoqi4rarxe228n505/M.Zlydar-UI-UX-Designer-EN.pdf?rlkey=4tyqsk23btvk38p8wg84jlqmk&amp;st=lor1nzvh&amp;dl=0" class="header__link" data-i18n="header.cv" data-i18n-href="links.cv" target="_blank" rel="noopener">CV</a>
           <a href="https://www.linkedin.com/in/maxzweb/" class="header__link" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://dribbble.com/max4web" class="header__link" target="_blank" rel="noopener">Dribbble</a>
-          <button type="button" class="header__link js-open-contact-modal" data-i18n="header.contact">Contact</button>
+          <a href="#" class="header__link contact-link js-open-contact-modal">
+            <img src="${assetPrefix}images/chat.svg" class="contact-icon--mobile" alt="Contact" width="20" height="20">
+            <span class="contact-text--desktop" data-i18n="header.contact">Contact</span>
+          </a>
         </div>
       `;
 
@@ -159,6 +165,7 @@
     const stars5 = star.repeat(5);
     const starHalf = `<svg class="rh-t-divider__star rh-t-divider__star--half" viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><defs><linearGradient id="rh-t-divider-48-half-grad" x1="0" y1="12" x2="24" y2="12" gradientUnits="userSpaceOnUse"><stop offset="50%" stop-color="var(--color-accent)"/><stop offset="50%" stop-color="var(--color-muted)"/></linearGradient></defs><path fill="url(#rh-t-divider-48-half-grad)" d="${starPath}"/></svg>`;
     const stars48 = star.repeat(4) + starHalf;
+    const chevronRightImg = `<img class="ui-arrow-chevron" src="${im('images/arrow-chevron-right.svg')}" width="24" height="24" alt="" aria-hidden="true">`;
 
     root.innerHTML = `
       <section class="rh-t" id="testimonials" aria-labelledby="rh-t-heading">
@@ -171,10 +178,10 @@
           </div>
           <div class="rh-t__arrows" role="group" data-i18n-aria-label="index.testimonials.arrowsGroupAria" aria-label="Testimonials carousel">
             <button type="button" class="rh-t__arrow rh-t__arrow--prev" id="rh-t-prev" data-i18n-aria-label="index.testimonials.prevAria" aria-label="Previous testimonial">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              ${chevronRightImg}
             </button>
             <button type="button" class="rh-t__arrow rh-t__arrow--next" id="rh-t-next" data-i18n-aria-label="index.testimonials.nextAria" aria-label="Next testimonial">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              ${chevronRightImg}
             </button>
           </div>
         </div>
@@ -187,7 +194,9 @@
               </div>
             </div>
             <article class="rh-t-card">
-              <img src="${im('images/logo1.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <div class="rh-t-card__logo-wrap">
+                <img src="${im('images/logo1.png')}" alt="" width="120" height="48" loading="lazy" />
+              </div>
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote1">Max redesigned our onboarding flow and sign-up conversion jumped from 18% to 31%. Communicative, sharp, and truly understood our vision. Highly recommend!</p>
@@ -201,7 +210,9 @@
               </footer>
             </article>
             <article class="rh-t-card">
-              <img src="${im('images/logo2.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <div class="rh-t-card__logo-wrap">
+                <img src="${im('images/logo2.png')}" alt="" width="120" height="48" loading="lazy" />
+              </div>
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote2">Working with Max was great. He revamped our landing page — bounce rate dropped by 24%. Clean designs, fast delivery, always open to feedback. Will hire again.</p>
@@ -220,7 +231,9 @@
               <p class="rh-t-divider__meta" data-i18n="index.testimonials.reviewsMeta5">58 reviews</p>
             </div>
             <article class="rh-t-card">
-              <img src="${im('images/logo3.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <div class="rh-t-card__logo-wrap">
+                <img src="${im('images/logo3.png')}" alt="" width="120" height="48" loading="lazy" />
+              </div>
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote3">Max brought our product to life with his designs. Very professional and detail-oriented, with a great sense for what users actually need. Exceeded our expectations.</p>
@@ -234,7 +247,9 @@
               </footer>
             </article>
             <article class="rh-t-card">
-              <img src="${im('images/logo4.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <div class="rh-t-card__logo-wrap">
+                <img src="${im('images/logo4.png')}" alt="" width="120" height="48" loading="lazy" />
+              </div>
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote4">Excellent mobile app design from Max. He nailed the brief — after release, our App Store rating went from 3.8 to 4.7. High quality, delivered on time.</p>
@@ -253,7 +268,9 @@
               <p class="rh-t-divider__meta" data-i18n="index.testimonials.reviewsMeta48">12 reviews</p>
             </div>
             <article class="rh-t-card">
-              <img src="${im('images/logo5.png')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <div class="rh-t-card__logo-wrap">
+                <img src="${im('images/logo5.png')}" alt="" width="120" height="48" loading="lazy" />
+              </div>
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote5">Working with Max is always a pleasure. Strong eye for detail, polished and modern style. Our checkout redesign cut drop-off by 19%. A designer you can trust.</p>
@@ -267,7 +284,9 @@
               </footer>
             </article>
             <article class="rh-t-card">
-              <img src="${im('images/feedback-logos/logo-feedback8.svg')}" alt="" class="rh-t-card__logo-img" width="120" height="48" loading="lazy" />
+              <div class="rh-t-card__logo-wrap">
+                <img src="${im('images/feedback-logos/logo-feedback8.svg')}" alt="" width="120" height="48" loading="lazy" />
+              </div>
               <div class="rh-t-card__quote-row">
                 <img src="${im('images/feedback-quote.svg')}" alt="" class="rh-t-card__quote-mark-img" width="20" height="20" loading="lazy" />
                 <p class="rh-t-card__quote" data-i18n="index.testimonials.quote6">Max is one of the best designers I've worked with on Upwork. Creative, fast, and professional — every screen felt intentional and well thought out.</p>
@@ -328,12 +347,39 @@
     document.body.appendChild(wrap);
   }
 
+  function renderScrollPill() {
+    if (document.getElementById('pill-scroll-top')) return;
+
+    const seg = 'Back to top · Product design · UI/UX · ';
+    const btn = document.createElement('button');
+    btn.id = 'pill-scroll-top';
+    btn.type = 'button';
+    btn.className = 'sd-scroll-pill';
+    btn.setAttribute('data-i18n-aria-label', 'scrollPill.ariaLabel');
+    btn.setAttribute('aria-label', '');
+    btn.innerHTML = `
+      <span class="sd-scroll-pill__row">
+        <span class="sd-scroll-pill__pill">
+          <span class="sd-scroll-pill__marquee" aria-hidden="true">
+            <span class="sd-scroll-pill__marquee-track">
+              <span data-i18n="scrollPill.marquee">${seg}</span>
+              <span data-i18n="scrollPill.marquee">${seg}</span>
+            </span>
+          </span>
+          <span class="sd-scroll-pill__accent" aria-hidden="true"></span>
+        </span>
+      </span>
+    `;
+    document.body.appendChild(btn);
+  }
+
   function renderAll() {
     renderHeader();
     renderFooter();
     renderMobileMenu();
     renderTestimonials();
     renderContactModal();
+    renderScrollPill();
   }
 
   window.siteComponents = {

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{if(localStorage.getItem('site-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+  <title>404 — Page Not Found | Max Zlydar</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="images/fav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .error-404 {
+      min-height: calc(100vh - var(--header-height) - var(--footer-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .error-404__inner {
+      width: 100%;
+      max-width: 680px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .error-404__code {
+      margin: 0;
+      font-size: clamp(120px, 18vw, 160px);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--color-primary);
+    }
+
+    .error-404__title {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.1;
+      font-weight: 600;
+      color: var(--color-text-primary, var(--color-primary));
+      min-height: 44px;
+    }
+
+    .error-404__desc {
+      margin: 0;
+      max-width: 520px;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-secondary);
+      min-height: 24px;
+    }
+
+    .error-404__cta {
+      margin-top: 8px;
+      min-width: 140px;
+    }
+
+    @media (max-width: 639px) {
+      .error-404 {
+        padding: 24px 12px;
+      }
+    }
+  </style>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/contact-modal.js" defer></script>
+</head>
+<body>
+  <header class="header" id="header"></header>
+
+  <main class="error-404">
+    <section class="error-404__inner" aria-labelledby="error404-title">
+      <p class="error-404__code" aria-hidden="true">404</p>
+      <h1 id="error404-title" class="error-404__title" data-i18n="404.title">Page not found</h1>
+      <p class="error-404__desc" data-i18n="404.description">Looks like this page doesn't exist or was moved.</p>
+      <a class="btn-dark error-404__cta" href="index.html" data-i18n="404.button">Go Home</a>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+  <div class="mobile-menu" id="mobile-menu"></div>
+</body>
+</html>
