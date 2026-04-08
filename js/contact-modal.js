@@ -25,6 +25,9 @@
     return fallbacks[key] || '';
   }
 
+  /** Scroll Y captured when opening modal; restored on close (handles menu → modal overflow handoff). */
+  var contactModalSavedScrollY = null;
+
   function resetFormUI() {
     var form = document.getElementById('contact-form');
     var feedback = document.getElementById('contact-form-feedback');
@@ -46,10 +49,13 @@
     var modal = getModal();
     if (!modal) return;
 
+    contactModalSavedScrollY = window.scrollY;
+
     var menu = document.getElementById('mobile-menu');
     if (menu && menu.classList.contains('is-open')) {
       menu.classList.remove('is-open');
       document.body.style.overflow = '';
+      window.scrollTo(0, contactModalSavedScrollY);
     }
 
     resetFormUI();
@@ -66,10 +72,20 @@
     var modal = getModal();
     if (!modal || !modal.classList.contains('is-open')) return;
 
+    var y = contactModalSavedScrollY;
+    contactModalSavedScrollY = null;
+
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('contact-modal-open');
+    document.body.style.overflow = '';
     resetFormUI();
+
+    if (y != null) {
+      window.requestAnimationFrame(function () {
+        window.scrollTo(0, y);
+      });
+    }
   }
 
   function onDocumentKeydown(e) {

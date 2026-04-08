@@ -46,6 +46,7 @@
   let currentLang = CONFIG.defaultLang;
   let translations = {};
   let lastScrollY = 0;
+  let themeAudioContext = null;
 
   // ===================================
   // Утилиты
@@ -483,17 +484,15 @@
     syncThemeAria();
   }
 
-  function playThemeSound(isDark) {
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-
+  function playThemeSound(switchingToDark) {
+    function scheduleOsc(ctx) {
       const osc = ctx.createOscillator();
       const gainNode = ctx.createGain();
 
       osc.connect(gainNode);
       gainNode.connect(ctx.destination);
 
-      if (isDark) {
+      if (switchingToDark) {
         // switching to dark — lower pitched click
         osc.frequency.setValueAtTime(800, ctx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08);
@@ -504,21 +503,46 @@
       }
 
       osc.type = 'sine';
-      gainNode.gain.setValueAtTime(0.15, ctx.currentTime);
+      gainNode.gain.setValueAtTime(0.4, ctx.currentTime);
       gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
 
       osc.start(ctx.currentTime);
       osc.stop(ctx.currentTime + 0.1);
+    }
+
+    try {
+      const Ctor = window.AudioContext || window.webkitAudioContext;
+      if (!Ctor) return;
+
+      if (!themeAudioContext || themeAudioContext.state === 'closed') {
+        themeAudioContext = new Ctor();
+      }
+
+      const ctx = themeAudioContext;
+      const run = () => {
+        try {
+          scheduleOsc(ctx);
+        } catch (e) {
+          // ignore scheduling errors
+        }
+      };
+
+      if (ctx.state === 'suspended' || ctx.state === 'interrupted') {
+        ctx.resume().then(run).catch(run);
+      } else {
+        run();
+      }
     } catch (e) {
       // silently fail if Web Audio not supported
     }
   }
 
   function toggleTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') !== 'dark';
-    playThemeSound(isDark);
-    setTheme(isDark ? 'dark' : 'light');
-    const newTheme = isDark ? 'dark' : 'light';
+    const isCurrentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const switchingToDark = !isCurrentlyDark;
+    playThemeSound(switchingToDark);
+    setTheme(switchingToDark ? 'dark' : 'light');
+    const newTheme = switchingToDark ? 'dark' : 'light';
     trackGtag('event', 'theme_switch', { event_category: ANALYTICS.categoryUI, event_label: newTheme });
   }
 
