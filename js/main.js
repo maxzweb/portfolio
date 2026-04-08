@@ -483,10 +483,42 @@
     syncThemeAria();
   }
 
+  function playThemeSound(isDark) {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+      const osc = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+
+      osc.connect(gainNode);
+      gainNode.connect(ctx.destination);
+
+      if (isDark) {
+        // switching to dark — lower pitched click
+        osc.frequency.setValueAtTime(800, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08);
+      } else {
+        // switching to light — higher pitched click
+        osc.frequency.setValueAtTime(400, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(900, ctx.currentTime + 0.08);
+      }
+
+      osc.type = 'sine';
+      gainNode.gain.setValueAtTime(0.15, ctx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.1);
+    } catch (e) {
+      // silently fail if Web Audio not supported
+    }
+  }
+
   function toggleTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const newTheme = isDark ? 'light' : 'dark';
-    setTheme(newTheme);
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'dark';
+    playThemeSound(isDark);
+    setTheme(isDark ? 'dark' : 'light');
+    const newTheme = isDark ? 'dark' : 'light';
     trackGtag('event', 'theme_switch', { event_category: ANALYTICS.categoryUI, event_label: newTheme });
   }
 
