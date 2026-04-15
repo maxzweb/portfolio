@@ -2619,10 +2619,13 @@ body.contact-modal-open {
   z-index: var(--z-layer-base);
   width: 100%;
   max-width: 560px;
+  max-height: min(92vh, calc(100vh - 32px));
+  max-height: min(92dvh, calc(100dvh - 32px));
   height: auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
-  overflow: visible;
+  overflow: hidden;
   background-color: var(--color-bg);
   border-radius: 8px;
   box-shadow: var(--shadow-modal-dialog);
@@ -2662,6 +2665,11 @@ body.contact-modal-open {
 }
 
 .contact-modal__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 48px;
 }
 
@@ -2803,6 +2811,8 @@ body.contact-modal-open {
   .contact-modal__dialog {
     width: calc(100% - 32px);
     max-width: none;
+    max-height: min(92vh, calc(100vh - 32px));
+    max-height: min(92dvh, calc(100dvh - 32px));
     border-radius: 12px;
     transform: translateY(15px);
   }
