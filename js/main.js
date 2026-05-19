@@ -87,7 +87,7 @@
     const ogImg = document.getElementById('seo-og-image');
     const twImg = document.getElementById('seo-twitter-image');
     const relPath =
-      (ogImg && ogImg.getAttribute('content')) || 'images/case1.png';
+      (ogImg && ogImg.getAttribute('content')) || 'images/og-image.png';
     let absImg;
     try {
       absImg = /^(https?:|data:)/i.test(relPath)
@@ -436,10 +436,17 @@
    */
   function openMobileMenu() {
     const menu = document.getElementById('mobile-menu');
+    const menuToggle = document.getElementById('menu-toggle');
     if (menu) {
       menu.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+    const menuClose = document.getElementById('menu-close');
+    if (menuClose) menuClose.focus();
   }
 
   /**
@@ -447,9 +454,15 @@
    */
   function closeMobileMenu() {
     const menu = document.getElementById('mobile-menu');
+    const menuToggle = document.getElementById('menu-toggle');
     if (menu) {
       menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+    }
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.focus();
     }
   }
 
@@ -485,6 +498,10 @@
   }
 
   function playThemeSound(switchingToDark) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     function scheduleOsc(ctx) {
       const osc = ctx.createOscillator();
       const gainNode = ctx.createGain();
@@ -637,6 +654,8 @@
     const menuLangToggle = document.getElementById('menu-lang-toggle');
 
     if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-controls', 'mobile-menu');
       menuToggle.addEventListener('click', openMobileMenu);
     }
 
@@ -665,24 +684,6 @@
     const menuLinks = document.querySelectorAll('.mobile-menu__link[href]');
     menuLinks.forEach(link => {
       link.addEventListener('click', closeMobileMenu);
-    });
-
-    // Кликабельные карточки кейсов
-    const clickableCards = document.querySelectorAll('.case-card--link');
-    clickableCards.forEach(card => {
-      card.addEventListener('click', (e) => {
-        // Не перехватываем клик по самой ссылке
-        if (e.target.closest('a')) return;
-
-        const titleEl = card.querySelector('.case-card__title');
-        const caseName = titleEl ? titleEl.textContent.trim() : ANALYTICS.labelFallbackCase;
-        trackGtag('event', 'case_click', { event_category: ANALYTICS.categoryPortfolio, event_label: caseName });
-
-        const link = card.querySelector('a');
-        if (link && link.href) {
-          window.location.href = link.href;
-        }
-      });
     });
 
     // Раскрытие блока результатов на страницах кейсов (Figma: «More details»)

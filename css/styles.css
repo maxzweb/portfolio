@@ -369,6 +369,22 @@ button {
   cursor: pointer;
 }
 
+.case-card__overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.case-card__overlay-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.case-card--link .btn-dark {
+  pointer-events: none;
+}
+
 .case-card--link:hover .btn-dark {
   transform: translateY(-1px);
   box-shadow:
@@ -422,8 +438,10 @@ button {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 3;
   width: 60px;
   height: 60px;
+  pointer-events: none;
 }
 
 /* ===================================

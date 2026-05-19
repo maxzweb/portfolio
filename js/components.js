@@ -76,7 +76,7 @@
             <img class="header__theme-icon header__theme-icon--light" src="${assetPrefix}images/light.svg" alt="" width="20" height="20">
           </button>
 
-          <button class="header__menu-btn" id="menu-toggle" type="button" data-i18n-aria-label="header.menu" aria-label="Menu">
+          <button class="header__menu-btn" id="menu-toggle" type="button" data-i18n-aria-label="header.menu" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
             <img src="${assetPrefix}images/Menu.svg" alt="" width="24" height="24">
           </button>
         </div>
@@ -116,6 +116,9 @@
   function renderMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     if (!menu) return;
+    menu.setAttribute('role', 'dialog');
+    menu.setAttribute('aria-modal', 'true');
+    menu.setAttribute('aria-hidden', 'true');
 
     const { isCasePage, assetPrefix } = getContext();
     const mailText = isCasePage ? 'Email' : 'Пошта';
@@ -124,8 +127,8 @@
     menu.innerHTML = `
       <div class="mobile-menu__content">
         <div class="mobile-menu__header">
-          <button class="mobile-menu__close" id="menu-close">
-            <img src="${assetPrefix}images/Close_LG.svg" alt="Закрыть" width="16" height="16">
+          <button type="button" class="mobile-menu__close" id="menu-close" data-i18n-aria-label="header.menuClose" aria-label="Close menu">
+            <img src="${assetPrefix}images/Close_LG.svg" alt="" width="16" height="16" aria-hidden="true">
           </button>
         </div>
 

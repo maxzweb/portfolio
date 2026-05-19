@@ -1,5 +1,5 @@
 /**
- * Contact modal: open/close, EmailJS submit
+ * Contact modal: open/close, focus trap, EmailJS submit
  */
 (function () {
   'use strict';
@@ -7,8 +7,63 @@
   var SERVICE_ID = 'service_omjf25c';
   var TEMPLATE_ID = 'template_un2hj0j';
 
+  var contactModalTrigger = null;
+  var contactModalSavedScrollY = null;
+  var trapFocusBound = false;
+
+  function bindTrapFocus() {
+    if (trapFocusBound) return;
+    document.addEventListener('keydown', trapFocus);
+    trapFocusBound = true;
+  }
+
+  function unbindTrapFocus() {
+    if (!trapFocusBound) return;
+    document.removeEventListener('keydown', trapFocus);
+    trapFocusBound = false;
+  }
+
   function getModal() {
     return document.getElementById('site-contact-modal');
+  }
+
+  function getDialog() {
+    var modal = getModal();
+    return modal ? modal.querySelector('.contact-modal__dialog') : null;
+  }
+
+  function getFocusableElements(container) {
+    if (!container) return [];
+    return Array.prototype.slice
+      .call(
+        container.querySelectorAll(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      )
+      .filter(function (el) {
+        return el.offsetParent !== null || el === document.activeElement;
+      });
+  }
+
+  function trapFocus(e) {
+    var dialog = getDialog();
+    if (!dialog) return;
+
+    var focusable = getFocusableElements(dialog);
+    if (!focusable.length) return;
+
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   }
 
   function t(key) {
@@ -24,9 +79,6 @@
     };
     return fallbacks[key] || '';
   }
-
-  /** Scroll Y captured when opening modal; restored on close (handles menu → modal overflow handoff). */
-  var contactModalSavedScrollY = null;
 
   function resetFormUI() {
     var form = document.getElementById('contact-form');
@@ -45,16 +97,21 @@
     }
   }
 
-  function openModal() {
+  function openModal(trigger) {
     var modal = getModal();
     if (!modal) return;
+    if (modal.classList.contains('is-open')) return;
 
+    contactModalTrigger = trigger || document.activeElement;
     contactModalSavedScrollY = window.scrollY;
 
     var menu = document.getElementById('mobile-menu');
     if (menu && menu.classList.contains('is-open')) {
       menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      var menuToggle = document.getElementById('menu-toggle');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
       window.scrollTo(0, contactModalSavedScrollY);
     }
 
@@ -66,20 +123,30 @@
 
     var closeBtn = modal.querySelector('.js-contact-modal-close');
     if (closeBtn) closeBtn.focus();
+
+    bindTrapFocus();
   }
 
   function closeModal() {
     var modal = getModal();
+    unbindTrapFocus();
+
     if (!modal || !modal.classList.contains('is-open')) return;
 
     var y = contactModalSavedScrollY;
+    var trigger = contactModalTrigger;
     contactModalSavedScrollY = null;
+    contactModalTrigger = null;
 
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('contact-modal-open');
     document.body.style.overflow = '';
     resetFormUI();
+
+    if (trigger && typeof trigger.focus === 'function') {
+      trigger.focus();
+    }
 
     if (y != null) {
       window.requestAnimationFrame(function () {
@@ -158,13 +225,16 @@
 
   function init() {
     document.addEventListener('click', function (e) {
-      if (e.target.closest('.js-open-contact-modal')) {
+      var openTrigger = e.target.closest('.js-open-contact-modal');
+      if (openTrigger) {
         e.preventDefault();
-        openModal();
+        openModal(openTrigger);
+        return;
       }
       if (e.target.closest('.js-contact-modal-close')) {
         e.preventDefault();
         closeModal();
+        return;
       }
       if (e.target.classList && e.target.classList.contains('js-contact-modal-backdrop')) {
         closeModal();

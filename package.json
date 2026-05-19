@@ -1,0 +1,9 @@
+{
+  "name": "max-zlydar-portfolio",
+  "private": true,
+  "scripts": {
+    "audit": "node scripts/audit-static.mjs",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "check": "npm run audit && npm run check:i18n"
+  }
+}
