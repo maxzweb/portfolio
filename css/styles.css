@@ -2793,22 +2793,25 @@ body.contact-modal-open {
   margin-top: 0;
   padding: 0 var(--space-16);
   font-family: var(--font-family);
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-base);
-  color: var(--color-on-accent);
-  background-color: var(--color-telegram);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.375px;
+  color: #ffffff;
+  background: #a6e304;
   border: none;
-  border-radius: var(--border-radius-button);
-  box-shadow: var(--shadow-telegram-rest);
+  border-radius: 9999px;
+  box-shadow: 0 8px 12px rgba(169, 232, 2, 0.14), inset 0 0 12px #ffffff;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background var(--transition-base);
 }
 
 .contact-modal__submit:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-telegram-hover);
+  background: #b5f900;
+}
+
+[data-theme="dark"] .contact-modal__submit:hover {
+  background: #c2f520;
 }
 
 @media (max-width: 768px) {

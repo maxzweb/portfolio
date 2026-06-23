@@ -39,6 +39,137 @@
     window.gtag.apply(window, arguments);
   }
 
+  /**
+   * Префикс к sound/*.ogg: на страницах в /cases/ нужен ../
+   */
+  function getSoundPrefix() {
+    return /\/cases\//.test(window.location.pathname) ? '../' : '';
+  }
+
+  const sounds = {
+    hover: new Audio(getSoundPrefix() + 'sound/hover.ogg'),
+    click: new Audio(getSoundPrefix() + 'sound/click.ogg'),
+    longClick: new Audio(getSoundPrefix() + 'sound/longclick.ogg'),
+    switchSound: new Audio(getSoundPrefix() + 'sound/switch.ogg'),
+    close: new Audio(getSoundPrefix() + 'sound/close.ogg'),
+    tick: new Audio(getSoundPrefix() + 'sound/tick.ogg'),
+    list: new Audio(getSoundPrefix() + 'sound/list.ogg'),
+    spiral: new Audio(getSoundPrefix() + 'sound/spiral.ogg'),
+    homeLink: new Audio(getSoundPrefix() + 'sound/homelink.ogg'),
+    aboutLink: new Audio(getSoundPrefix() + 'sound/aboutlink.ogg'),
+    smiley1: new Audio(getSoundPrefix() + 'sound/smiley1.ogg'),
+    smiley2: new Audio(getSoundPrefix() + 'sound/smiley2.ogg'),
+    smiley3: new Audio(getSoundPrefix() + 'sound/smiley3.ogg'),
+    smiley4: new Audio(getSoundPrefix() + 'sound/smiley4.ogg')
+  };
+
+  Object.values(sounds).forEach((s) => {
+    s.volume = 0.4;
+  });
+
+  function playSound(name) {
+    try {
+      const sound = sounds[name];
+      if (!sound) return;
+      sound.currentTime = 0;
+      sound.play();
+    } catch (e) {}
+  }
+
+  function playRandomSmiley() {
+    const n = Math.floor(Math.random() * 4) + 1;
+    playSound('smiley' + n);
+  }
+
+  function isPointerEntering(el, e) {
+    const from = e.relatedTarget;
+    return !from || !el.contains(from);
+  }
+
+  const SOUND_SELECTORS = {
+    tick: [
+      '.footer__link',
+      'a[href*="upwork.com"]',
+      'a[href*="linkedin.com"]',
+      'a[href*="dribbble.com"]',
+      '#theme-toggle',
+      '#menu-theme-toggle',
+      '#lang-toggle',
+      '#menu-lang-toggle'
+    ].join(', '),
+    hover: [
+      '.header__link:not(#theme-toggle):not(#lang-toggle):not([href*="upwork.com"])',
+      '.header__logo',
+      '.case-card',
+      '.rh-t-card',
+      '.mobile-menu__link:not(#menu-lang-toggle):not(#menu-theme-toggle):not([href*="upwork.com"]):not([href*="linkedin.com"]):not([href*="dribbble.com"])'
+    ].join(', '),
+    click: [
+      '.btn-dark',
+      '.sd-scroll-pill',
+      '#pill-scroll-top',
+      '.contact-modal__submit',
+      '#contact-form-submit',
+      '.rh-t__arrow',
+      '#rh-t-prev',
+      '#rh-t-next'
+    ].join(', ')
+  };
+
+  function initSounds() {
+    document.addEventListener(
+      'mouseover',
+      (e) => {
+        if (!e.target.closest) return;
+
+        const tickTarget = e.target.closest(SOUND_SELECTORS.tick);
+        if (tickTarget && isPointerEntering(tickTarget, e)) {
+          playSound('tick');
+          return;
+        }
+
+        const hoverTarget = e.target.closest(SOUND_SELECTORS.hover);
+        if (hoverTarget && isPointerEntering(hoverTarget, e)) {
+          playSound('hover');
+        }
+      },
+      true
+    );
+
+    document.addEventListener(
+      'click',
+      (e) => {
+        if (e.target.closest('.btn-telegram')) {
+          playSound('longClick');
+          return;
+        }
+
+        const headerContact = e.target.closest(
+          '.header__link.js-open-contact-modal, .header__link.contact-link'
+        );
+        if (headerContact) {
+          playSound('aboutLink');
+        } else if (e.target.closest('.js-open-contact-modal')) {
+          playSound('spiral');
+        }
+
+        const homeLink = e.target.closest('a.header__link[href*="index.html"]');
+        if (homeLink) {
+          playSound('homeLink');
+        }
+
+        if (e.target.closest('#theme-toggle, #menu-theme-toggle, #lang-toggle, #menu-lang-toggle')) {
+          return;
+        }
+
+        if (e.target.closest(SOUND_SELECTORS.click)) {
+          playSound('click');
+        }
+      },
+      true
+    );
+  }
+
   // ===================================
   // Состояние приложения
   // ===================================
@@ -46,7 +177,6 @@
   let currentLang = CONFIG.defaultLang;
   let translations = {};
   let lastScrollY = 0;
-  let themeAudioContext = null;
 
   // ===================================
   // Утилиты
@@ -313,6 +443,7 @@
    * Переключает язык между uk и en
    */
   async function toggleLanguage() {
+    playSound('switchSound');
     const newLang = currentLang === 'uk' ? 'en' : 'uk';
 
     if (!translations[newLang]) {
@@ -435,6 +566,7 @@
    * Открывает мобильное меню
    */
   function openMobileMenu() {
+    playSound('list');
     const menu = document.getElementById('mobile-menu');
     const menuToggle = document.getElementById('menu-toggle');
     if (menu) {
@@ -497,67 +629,10 @@
     syncThemeAria();
   }
 
-  function playThemeSound(switchingToDark) {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    function scheduleOsc(ctx) {
-      const osc = ctx.createOscillator();
-      const gainNode = ctx.createGain();
-
-      osc.connect(gainNode);
-      gainNode.connect(ctx.destination);
-
-      if (switchingToDark) {
-        // switching to dark — lower pitched click
-        osc.frequency.setValueAtTime(800, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.08);
-      } else {
-        // switching to light — higher pitched click
-        osc.frequency.setValueAtTime(400, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(900, ctx.currentTime + 0.08);
-      }
-
-      osc.type = 'sine';
-      gainNode.gain.setValueAtTime(0.4, ctx.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
-
-      osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.1);
-    }
-
-    try {
-      const Ctor = window.AudioContext || window.webkitAudioContext;
-      if (!Ctor) return;
-
-      if (!themeAudioContext || themeAudioContext.state === 'closed') {
-        themeAudioContext = new Ctor();
-      }
-
-      const ctx = themeAudioContext;
-      const run = () => {
-        try {
-          scheduleOsc(ctx);
-        } catch (e) {
-          // ignore scheduling errors
-        }
-      };
-
-      if (ctx.state === 'suspended' || ctx.state === 'interrupted') {
-        ctx.resume().then(run).catch(run);
-      } else {
-        run();
-      }
-    } catch (e) {
-      // silently fail if Web Audio not supported
-    }
-  }
-
   function toggleTheme() {
     const isCurrentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const switchingToDark = !isCurrentlyDark;
-    playThemeSound(switchingToDark);
+    playSound('switchSound');
     setTheme(switchingToDark ? 'dark' : 'light');
     const newTheme = switchingToDark ? 'dark' : 'light';
     trackGtag('event', 'theme_switch', { event_category: ANALYTICS.categoryUI, event_label: newTheme });
@@ -633,6 +708,7 @@
     initScrollHeaderAndTopButton();
 
     initAnalytics();
+    initSounds();
 
     updateAbsoluteUrlMeta();
 
@@ -799,6 +875,8 @@
   window.siteApp = {
     toggleLanguage,
     toggleTheme,
+    playSound,
+    playRandomSmiley,
     getCurrentLang: () => currentLang,
     t: function (key) {
       const v = getNestedValue(translations[currentLang], key);

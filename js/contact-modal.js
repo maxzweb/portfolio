@@ -142,6 +142,9 @@
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('contact-modal-open');
     document.body.style.overflow = '';
+    if (window.siteApp && typeof window.siteApp.playSound === 'function') {
+      window.siteApp.playSound('close');
+    }
     resetFormUI();
 
     if (trigger && typeof trigger.focus === 'function') {
@@ -205,6 +208,9 @@
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = t('contact.submit');
+          }
+          if (window.siteApp && typeof window.siteApp.playRandomSmiley === 'function') {
+            window.siteApp.playRandomSmiley();
           }
           window.setTimeout(function () {
             closeModal();
