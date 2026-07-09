@@ -1242,8 +1242,9 @@ button.footer__link {
 }
 
 .case-card__image--centered {
-  max-width: 604px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
 }
 
 .case-card__image--rounded {

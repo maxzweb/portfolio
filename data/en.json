@@ -46,20 +46,20 @@
     },
     "cases": {
       "case1": {
-        "title": "Case 1",
-        "desc": "How we converted 95M+ users of a top‑2 Telegram mini‑app <br class=\"br-tablet\">(Blum) into active traders."
+        "title": "Luxbox",
+        "desc": "Designed end-to-end UX for an iGaming rewards platform that grew to 1M+ users — referral systems, promo creatives, user rankings, and prize delivery flows."
       },
       "case2": {
-        "title": "Case 2",
-        "desc": "How a tiny UI detail reduced support <br class=\"br-tablet\">requests from 75% down to 15%."
+        "title": "Omni Optimise",
+        "desc": "Redesigned complex B2B flows, dashboards, and admin interfaces for a retail shelf planning platform — improving visual clarity, reducing UX issues in development, and cutting support requests from 75% to 15%."
       },
       "case3": {
-        "title": "Case 3",
-        "desc": "We reworked the levels and made them clearer to boost conversion to paid subscriptions."
+        "title": "ShopBack",
+        "desc": "Led UX/UI for transactional flows, payment management, and activity history — reducing task completion time by 15–20% and improving user satisfaction (NPS) while cutting UX complaints."
       },
       "case4": {
-        "title": "Case 4",
-        "desc": "We helped business solve their tasks with ready research scenarios at each step."
+        "title": "Luni",
+        "desc": "Designed mobile interfaces for the beauty and wellness industry — video editing, photo enhancements, fitness tracking, and mental health features, shipped on iOS."
       }
     },
     "widgets": {
@@ -88,14 +88,14 @@
   },
   "case1": {
     "seo": {
-      "title": "Blum Trading Hub — Product design case study | Max Zlydar",
+      "title": "Luxbox — Product design case study | Max Zlydar",
       "description": "Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI.",
-      "keywords": "Blum, trading terminal, product design, UX, UI, Telegram, TON, fintech, case study, Max Zlydar",
-      "ogTitle": "Blum Trading Hub — Product design case study | Max Zlydar"
+      "keywords": "Luxbox, iGaming, rewards platform, product design, UX, UI, referral, case study, Max Zlydar",
+      "ogTitle": "Luxbox — Product design case study | Max Zlydar"
     },
     "intro": {
       "tagCases": "Cases",
-      "tagProject": "Blum.io",
+      "tagProject": "Luxbox",
       "year": "2025",
       "title": "Blum trading hub is a young startup within Blum.io, specializing in developing Telegram bots for memecoin trading."
     },
@@ -176,14 +176,14 @@
   },
   "case2": {
     "seo": {
-      "title": "Task status icon — Support load case study | Max Zlydar",
+      "title": "Omni Optimise — Product design case study | Max Zlydar",
       "description": "How a small task-status icon and clearer UX cut support engineers’ workload on Blum from roughly 70% down to about 15%—a focused product design case study.",
-      "keywords": "Blum, support UX, icon design, product design, SaaS, operations, case study, Max Zlydar",
-      "ogTitle": "Task status icon — Support load case study | Max Zlydar"
+      "keywords": "Omni Optimise, retail planogram, B2B, product design, UX, SaaS, case study, Max Zlydar",
+      "ogTitle": "Omni Optimise — Product design case study | Max Zlydar"
     },
     "intro": {
       "tagCases": "Cases",
-      "tagProject": "Blum.io",
+      "tagProject": "Omni Optimise",
       "year": "2025",
       "title": "How a small icon in task statuses reduced support engineer<br>workload from 70% → 15%."
     },
@@ -239,13 +239,13 @@
   },
   "case3": {
     "seo": {
-      "title": "Levels & subscriptions UX — Case study | Max Zlydar",
+      "title": "ShopBack — Product design case study | Max Zlydar",
       "description": "Reworking levels and subscription UX for clearer progression and stronger conversion to paid plans—research-led product design case study by Max Zlydar.",
-      "keywords": "subscriptions, levels, conversion, UX, product design, growth, case study, Max Zlydar",
-      "ogTitle": "Levels & subscriptions UX — Case study | Max Zlydar"
+      "keywords": "ShopBack, BNPL, fintech, payments, UX, product design, case study, Max Zlydar",
+      "ogTitle": "ShopBack — Product design case study | Max Zlydar"
     },
     "intro": {
-      "tagProject": "Blum.io",
+      "tagProject": "ShopBack",
       "tagCasesYear": "Cases 2025",
       "tagTopic": "Gamification",
       "title": "Blum levels redesign that improved subscription conversion."
@@ -280,10 +280,10 @@
   },
   "case4": {
     "seo": {
-      "title": "Research templates — B2B product design case study | Max Zlydar",
+      "title": "Luni — Product design case study | Max Zlydar",
       "description": "Reusable B2B research templates for user discovery at every journey stage—UX patterns, clearer workflows, and faster handoffs. Case study by Max Zlydar.",
-      "keywords": "user research, templates, B2B, product design, UX, discovery, case study, Max Zlydar",
-      "ogTitle": "Research templates — B2B product design case study | Max Zlydar"
+      "keywords": "Luni, iOS, mobile app, beauty, wellness, product design, UX, case study, Max Zlydar",
+      "ogTitle": "Luni — Product design case study | Max Zlydar"
     },
     "intro": {
       "tagClient": "Yandex Vzglyad",
