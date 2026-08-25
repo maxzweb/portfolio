@@ -34,6 +34,7 @@ function checkLinks(html, baseDir, file) {
 
 for (const f of [
   'index.html',
+  '404.html',
   'cases/case1.html',
   'cases/case2.html',
   'cases/case3.html',

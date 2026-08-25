@@ -93,7 +93,7 @@
     footer.innerHTML = `
       <div class="footer__content">
         <span class="footer__copy">Max Zlydar © 2026</span>
-        <span class="footer__version" data-i18n="footer.version">Version 2.04q</span>
+        <span class="footer__version" data-i18n="footer.version">Version 1.01b</span>
       </div>
       ${
         isCasePage

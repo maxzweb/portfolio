@@ -12,63 +12,20 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    .error-404 {
-      min-height: calc(100vh - var(--header-height) - var(--footer-height));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
 
-    .error-404__inner {
-      width: 100%;
-      max-width: 680px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("HG-rKxKs9i_JjEaw6");</script>
 
-    .error-404__code {
-      margin: 0;
-      font-size: clamp(120px, 18vw, 160px);
-      font-weight: 300;
-      line-height: 0.9;
-      letter-spacing: -0.04em;
-      color: var(--color-primary);
-    }
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6FXL5E13Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y6FXL5E13Z');
+  </script>
 
-    .error-404__title {
-      margin: 0;
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.1;
-      font-weight: 600;
-      color: var(--color-text-primary, var(--color-primary));
-      min-height: 44px;
-    }
-
-    .error-404__desc {
-      margin: 0;
-      max-width: 520px;
-      font-size: 16px;
-      line-height: 24px;
-      color: var(--color-secondary);
-      min-height: 24px;
-    }
-
-    .error-404__cta {
-      margin-top: 8px;
-      min-width: 140px;
-    }
-
-    @media (max-width: 639px) {
-      .error-404 {
-        padding: 24px 12px;
-      }
-    }
-  </style>
   <script src="js/components.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/contact-modal.js" defer></script>

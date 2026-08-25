@@ -132,14 +132,11 @@
 .rh-t__arrow,
 .btn-dark,
 .case-cover__image,
-.case-block__image,
 .case-fig-media,
 .case-cover__image-wrap--fig,
 .case-results__toggle--fig,
 .case-results,
 .case-results--fig,
-.case-results--simple,
-.case-cover__image-wrapper--centered,
 .case-results__toggle-icon,
 .case-insight {
   transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
@@ -200,16 +197,6 @@ button {
    Утилиты
    =================================== */
 
-/* Контейнер с максимальной шириной */
-.container {
-  width: 100%;
-  max-width: var(--max-content-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 /* Скрытие элементов */
 .visually-hidden {
   position: absolute;
@@ -221,11 +208,6 @@ button {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-/* Перенос строки только на 640px+ */
-.br-tablet {
-  display: none;
 }
 
 /* ===================================
@@ -362,6 +344,11 @@ button {
   padding: var(--space-20);
   overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: var(--max-content-width);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 /* Кликабельная карточка — весь блок ведёт на страницу кейса */
@@ -452,32 +439,10 @@ button {
 
 /* Tablet: 640px+ */
 @media (min-width: 640px) {
-  .br-tablet {
-    display: inline;
-  }
-
   .coming-soon {
     width: 80px;
     height: 80px;
   }
-
-  .container {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-/* Desktop: 1080px+ */
-@media (min-width: 1080px) {
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-/* Wide: 1440px+ */
-@media (min-width: 1440px) {
-  /* Контент остаётся max-width: 1040px, добавляются поля по бокам */
 }
 
 /* ===================================
@@ -1192,14 +1157,6 @@ button.footer__link {
   padding: 0 20px 100px;
 }
 
-.case-card {
-  width: 100%;
-  max-width: var(--max-content-width);
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
 .case-card__header {
   display: flex;
   justify-content: space-between;
@@ -1241,12 +1198,6 @@ button.footer__link {
   border-radius: 0;
 }
 
-.case-card__image--centered {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-}
-
 .case-card__image--rounded {
   border-radius: var(--border-radius-small);
 }
@@ -1282,15 +1233,6 @@ button.footer__link {
   width: 180px;
   height: auto;
   border-radius: var(--border-radius-small);
-}
-
-/* Mini case card (Yandex Vzglyad) */
-.case-card--mini {
-  gap: 40px;
-}
-
-.case-card--mini .case-card__image--rounded {
-  border-radius: 8px;
 }
 
 /* Cases: Mobile */
@@ -1337,10 +1279,6 @@ button.footer__link {
 
   .widget-card__gif {
     width: 150px;
-  }
-
-  .case-card--mini {
-    gap: 30px;
   }
 }
 
@@ -1556,11 +1494,6 @@ button.footer__link {
   color: var(--color-secondary);
 }
 
-.case-cover__accent {
-  font-weight: var(--font-weight-bold, 700);
-  color: var(--color-accent);
-}
-
 .case-cover__image {
   width: 100%;
   max-width: 100%;
@@ -1602,26 +1535,6 @@ button.footer__link {
   color: var(--color-secondary);
 }
 
-.case-block__highlight {
-  color: var(--color-text-primary);
-}
-
-.case-block__bolt {
-  display: inline-block;
-  margin: 0 4px;
-}
-
-.case-block__image {
-  width: 100%;
-  border-radius: var(--border-radius);
-  background-color: var(--color-bg-card);
-}
-
-.case-block__image--no-bg {
-  background-color: transparent;
-  border-radius: 0;
-}
-
 /* Case: Intersection (quote) */
 .case-intersection {
   padding-bottom: 100px;
@@ -1657,13 +1570,6 @@ button.footer__link {
   font-weight: var(--font-weight-regular);
   line-height: 36px;
   color: var(--color-text-primary);
-}
-
-.case-insight__desc {
-  font-size: 24px;
-  font-weight: var(--font-weight-regular);
-  line-height: 36px;
-  color: var(--color-secondary);
 }
 
 .case-insight__list {
@@ -1757,16 +1663,6 @@ button.footer__link {
   padding-bottom: 20px;
 }
 
-.case-results__text {
-  font-size: var(--text-base);
-  line-height: var(--line-height-base);
-  color: var(--color-secondary);
-}
-
-.case-results__accent {
-  color: var(--color-accent);
-}
-
 .case-results__toggle {
   display: flex;
   align-items: center;
@@ -1797,50 +1693,6 @@ button.footer__link {
   height: 24px;
 }
 
-/* Case Tasks: дополнительные стили */
-.case-intro__accent {
-  color: var(--color-accent);
-}
-
-.case-block__desc--large {
-  font-size: 24px;
-  line-height: 36px;
-}
-
-.case-cover__image-wrapper--centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-bg-card);
-  border-radius: 20px;
-  padding: var(--space-20);
-  overflow: hidden;
-}
-
-.case-cover__image--auto {
-  width: auto;
-  max-width: 604px;
-  height: auto;
-  background-color: transparent;
-  border-radius: 0;
-}
-
-.case-results--simple {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  border: 3px dashed var(--color-border);
-  padding: 40px;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-
-.case-results__text--large {
-  font-size: 24px;
-  line-height: 36px;
-  color: var(--color-muted);
-}
-
 /* Case Page: Tablet (640px) */
 @media (max-width: 1079px) {
   .case-intro__title {
@@ -1868,8 +1720,7 @@ button.footer__link {
     line-height: 44px;
   }
 
-  .case-insight__title,
-  .case-insight__desc {
+  .case-insight__title {
     font-size: 24px;
     line-height: 36px;
   }
@@ -1887,16 +1738,6 @@ button.footer__link {
   .case-results__title {
     font-size: 24px;
     line-height: 36px;
-  }
-
-  .case-block__desc--large {
-    font-size: 20px;
-    line-height: 32px;
-  }
-
-  .case-results__text--large {
-    font-size: 20px;
-    line-height: 32px;
   }
 }
 
@@ -1968,10 +1809,6 @@ button.footer__link {
     line-height: var(--line-height-tight);
   }
 
-  .case-block__image {
-    border-radius: var(--border-radius-small);
-  }
-
   .case-intersection {
     padding-bottom: 60px;
   }
@@ -1989,11 +1826,6 @@ button.footer__link {
   .case-insight__title {
     font-size: 18px;
     line-height: 28px;
-  }
-
-  .case-insight__desc {
-    font-size: var(--text-small);
-    line-height: var(--line-height-tight);
   }
 
   .case-insight__item {
@@ -2025,36 +1857,6 @@ button.footer__link {
     font-size: var(--text-small);
     line-height: var(--line-height-tight);
   }
-
-  .case-results__text {
-    font-size: var(--text-small);
-    line-height: var(--line-height-tight);
-  }
-
-  .case-block__desc--large {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  .case-results--simple {
-    gap: var(--space-20);
-    padding: var(--space-20);
-    border-radius: var(--border-radius-small);
-  }
-
-  .case-results__text--large {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  .case-cover__image-wrapper--centered {
-    padding: 12px;
-    border-radius: var(--border-radius-small);
-  }
-
-.case-cover__image--auto {
-  max-width: 100%;
-}
 }
 
 /* === CASE1 PAGE STYLES === */
@@ -2387,10 +2189,6 @@ button.footer__link {
   min-height: 120px;
 }
 
-.case-page--fig .case-insight__desc {
-  min-height: 120px;
-}
-
 .case-page--fig .case-insight__item {
   min-height: 52px;
 }
@@ -2409,14 +2207,6 @@ button.footer__link {
 
 .case-page--fig .case-results__numbers--fig .case-results__label {
   min-height: 220px;
-}
-
-.case-page--fig .case-results__text {
-  min-height: 96px;
-}
-
-.case-page--fig .case-results__text--large {
-  min-height: 120px;
 }
 
 .case-page--fig .case-results__toggle {
@@ -2798,21 +2588,21 @@ body.contact-modal-open {
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.375px;
-  color: #ffffff;
-  background: #a6e304;
+  color: var(--color-on-accent);
+  background: var(--color-primary);
   border: none;
   border-radius: 9999px;
-  box-shadow: 0 8px 12px rgba(169, 232, 2, 0.14), inset 0 0 12px #ffffff;
+  box-shadow: var(--shadow-telegram-rest);
   cursor: pointer;
   transition: background var(--transition-base);
 }
 
 .contact-modal__submit:hover {
-  background: #b5f900;
+  background: var(--color-primary-hover);
 }
 
 [data-theme="dark"] .contact-modal__submit:hover {
-  background: #c2f520;
+  background: var(--telegram-cta-dark-hover);
 }
 
 @media (max-width: 768px) {
@@ -3212,8 +3002,7 @@ body.contact-modal-open {
   pointer-events: none;
 }
 
-:root[data-theme="dark"] .rh-t-card__quote-mark-img,
-[data-theme="dark"] .rh-t-card__quote-icon {
+:root[data-theme="dark"] .rh-t-card__quote-mark-img {
   filter: brightness(0) invert(1);
 }
 
@@ -3376,5 +3165,65 @@ body.contact-modal-open {
 
   .rh-t-card__quote-row {
     gap: 14px;
+  }
+}
+
+/* ===================================
+   404 Page
+   =================================== */
+
+.error-404 {
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.error-404__inner {
+  width: 100%;
+  max-width: 680px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.error-404__code {
+  margin: 0;
+  font-size: clamp(120px, 18vw, 160px);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--color-primary);
+}
+
+.error-404__title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  min-height: 44px;
+}
+
+.error-404__desc {
+  margin: 0;
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-secondary);
+  min-height: 24px;
+}
+
+.error-404__cta {
+  margin-top: 8px;
+  min-width: 140px;
+}
+
+@media (max-width: 639px) {
+  .error-404 {
+    padding: 24px 12px;
   }
 }

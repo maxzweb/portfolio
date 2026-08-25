@@ -34,12 +34,19 @@ const files = walk(root).filter(
 );
 
 const re = /data-i18n(?:-(?:placeholder|value|aria-label|content|href))?="([^"]+)"/g;
+const jsKeyRe = /['"]((?:header|contact|scrollPill|case|index|404|footer|links)\.[a-zA-Z0-9_.]+)['"]/g;
 const keys = new Set();
 for (const file of files) {
   if (file.includes('/scripts/')) continue;
   const s = fs.readFileSync(file, 'utf8');
   let m;
   while ((m = re.exec(s)) !== null) keys.add(m[1]);
+  if (file.endsWith('.js')) {
+    while ((m = jsKeyRe.exec(s)) !== null) {
+      const key = m[1];
+      if (!/\.html$/i.test(key)) keys.add(key);
+    }
+  }
 }
 
 const en = JSON.parse(fs.readFileSync(path.join(root, 'data/en.json'), 'utf8'));

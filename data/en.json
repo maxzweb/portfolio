@@ -1,8 +1,6 @@
 {
   "header": {
     "cv": "CV",
-    "blog": "Blog",
-    "tg": "TG channel",
     "mail": "Email",
     "contact": "Contact",
     "lang": "EN",
@@ -21,8 +19,7 @@
   },
   "case": {
     "nav": {
-      "home": "Home",
-      "cases": "Cases"
+      "home": "Home"
     }
   },
   "links": {
@@ -312,7 +309,6 @@
     "button": "Go Home"
   },
   "contact": {
-    "pageTitle": "Contact — Max Zlydar",
     "closeModal": "Close contact form",
     "heading": "Let's start a project together",
     "nameLabel": "Name",
@@ -322,7 +318,6 @@
     "emailPlaceholder": "you@example.com",
     "messagePlaceholder": "Tell me about your project, timeline, and goals.",
     "submit": "Send message",
-    "emailSubject": "Portfolio contact form",
     "sending": "Sending...",
     "successMessage": "Message sent! I'll get back to you soon.",
     "errorMessage": "Something went wrong. Please try again."
