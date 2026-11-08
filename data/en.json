@@ -1,8 +1,6 @@
 {
   "header": {
     "cv": "CV",
-    "blog": "Blog",
-    "tg": "TG channel",
     "mail": "Email",
     "contact": "Contact",
     "lang": "EN",
@@ -21,8 +19,7 @@
   },
   "case": {
     "nav": {
-      "home": "Home",
-      "cases": "Cases"
+      "home": "Home"
     }
   },
   "links": {
@@ -46,20 +43,20 @@
     },
     "cases": {
       "case1": {
-        "title": "Case 1",
-        "desc": "How we converted 95M+ users of a top‑2 Telegram mini‑app <br class=\"br-tablet\">(Blum) into active traders."
+        "title": "Space Planning",
+        "desc": "Led product design for a grocery retail shelf planning platform — from scattered MVP to an AI-powered management tool accessible to non-technical staff."
       },
       "case2": {
-        "title": "Case 2",
-        "desc": "How a tiny UI detail reduced support <br class=\"br-tablet\">requests from 75% down to 15%."
+        "title": "Omni Optimise",
+        "desc": "Redesigned complex B2B flows, dashboards, and admin interfaces for a retail shelf planning platform — improving visual clarity, reducing UX issues in development, and cutting support requests from 75% to 15%."
       },
       "case3": {
-        "title": "Case 3",
-        "desc": "We reworked the levels and made them clearer to boost conversion to paid subscriptions."
+        "title": "ShopBack",
+        "desc": "Led UX/UI for transactional flows, payment management, and activity history — reducing task completion time by 15–20% and improving user satisfaction (NPS) while cutting UX complaints."
       },
       "case4": {
-        "title": "Case 4",
-        "desc": "We helped business solve their tasks with ready research scenarios at each step."
+        "title": "Luni",
+        "desc": "Designed mobile interfaces for the beauty and wellness industry — video editing, photo enhancements, fitness tracking, and mental health features, shipped on iOS."
       }
     },
     "widgets": {
@@ -88,102 +85,102 @@
   },
   "case1": {
     "seo": {
-      "title": "Blum Trading Hub — Product design case study | Max Zlydar",
-      "description": "Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI.",
-      "keywords": "Blum, trading terminal, product design, UX, UI, Telegram, TON, fintech, case study, Max Zlydar",
-      "ogTitle": "Blum Trading Hub — Product design case study | Max Zlydar"
+      "title": "Space Planning — Product design case study | Max Zlydar",
+      "description": "Led product design for a grocery retail shelf planning platform — from scattered MVP to an AI-powered management tool accessible to non-technical staff.",
+      "keywords": "Space Planning, grocery retail, shelf planning, planogram, product design, UX, UI, AI analytics, case study, Max Zlydar",
+      "ogTitle": "Space Planning — Product design case study | Max Zlydar"
     },
     "intro": {
       "tagCases": "Cases",
-      "tagProject": "Blum.io",
-      "year": "2025",
-      "title": "Blum trading hub is a young startup within Blum.io, specializing in developing Telegram bots for memecoin trading."
+      "tagProject": "Space Planning",
+      "year": "2024",
+      "title": "Space Planning is a shelf layout management platform for grocery retail — helping store staff plan and manage product placement with data-driven precision."
     },
     "team": {
       "cLevelTitle": "C-level",
-      "cLevelDesc": "4 co-founders",
+      "cLevelDesc": "3 co-founders",
       "devTitle": "Developers",
-      "devDesc": "2 engineers",
-      "designTitle": "Design",
-      "designDesc": "1 designer"
+      "devDesc": "4 engineers",
+      "designTitle": "Team",
+      "designDesc": "Founders + product team"
     },
     "role": {
       "label": "My role",
-      "value": "Lead Product Designer"
+      "value": "Product Designer"
     },
     "cover": {
       "challengeTitle": "Challenge",
-      "challengeText": "Create a multichain trading terminal to replace the old Telegram bot for the Blum ecosystem with 90M users.",
+      "challengeText": "Design a shelf planning management tool for grocery retail — from scattered MVP screens to a scalable, data-driven platform accessible to staff with no design or technical background.",
       "resultsTitle": "Results",
-      "resultsLine1": "2M activated traders",
-      "resultsLine2": "300K DAU"
+      "resultsLine1": "↓ Data analysis time",
+      "resultsLine2": "Zero onboarding barrier"
     },
     "problem": {
       "title": "Problem",
-      "body": "The Telegram interface scared off potential customers. It was successful among a small circle of traders, but scaling such a product was difficult."
+      "body": "Merchandise placement was managed by untrained staff. The interface didn't guide them — it assumed knowledge they didn't have."
     },
     "competitors": {
-      "title": "Nobody really knew the right way to do it.",
-      "body": "The field is young, less than a year old. Competitors were navigating this path for the first time, without looking back, borrowing a lot from traditional trading."
+      "title": "Nobody had a clear standard for shelf planning software.",
+      "body": "The product arrived as an MVP assembled without a designer — no component system, no documented logic, no clear interaction patterns. I joined to make it scalable and ship it."
     },
     "intersection": {
-      "body": "Copying competitors' solutions was risky: Dynamic market, raw products, everything changed every month!"
+      "body": "Copying existing shelf planning tools was risky: the market was fragmented, existing tools were built for planners with years of experience — not for store staff who had never opened a similar app."
     },
     "mvp": {
-      "body": "Based on the Telegram bot interface, the team assembled an MVP design in a month. No components, no styles, no auto-layouts. And no designer."
+      "body": "Based on the existing MVP, the team had assembled screens for the core flows. No components, no styles, no auto-layouts. And no designer."
     },
     "designSystem": {
-      "body": "The task for designers sounded like this: Apply the design system from the main service, draw edge cases and hand off to development."
+      "body": "The stated task: apply a design system, fill edge cases, hand off to development. The real task turned out to be more fundamental than that."
     },
     "insight": {
-      "label": "Interesting insight",
-      "headline": "In trading, the exchange makes money on commissions.",
-      "detail": "Up to 80% of profit comes from a dozen major traders who trade directly via API. Other players often make asset purchase decisions based on emotions. Two things matter here:",
-      "item1": "Emotions need to be triggered (indicators and casino-style)",
-      "item2": "Ability to buy instantly while emotions are still hot",
-      "speedLine": "Speed is helped by ⚡ Quickbuy. One-click buy and sell."
+      "label": "Key insight",
+      "headline": "Users don't read instructions — they try things.",
+      "detail": "The target audience — grocery store office staff — had minimal experience with digital tools. No analytical background. Instructions placed next to a button don't get read.",
+      "item1": "The interface teaches through the action itself, not beside it",
+      "item2": "Every new flow starts with \"what to do next\", not \"what this is\"",
+      "speedLine": "So the onboarding wasn't a separate tutorial screen. It was built into the first-run flow as a sequential checklist: register → set up your store → add your first department → place your first product. Each step gated the next."
     },
     "tokenCompetitor": {
-      "body": "And the \"I'll get lucky now\" feeling is activated by a frightening amount of pseudo-indicators on the token page. Also, competitors aren't afraid to go small: many components are 12px tall."
+      "body": "Alongside onboarding, the AI analytics module removed the biggest manual burden: hours spent cross-referencing what's in stock, what's selling, and what needs repositioning. The platform now surfaces that automatically."
     },
     "tokenOurs": {
-      "body": "In adapting our design system, we tried to find a compromise between analysis and emotions, between scale and informativeness. Important stuff first, the rest later."
+      "body": "Every screen was designed around the staff member in the store — not a specialist planner at a desk. That meant stripping complexity and surfacing only what mattered for the task at hand."
     },
     "final": {
       "title": "Final result",
-      "body": "Key indicators and a purchase widget fit on the main screen, allowing one-click buy and sell from the token screen."
+      "body": "The main screen shows current stock levels, product trends, and placement recommendations — all surfaced by the AI module without any manual analysis. Staff act on insight, not on gut feeling."
     },
     "buyModal": {
-      "body": "In one iteration, you could expand the widget and configure the transaction in more detail right in the modal window without loading new components, but due to technical limitations, we made the purchase in a separate window."
+      "body": "In one iteration, category managers could expand a department view and edit the planogram inline. Due to technical constraints at the time, full editing moved to a dedicated screen — but the inline preview stayed."
     },
     "wallet": {
-      "body": "Wallet manager — a space for working with dozens of wallets across dozens of blockchains. There's no convenient way to work with hundreds of coins — but they can be converted and withdrawn as SOL/TON or stablecoins."
+      "body": "The AI layer connects inventory data, sales trends, and shelf positions. When a new product arrives or an item underperforms, the system flags it and suggests an action — no spreadsheet required."
     },
     "waitlist": {
-      "body": "Before launching the service, we created a waitlist and actively funneled all traffic here using the Telegram bot and social networks."
+      "body": "Before the full rollout, a closed beta was run with real store staff. Each round of feedback sharpened the logic — interactions that seemed obvious in Figma turned out to need rethinking in real hands."
     },
     "results": {
       "title": "Results",
-      "stat1Value": "1.5m+",
-      "stat1Label": "Users attracted to the waitlist<br>before launch",
-      "stat2Value": "2m+",
-      "stat2Label": "Traders activated at launch who<br>made at least 1 transaction",
-      "stat3Value": "300K DAU",
-      "stat3Label": "Maintained for 6 months on the<br>new platform → UI showed<br>adoption",
-      "details": "Blum Trading Hub became the largest multichain trading platform in the world by number of activated traders and the largest application in the TON ecosystem by revenue.",
+      "stat1Value": "↓ hours → seconds",
+      "stat1Label": "Data analysis time<br>cut by the AI module",
+      "stat2Value": "Zero barrier",
+      "stat2Label": "Non-technical staff<br>onboarded without support",
+      "stat3Value": "Scalable",
+      "stat3Label": "New departments and SKUs<br>added in seconds by any staff member",
+      "details": "Space Planning became an operational tool for real retail staff — not a specialist app. The combination of AI analytics, structured onboarding, and iterative beta testing produced a product accessible to anyone, not just power users.",
       "moreDetails": "More details"
     }
   },
   "case2": {
     "seo": {
-      "title": "Task status icon — Support load case study | Max Zlydar",
-      "description": "How a small task-status icon and clearer UX cut support engineers’ workload on Blum from roughly 70% down to about 15%—a focused product design case study.",
-      "keywords": "Blum, support UX, icon design, product design, SaaS, operations, case study, Max Zlydar",
-      "ogTitle": "Task status icon — Support load case study | Max Zlydar"
+      "title": "Omni Optimise — Product design case study | Max Zlydar",
+      "description": "How a small task-status icon and clearer UX cut support engineers’ workload on Case 2 from roughly 70% down to about 15%—a focused product design case study.",
+      "keywords": "Omni Optimise, retail planogram, B2B, product design, UX, SaaS, case study, Max Zlydar",
+      "ogTitle": "Omni Optimise — Product design case study | Max Zlydar"
     },
     "intro": {
       "tagCases": "Cases",
-      "tagProject": "Blum.io",
+      "tagProject": "Omni Optimise",
       "year": "2025",
       "title": "How a small icon in task statuses reduced support engineer<br>workload from 70% → 15%."
     },
@@ -239,16 +236,16 @@
   },
   "case3": {
     "seo": {
-      "title": "Levels & subscriptions UX — Case study | Max Zlydar",
+      "title": "ShopBack — Product design case study | Max Zlydar",
       "description": "Reworking levels and subscription UX for clearer progression and stronger conversion to paid plans—research-led product design case study by Max Zlydar.",
-      "keywords": "subscriptions, levels, conversion, UX, product design, growth, case study, Max Zlydar",
-      "ogTitle": "Levels & subscriptions UX — Case study | Max Zlydar"
+      "keywords": "ShopBack, BNPL, fintech, payments, UX, product design, case study, Max Zlydar",
+      "ogTitle": "ShopBack — Product design case study | Max Zlydar"
     },
     "intro": {
-      "tagProject": "Blum.io",
+      "tagProject": "ShopBack",
       "tagCasesYear": "Cases 2025",
       "tagTopic": "Gamification",
-      "title": "Blum levels redesign that improved subscription conversion."
+      "title": "ShopBack levels redesign that improved subscription conversion."
     },
     "team": {
       "productTitle": "Product",
@@ -280,16 +277,16 @@
   },
   "case4": {
     "seo": {
-      "title": "Research templates — B2B product design case study | Max Zlydar",
+      "title": "Luni — Product design case study | Max Zlydar",
       "description": "Reusable B2B research templates for user discovery at every journey stage—UX patterns, clearer workflows, and faster handoffs. Case study by Max Zlydar.",
-      "keywords": "user research, templates, B2B, product design, UX, discovery, case study, Max Zlydar",
-      "ogTitle": "Research templates — B2B product design case study | Max Zlydar"
+      "keywords": "Luni, iOS, mobile app, beauty, wellness, product design, UX, case study, Max Zlydar",
+      "ogTitle": "Luni — Product design case study | Max Zlydar"
     },
     "intro": {
-      "tagClient": "Yandex Vzglyad",
+      "tagClient": "Luni",
       "tagResearch": "Research",
       "tagSegment": "B2B",
-      "title": "Research template design for Yandex Vzglyad"
+      "title": "Research template design for Luni"
     },
     "cover": {
       "contextTitle": "Context",
@@ -312,7 +309,6 @@
     "button": "Go Home"
   },
   "contact": {
-    "pageTitle": "Contact — Max Zlydar",
     "closeModal": "Close contact form",
     "heading": "Let's start a project together",
     "nameLabel": "Name",
@@ -322,7 +318,6 @@
     "emailPlaceholder": "you@example.com",
     "messagePlaceholder": "Tell me about your project, timeline, and goals.",
     "submit": "Send message",
-    "emailSubject": "Portfolio contact form",
     "sending": "Sending...",
     "successMessage": "Message sent! I'll get back to you soon.",
     "errorMessage": "Something went wrong. Please try again."
