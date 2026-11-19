@@ -46,8 +46,8 @@
     },
     "cases": {
       "case1": {
-        "title": "Case 1",
-        "desc": "How we converted 95M+ users of a top‑2 Telegram mini‑app <br class=\"br-tablet\">(Blum) into active traders."
+        "title": "LuxBox",
+        "desc": "Mystery-box platform with luxury prizes: how transparent odds <br class=\"br-tablet\">turned suspicion into first purchases."
       },
       "case2": {
         "title": "Case 2",
@@ -88,90 +88,165 @@
   },
   "case1": {
     "seo": {
-      "title": "Blum Trading Hub — Product design case study | Max Zlydar",
-      "description": "Lead product design for a multichain trading terminal in the Blum ecosystem—from Telegram MVP to 2M+ activated traders and 300K DAU on a new platform UI.",
-      "keywords": "Blum, trading terminal, product design, UX, UI, Telegram, TON, fintech, case study, Max Zlydar",
-      "ogTitle": "Blum Trading Hub — Product design case study | Max Zlydar"
+      "title": "LuxBox — Product design case study | Max Zlydar",
+      "description": "End-to-end product design of LuxBox, a mystery-box platform with real luxury prizes: research, trust-first UX, retention mechanics and a design system.",
+      "keywords": "LuxBox, mystery box, iGaming, e-commerce, product design, UX research, UI, design system, case study, Max Zlydar",
+      "ogTitle": "LuxBox — Product design case study | Max Zlydar"
     },
     "intro": {
       "tagCases": "Cases",
-      "tagProject": "Blum.io",
+      "tagProject": "LuxBox",
+      "tagIndustry": "iGaming · E-commerce",
       "year": "2025",
-      "title": "Blum trading hub is a young startup within Blum.io, specializing in developing Telegram bots for memecoin trading."
+      "title": "LuxBox is a mystery-box platform where people win real luxury items — watches, gold, sneakers. I designed it end-to-end around the one problem the whole category has: trust."
     },
     "team": {
-      "cLevelTitle": "C-level",
-      "cLevelDesc": "4 co-founders",
+      "founderTitle": "Founder",
       "devTitle": "Developers",
-      "devDesc": "2 engineers",
-      "designTitle": "Design",
-      "designDesc": "1 designer"
+      "marketingTitle": "Marketing",
+      "designTitle": "Design"
     },
     "role": {
       "label": "My role",
-      "value": "Lead Product Designer"
+      "value": "Lead Product Designer — research, UX, UI, design system, brand"
     },
     "cover": {
       "challengeTitle": "Challenge",
-      "challengeText": "Create a multichain trading terminal to replace the old Telegram bot for the Blum ecosystem with 90M users.",
+      "challengeText": "Launch a mystery-box platform that feels as exciting as a casino but as trustworthy as a store — for casual players and resellers alike, on web and mobile.",
       "resultsTitle": "Results",
-      "resultsLine1": "2M activated traders",
-      "resultsLine2": "300K DAU"
+      "resultsLine1": "+12% visit → first box opened",
+      "resultsLine2": "−25% odds-related support tickets"
+    },
+    "context": {
+      "title": "The product earns on every box opened",
+      "body": "The margin is built into each box's prize pool, so the growth model is simple: turn a visitor into someone who opens their first box, then give them a reason to open the next one. Every design decision was measured against two numbers — <span class=\"lx-hl\">first-open conversion</span> and <span class=\"lx-hl\">boxes per user</span>."
     },
     "problem": {
       "title": "Problem",
-      "body": "The Telegram interface scared off potential customers. It was successful among a small circle of traders, but scaling such a product was difficult."
+      "body": "Mystery boxes have a reputation: hidden odds, rigged drops, prizes that never arrive. Users come in curious and leave suspicious. If the interface doesn't prove fairness on every screen, nobody risks their first €10."
     },
-    "competitors": {
-      "title": "Nobody really knew the right way to do it.",
-      "body": "The field is young, less than a year old. Competitors were navigating this path for the first time, without looking back, borrowing a lot from traditional trading."
+    "research": {
+      "label": "What users told us",
+      "source": "Survey of 120 target users + 12 in-depth interviews"
     },
-    "intersection": {
-      "body": "Copying competitors' solutions was risky: Dynamic market, raw products, everything changed every month!"
-    },
-    "mvp": {
-      "body": "Based on the Telegram bot interface, the team assembled an MVP design in a month. No components, no styles, no auto-layouts. And no designer."
-    },
-    "designSystem": {
-      "body": "The task for designers sounded like this: Apply the design system from the main service, draw edge cases and hand off to development."
+    "method": {
+      "title": "The problem wasn't excitement. It was proof.",
+      "body": "I started with a briefing and secondary research of 6 competing platforms, then moved to interviews and a survey. Competitors had plenty of hype — confetti, sounds, flashing prizes. What none of them had was a convincing answer to «can I trust this?». That became the design brief."
     },
     "insight": {
-      "label": "Interesting insight",
-      "headline": "In trading, the exchange makes money on commissions.",
-      "detail": "Up to 80% of profit comes from a dozen major traders who trade directly via API. Other players often make asset purchase decisions based on emotions. Two things matter here:",
-      "item1": "Emotions need to be triggered (indicators and casino-style)",
-      "item2": "Ability to buy instantly while emotions are still hot",
-      "speedLine": "Speed is helped by ⚡ Quickbuy. One-click buy and sell."
+      "label": "Key insight",
+      "headline": "Half the audience plays for the thrill. The other half plays for ROI.",
+      "speedLine": "One interface had to give Alexa emotion and Jordan evidence — at the same time."
     },
-    "tokenCompetitor": {
-      "body": "And the \"I'll get lucky now\" feeling is activated by a frightening amount of pseudo-indicators on the token page. Also, competitors aren't afraid to go small: many components are 12px tall."
+    "prioritization": {
+      "title": "Not every feature deserves a sprint",
+      "body": "With a team of five, I ran a Kano analysis of the candidate features and mapped them on value vs. effort. Box classes turned out to be a basic need — without them nothing else matters. Odds display and live drops were delighters. Sound on opening was a reverse feature: it irritates active users, so it became optional."
     },
-    "tokenOurs": {
-      "body": "In adapting our design system, we tried to find a compromise between analysis and emotions, between scale and informativeness. Important stuff first, the rest later."
+    "kano": {
+      "colFeature": "Feature",
+      "colCategory": "Category",
+      "colWhy": "Why it matters",
+      "basic": "Basic need",
+      "performance": "Performance",
+      "delighter": "Delighter",
+      "reverse": "Reverse",
+      "indifferent": "Indifferent",
+      "r1Feature": "Box classes by value",
+      "r1Why": "Sets clear expectations and fair conditions for everyone",
+      "r2Feature": "Filtering &amp; sorting",
+      "r2Why": "The faster and more precise, the more satisfied users are",
+      "r3Feature": "Odds display",
+      "r3Why": "Turns fine print into a reason to trust the product",
+      "r4Feature": "Live drop feed",
+      "r4Why": "Social proof that real people win real prizes",
+      "r5Feature": "Sound on opening",
+      "r5Why": "Irritates active users — made optional",
+      "r6Feature": "Branded watermark",
+      "r6Why": "No impact on efficiency or experience — deprioritized",
+      "chartTitle": "Kano model: how each type of feature affects user satisfaction",
+      "chartAttractive": "ATTRACTIVE",
+      "chartPerformance": "PERFORMANCE NEEDS",
+      "chartFunctionality": "FUNCTIONALITY",
+      "chartIndifferent": "INDIFFERENT",
+      "chartBasic": "BASIC NEEDS"
     },
-    "final": {
-      "title": "Final result",
-      "body": "Key indicators and a purchase widget fit on the main screen, allowing one-click buy and sell from the token screen."
+    "solution": {
+      "label": "Solution",
+      "title": "Three decisions that built trust"
     },
-    "buyModal": {
-      "body": "In one iteration, you could expand the widget and configure the transaction in more detail right in the modal window without loading new components, but due to technical limitations, we made the purchase in a separate window."
+    "odds": {
+      "label": "01 · Clear odds",
+      "title": "Odds you can read in two seconds",
+      "body": "Every box shows its full prize list with drop rates, plus a «Provably fair» link right next to the Open button. Odds stopped being fine print and became part of the product: the higher the price, the better the chance — and users can see it."
     },
-    "wallet": {
-      "body": "Wallet manager — a space for working with dozens of wallets across dozens of blockchains. There's no convenient way to work with hundreds of coins — but they can be converted and withdrawn as SOL/TON or stablecoins."
+    "live": {
+      "label": "02 · Live drops",
+      "title": "Social proof beats any «100% fair» badge",
+      "body": "A live feed of real openings runs across the top of the home page. Seeing that someone just won a Rolex does more for trust than any promise in the footer — and it pulls new visitors straight into the featured boxes."
     },
-    "waitlist": {
-      "body": "Before launching the service, we created a waitlist and actively funneled all traffic here using the Telegram bot and social networks."
+    "classes": {
+      "label": "03 · Simplified UI",
+      "title": "Value you understand without reading",
+      "body": "Boxes are split into 10 color-coded classes, from €2 to €40,000. Color tells you the price tier before you read a single number: Alexa scans, Jordan filters."
+    },
+    "architecture": {
+      "title": "One navigation for novices and pros",
+      "body": "Six top-level sections and a shallow two-level hierarchy. A new user reaches their first box in 2 taps; a power user gets to battles and the wallet without digging through menus."
+    },
+    "retention": {
+      "label": "Retention",
+      "title": "The first box is acquisition. The second one is the business.",
+      "body": "Trust brings users in; mechanics bring them back. I designed three loops, each tied to a need from the interviews:",
+      "item1": "<b>Battles</b> — users open the same boxes head-to-head, the winner takes everything. Pure emotion for Alexa.",
+      "item2": "<b>Leaderboard</b> — monthly prizes for the top players keep the competitive core active.",
+      "item3": "<b>Ranks</b> — seven levels from Starter to Diamond that grow with activity. Recognition and status — exactly what Jordan asked for."
+    },
+    "gamification": {
+      "label": "Gamification",
+      "title": "Progress you can see is progress you want to continue",
+      "body": "To grow engagement, we added a gamification layer: ranks and a monthly leaderboard. For a product designer this isn't decoration — it's a way to turn single visits into a habit:",
+      "item1": "<b>Visible progress.</b> People are more motivated the closer they see themselves to the next level (goal-gradient effect). A rank bar gives every opening a meaning beyond the prize itself.",
+      "item2": "<b>Status and comparison.</b> A leaderboard and rank badges let users see where they stand among others — a strong driver for a competitive, collector-type audience.",
+      "item3": "<b>A reason to come back.</b> Monthly resets and new ranks create regular return triggers, which directly supports retention and the number of boxes per user."
+    },
+    "mobile": {
+      "title": "Mobile is where most boxes are opened",
+      "body": "Most of the audience plays from a phone, so mobile got its own layout rather than a squeezed desktop: a box can be opened one-handed and the result lands in the thumb zone."
+    },
+    "compliance": {
+      "label": "Compliance",
+      "title": "Regulation is part of the interface",
+      "body": "Gambling products work under different laws in every country, so in some cases the interface had to adapt to legal requirements. Instead of a generic error, a user from a restricted region gets a clear, on-brand screen: what happened, that we're working on it, and how to stay in touch — a dead end turned into a future comeback."
+    },
+    "system": {
+      "title": "A brand that stands out in a flashy market",
+      "body": "Competitors shout with neon and casino gold. LuxBox speaks calmly: monospace type, a 12-column grid, soft gradient noise and a strict palette — it looks like a premium store, not a slot machine. ~60 components cut design-to-dev handoff time roughly in half."
+    },
+    "marketing": {
+      "title": "Design didn't stop at the product",
+      "body": "Together with our marketer I built a template system for launch campaigns and social media, so the brand stayed consistent from the first ad to the box opening screen."
+    },
+    "testing": {
+      "label": "Usability testing",
+      "title": "Two rounds with 8 users before launch",
+      "body": "Key task: «Find the chance to win the top prize in this box». After round one I moved the odds next to the Open button and added sorting by drop rate.",
+      "beforeValue": "5 / 8",
+      "beforeLabel": "users completed the task, round 1",
+      "afterValue": "7 / 8",
+      "afterLabel": "users completed the task, round 2"
     },
     "results": {
       "title": "Results",
-      "stat1Value": "1.5m+",
-      "stat1Label": "Users attracted to the waitlist<br>before launch",
-      "stat2Value": "2m+",
-      "stat2Label": "Traders activated at launch who<br>made at least 1 transaction",
-      "stat3Value": "300K DAU",
-      "stat3Label": "Maintained for 6 months on the<br>new platform → UI showed<br>adoption",
-      "details": "Blum Trading Hub became the largest multichain trading platform in the world by number of activated traders and the largest application in the TON ecosystem by revenue.",
-      "moreDetails": "More details"
+      "stat1Value": "+12%",
+      "stat1Label": "Visit → first box opened",
+      "stat2Value": "−25%",
+      "stat2Label": "Odds-related support tickets",
+      "stat3Value": "3.1 → 3.5",
+      "stat3Label": "Boxes opened per user per month",
+      "details": "LuxBox launched on web and mobile with a single design system and a trust-first UX. Transparent odds and live drops removed the category's biggest objection, while battles and ranks gave users a reason to come back."
+    },
+    "next": {
+      "label": "Next case"
     }
   },
   "case2": {

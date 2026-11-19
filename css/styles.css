@@ -3377,3 +3377,422 @@ body.contact-modal-open {
     gap: 14px;
   }
 }
+
+/* ===================================
+   CASE1 — LuxBox: data breaks, graphic breaks, Kano, pillars
+   =================================== */
+
+.lx-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  padding-bottom: 100px;
+}
+
+.lx-text {
+  max-width: 760px;
+}
+
+.lx-hl {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.lx-eyebrow {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.lx-caption {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-muted);
+}
+
+
+
+
+
+
+
+/* Text + media side by side */
+.lx-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.lx-split__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.lx-split__media {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+/* Graphic break between long text parts */
+.lx-break {
+  margin: 0 0 100px;
+}
+
+.lx-break img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+
+/* Kano table */
+.lx-kano {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg-card);
+  padding: 8px 28px;
+}
+
+.lx-kano__row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 2fr;
+  gap: var(--space-20);
+  align-items: center;
+  padding: 16px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+.lx-kano__row + .lx-kano__row {
+  border-top: 1px solid var(--color-border);
+}
+
+.lx-kano__row > span:last-child {
+  color: var(--color-secondary);
+}
+
+.lx-kano__row--head {
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-secondary);
+}
+
+.lx-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--border-radius-button);
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  background-color: rgba(124, 124, 124, 0.14);
+  color: var(--color-secondary);
+}
+
+.lx-tag--basic { background-color: var(--color-text-primary); color: var(--color-bg); }
+.lx-tag--performance { background-color: rgba(52, 172, 225, 0.16); color: #1f7fae; }
+.lx-tag--delighter { background-color: rgba(166, 227, 4, 0.22); color: #4f6d00; }
+.lx-tag--reverse { background-color: rgba(255, 68, 42, 0.14); color: #c4321c; }
+
+[data-theme="dark"] .lx-tag--performance { color: #7fcdf0; }
+[data-theme="dark"] .lx-tag--delighter { color: var(--color-primary); }
+[data-theme="dark"] .lx-tag--reverse { color: #ff8a78; }
+
+
+
+
+
+
+
+/* Bulleted list inside case text */
+.lx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 4px 0 0;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-secondary);
+}
+
+.lx-list b {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* Before → after comparison */
+.lx-compare {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 28px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg-card);
+}
+
+.lx-compare__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lx-compare__value {
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-accent);
+}
+
+.lx-compare__value--muted {
+  color: var(--color-muted);
+  font-weight: var(--font-weight-regular);
+}
+
+.lx-compare__label {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-secondary);
+}
+
+.lx-compare__arrow {
+  font-size: 32px;
+  color: var(--color-muted);
+}
+
+/* Team: four groups */
+.lx-team .case-team__group {
+  min-width: 0;
+}
+
+/* Next case */
+.lx-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-20);
+  margin-top: 40px;
+  padding: 28px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg-card);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color var(--transition-base);
+}
+
+.lx-next:hover {
+  background-color: color-mix(in srgb, var(--color-bg-card) 85%, var(--color-text-primary) 15%);
+}
+
+.lx-next:hover .btn-dark {
+  transform: translateY(-1px);
+}
+
+.lx-next__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lx-next__title {
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+.lx-next__title br {
+  display: none;
+}
+
+@media (max-width: 1079px) {
+  .lx-team {
+    flex-wrap: wrap;
+  }
+
+  .lx-team .case-team__group {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 767px) {
+
+
+  .lx-split {
+    grid-template-columns: 1fr;
+  }
+
+  .lx-kano {
+    padding: 4px 20px;
+  }
+
+  .lx-kano__row {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+  }
+
+  .lx-kano__row > span:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .lx-kano__row--head > span:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .lx-section,
+  .lx-break {
+    padding-bottom: 60px;
+  }
+
+  .lx-break {
+    margin-bottom: 60px;
+    padding-bottom: 0;
+  }
+
+
+  .lx-kano__row {
+    font-size: 14px;
+  }
+
+  .lx-compare {
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .lx-next {
+    padding: 20px;
+  }
+
+  .lx-next__title {
+    font-size: 18px;
+  }
+
+  .lx-list {
+    font-size: 14px;
+  }
+}
+
+/* LuxBox case: drop the language-switch min-heights — they create large empty gaps in a long narrative page */
+.case-page--fig.case-page--case1 :is(
+  .case-intro__title,
+  .case-team__count,
+  .case-role__value,
+  .case-cover__heading,
+  .case-cover__text,
+  .case-cover__metrics,
+  .case-block__title,
+  .case-fig-body,
+  .case-insight__title,
+  .case-insight__title--fig,
+  .case-insight-speed,
+  .case-results__label,
+  .case-results__value--fig,
+  .case-results__details-inner .case-fig-body
+) {
+  min-height: 0;
+}
+
+.case-page--fig.case-page--case1 .case-results__numbers--fig .case-results__label {
+  min-height: 0;
+}
+
+.case-page--case1 .case-block__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+}
+
+.case-page--case1 .case-block__title {
+  margin: 0;
+}
+
+.case-page--case1 .lx-section > .case-fig-body {
+  max-width: 760px;
+}
+
+
+@media (max-width: 639px) {
+  .case-team--fig.lx-team {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px 20px;
+  }
+}
+
+/* LuxBox: Kano chart drawn in SVG (matches the Behance board colors) */
+.lx-chart {
+  margin: 0;
+  border-radius: var(--border-radius);
+  background-color: #eef3f6;
+  overflow: hidden;
+}
+
+.lx-chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lx-chart__grain { fill: rgba(80, 100, 115, 0.10); }
+.lx-chart__axis { stroke: #8f999f; stroke-width: 1.2; }
+.lx-chart__axis--dotted { stroke-dasharray: 2 5; }
+.lx-chart__axis-head { stroke: #8f999f; stroke-width: 1.4; }
+
+.lx-chart__label {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  fill: #5c666c;
+}
+
+[data-theme="dark"] .lx-chart { background-color: #1b1f22; }
+[data-theme="dark"] .lx-chart__grain { fill: rgba(255, 255, 255, 0.06); }
+[data-theme="dark"] .lx-chart__axis,
+[data-theme="dark"] .lx-chart__axis-head { stroke: #6c767c; }
+[data-theme="dark"] .lx-chart__label { fill: #a9b3b9; }
+
+/* LuxBox: image with its own white background fills the card edge to edge */
+.lx-media-white {
+  background-color: #ffffff;
+}
+
+/* LuxBox: single screen shown large on a card */
+.lx-showcase {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg-card);
+}
+
+.lx-showcase img {
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.lx-results-text {
+  max-width: 760px;
+}
+
+@media (max-width: 639px) {
+  .lx-chart__label { font-size: 22px; }
+  .lx-showcase { padding: 24px 16px; }
+}
