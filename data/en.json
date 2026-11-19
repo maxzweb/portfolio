@@ -50,8 +50,8 @@
         "desc": "Mystery-box platform with luxury prizes: how transparent odds <br class=\"br-tablet\">turned suspicion into first purchases."
       },
       "case2": {
-        "title": "Case 2",
-        "desc": "How a tiny UI detail reduced support <br class=\"br-tablet\">requests from 75% down to 15%."
+        "title": "Space Planning",
+        "desc": "B2B SaaS for grocery retail: how a guided shelf editor <br class=\"br-tablet\">turned untrained staff into planners."
       },
       "case3": {
         "title": "Case 3",
@@ -251,16 +251,17 @@
   },
   "case2": {
     "seo": {
-      "title": "Task status icon — Support load case study | Max Zlydar",
-      "description": "How a small task-status icon and clearer UX cut support engineers’ workload on Blum from roughly 70% down to about 15%—a focused product design case study.",
-      "keywords": "Blum, support UX, icon design, product design, SaaS, operations, case study, Max Zlydar",
-      "ogTitle": "Task status icon — Support load case study | Max Zlydar"
+      "title": "Space Planning — Product design case study | Max Zlydar",
+      "description": "Product design of Space Planning, a B2B SaaS for grocery retail: a guided planogram editor, in-place validation and financial reports for staff without planning experience.",
+      "keywords": "Space Planning, planogram, retail, B2B SaaS, product design, UX research, dashboard, design system, case study, Max Zlydar",
+      "ogTitle": "Space Planning — Product design case study | Max Zlydar"
     },
     "intro": {
       "tagCases": "Cases",
-      "tagProject": "Blum.io",
-      "year": "2025",
-      "title": "How a small icon in task statuses reduced support engineer<br>workload from 70% → 15%."
+      "tagProject": "OmniOptimise",
+      "tagIndustry": "B2B SaaS · Retail",
+      "year": "2024–2025",
+      "title": "Space Planning is a B2B SaaS for grocery retail that turns shelf layout from guesswork into data. I designed the platform end-to-end so office staff with no planning background can build planograms that actually sell."
     },
     "team": {
       "designTitle": "Design",
@@ -276,40 +277,222 @@
     },
     "cover": {
       "challengeTitle": "Challenge",
-      "challengeText": "Reduce support workload by making task completion statuses clearer.",
+      "challengeText": "Turn a scattered MVP into a planogram platform that untrained store staff can use from day one — and connect every shelf decision to sales, stock and supply data.",
       "resultsTitle": "Results",
-      "resultsText": "Share of tickets related to task completion verification dropped from 75 → 15% among all support requests."
+      "resultsLine1": "+5–10% revenue in target categories",
+      "resultsLine2": "−5% inventory, days on hand"
+    },
+    "quote": {
+      "label": "Voice of the client",
+      "text": "«The planogram is supposed to be implemented on the shelf. But it doesn't work. It provides too few facings for the fast-moving store brand article, but too many facings for products that do not perform. Some products are in the planogram even though they are not profitable for the store and are marked down again and again.»",
+      "name": "Thomas J.",
+      "role": "CTO, OmniOptimise"
+    },
+    "context": {
+      "title": "A shelf is the most expensive square meter in a store",
+      "body": "Every planogram decides which products get space and how much. Too few facings for fast movers means empty shelves and lost sales; too many for slow movers means stock that gets marked down again and again. The platform had one job — make every shelf meter earn — so I measured design decisions against <span class=\"lx-hl\">sales per shelf meter</span> and <span class=\"lx-hl\">inventory on hand</span>."
+    },
+    "market": {
+      "label": "The market problem",
+      "f1Value": "8–10%",
+      "f1Label": "of sales are lost to out-of-stocks in traditional retail",
+      "f1Source": "Source: Hydrian",
+      "f2Value": "15–20%",
+      "f2Label": "of shelf space goes unused with traditional planning",
+      "f2Source": "Source: ToolsGroup",
+      "f3Value": "100",
+      "f3Label": "months of delay between sales strategy and in-store execution",
+      "f3Source": "Source: Gruen & Corsten",
+      "body": "This gap between strategy and the real shelf is exactly where the product earns money — and where the interface has to be fast and foolproof enough for people who are not planners."
     },
     "problem": {
       "title": "Problem",
-      "body": "Completed tasks took a long time to validate and the spinner users saw after completion could spin for up to 24 hours. Users worried they wouldn't get their reward and went to complain to support."
+      "body": "Merchandise placement was handled by office staff with no planning or analytics experience. Existing tools assumed expertise they didn't have, so layouts were built on gut feeling:",
+      "item1": "<b>Inefficient space</b> — overloaded zones and shelves limit product accessibility.",
+      "item2": "<b>Disorganized categories</b> — frequently bought items are spread out, slowing down shopping.",
+      "item3": "<b>Poor placement</b> — high-margin and popular items end up in weak positions.",
+      "item4": "<b>No room for change</b> — new arrivals and edits break the layout every time."
     },
-    "intersection": {
-      "body": "But we couldn't touch the backend — any small change turned into a multi-week cohort rollout (90M users is no joke)"
+    "process": {
+      "label": "Process",
+      "title": "Two years: from the first interview to a mature product",
+      "body": "I didn't hand over mockups and leave. For two years I owned the product experience: designed the MVP, adapted it to real client stores after launch, shipped new features and kept simplifying what already existed — every step backed by usability tests, analytics and client feedback.",
+      "chartTitle": "Product roadmap 2024–2025: discovery, MVP design, testing, launch, new features, optimization and ongoing support",
+      "s1": "Discovery: interviews, user analysis, hypotheses",
+      "s2": "MVP design: user flow, prototypes, design system",
+      "s3": "Usability testing & fixes",
+      "s4": "Launch & adaptation to client stores",
+      "s5": "New features: financial reports, version compare, Quick Tips, shelf parameters",
+      "s6": "Optimization of existing functionality",
+      "s7": "Product support & design system maintenance",
+      "q1": "Q1",
+      "q2": "Q2",
+      "q3": "Q3",
+      "q4": "Q4",
+      "k1Value": "2 years",
+      "k1Label": "of continuous product work, not a one-off handoff",
+      "k2Value": "35+",
+      "k2Label": "screens and flows designed and maintained",
+      "k3Value": "Every release",
+      "k3Label": "validated with usability tests and client feedback"
     },
-    "context": {
-      "body": "The task was small, but no one took it on due to massive workload across all tracks + all designers were on vacation. Had to move fast. To save time, I started by cutting the unnecessary."
+    "insight": {
+      "label": "Key insight",
+      "headline": "Users don't read instructions — they try things.",
+      "speedLine": "So the interface had to guide and check the user by itself, instead of relying on training."
     },
-    "solutions": {
-      "title": "Solution options",
-      "body": "Created about 7 solutions from design system patterns. Selected the most adequate: Banner appearing over tasks; popover on hover over changed icon; top notification and modal."
+    "flow": {
+      "title": "Mapping the work before drawing screens",
+      "body": "35+ screens started as one user flow: access requests, categories, planograms, exports, reports and logs. Mapping it first let the team agree on scope and dependencies before a single pixel was drawn — and later made every new feature land in the right place."
+    },
+    "solution": {
+      "label": "Solution",
+      "title": "Move the expertise into the interface",
+      "body": "Instead of teaching staff to become planners, I built three things into the product: a visual editor, validation in place of training, and guidance at the moment of action."
+    },
+    "impact": {
+      "why": "Why",
+      "effect": "Effect"
+    },
+    "editor": {
+      "label": "01 · Visual editor",
+      "title": "See the shelf, not a spreadsheet",
+      "body": "Planograms are edited on a visual shelf: drag products, change facings, open any item to set its size, value and tags. Staff work with what they see in the store, not with product codes.",
+      "why": "Staff think in shelves and products, not in tables and codes. A visual editor removes the translation step where most mistakes happen.",
+      "effect": "First store-level planograms in <b>under 2 weeks instead of 20+</b> for a Fortune 500 grocer."
+    },
+    "validation": {
+      "label": "02 · Validation",
+      "title": "Mistakes are caught on the screen, not in the store",
+      "body": "Every change is checked against the real shelf. Overflowing sections and height mismatches are highlighted in place with a plain-language hint, so errors that used to surface after installation are fixed before export.",
+      "why": "An error found after installation costs a store visit and lost sales. An error found on screen costs one click.",
+      "effect": "Shelf space utilisation grew <b>from 90% to 96%</b>, with higher shelf compliance in stores."
+    },
+    "tips": {
+      "label": "03 · Guidance",
+      "title": "Onboarding inside the work, not before it",
+      "body": "First-time users get short Quick Tips right where they act: select a store, open a mudmap, rebuild the planogram. No manual to read, no training session to book.",
+      "why": "Training sessions don't scale to thousands of stores. Guidance at the moment of action does.",
+      "effect": "Planning effort went down — <b>teams were redeployed</b> to vendor and strategy work."
+    },
+    "analytics": {
+      "label": "Analytics",
+      "title": "Every layout change shows its money effect",
+      "body": "Financial reports connect planograms to sales, profit, stock and displaced products. Category managers see planned vs actual results and which SKUs lost space — and act on data instead of intuition.",
+      "why": "Category managers have to defend every layout change to the business. Numbers next to the shelf make that conversation short.",
+      "effect": "<b>+17% profit uplift</b> vs. control stores for a global health & beauty retailer."
+    },
+    "compare": {
+      "title": "Compare versions before rolling out",
+      "body": "Any planogram version can be compared with the previous one by sales, units, products and days of supply, with a one-click reset for a single value. Decisions became reversible — so teams experimented more.",
+      "why": "When a change can be undone, people stop being afraid to try. Fear of mistakes was the main brake on optimization.",
+      "effect": "Unlimited planogram scenarios, with changes made <b>in minutes instead of days</b>."
+    },
+    "params": {
+      "title": "Precision where it matters",
+      "body": "For the physical setup, pegboards and shelves keep exact parameters — offsets, peg spacing, class and type — so what's planned is exactly what gets installed."
+    },
+    "details": {
+      "label": "Interface details",
+      "title": "The details that make a complex tool feel simple",
+      "body": "A planning tool is used for hours every day, so small decisions add up. Each pattern below solves a concrete friction point found in testing or support tickets.",
+      "itemTitle": "Product info on hover",
+      "itemText": "ID, segment, block and priority without leaving the shelf. A «Saved» mark removes the fear of losing changes.",
+      "tipTitle": "Step-by-step Quick Tips",
+      "tipText": "A 6-step tour that points at the real controls — store selector, MudMap, POG, reports. Experienced users skip it, new ones don't get lost.",
+      "filterTitle": "Nested filters with counters",
+      "filterText": "Category → subcategory in one panel. Counters show the result before you click, so there are no empty searches.",
+      "errorsTitle": "Grouped errors",
+      "errorsText": "Problems are grouped by type (low width, item too tall) with SKUs listed. Users fix a class of errors at once, not one by one.",
+      "inlineTitle": "Inline editing",
+      "inlineText": "Change height or width right in the tooltip and confirm with one tap. No modal, no context switch.",
+      "searchTitle": "Search inside selects",
+      "searchText": "Lists with hundreds of items get a search field and match highlighting. Choosing takes seconds, not scrolling.",
+      "tagsTitle": "Color-coded tags",
+      "tagsText": "Up to 4 tags per product with fixed colors. The limit keeps the shelf readable, colors make sorting visual.",
+      "tableTitle": "Status chips and fast pagination",
+      "tableText": "Ranged / Unranged status is visible in every row; a page number field lets users jump through long reports instead of clicking «next» 20 times.",
+      "progressTitle": "Finalization progress",
+      "progressText": "Long operations show progress and a shortcut to open all results — users always know the system is working.",
+      "uploadTitle": "Drag & drop data import",
+      "uploadText": "Product master files are imported by dropping a CSV. Clear empty, loaded and error states remove the most common onboarding blocker — getting data in.",
+      "hint": "Every card below is interactive — click, type and save. Your changes stay in this browser.",
+      "reset": "Reset demo",
+      "itemTry": "Try it: click any product on the shelf.",
+      "tipTry": "Try it: press Next to walk through the tour, or Skip.",
+      "inlineTry": "Try it: change width or height, then save with ✓ or cancel with ✕.",
+      "filterTry": "Try it: pick a category and tick subcategories — the button counts products.",
+      "errorsTry": "Try it: click an SKU to mark it fixed, open «Show more».",
+      "searchTry": "Try it: type «water» or «juice».",
+      "tagsTry": "Try it: remove a tag with × or add one with +. A fifth tag isn't allowed.",
+      "tableTry": "Try it: type a page number or use the arrows.",
+      "progressTry": "Try it: press Finalize.",
+      "uploadTry": "Try it: drop any file here — a .csv is accepted, other formats show the error state. Nothing is uploaded."
+    },
+    "system": {
+      "title": "A design system that scales with the catalog",
+      "body": "A component library with every state — default, hover, active, disabled, error — so developers never guessed and the product stayed consistent across 35+ screens for two years. New departments and products are added in seconds by office staff, without a designer."
+    },
+    "site": {
+      "title": "Designing how the product sells",
+      "body": "A B2B product is bought by people who never open it: directors and procurement. I designed the website as a sales funnel that answers their questions in the order they ask them — what is it, does it work, what can it do, how much, how do I start.",
+      "label": "Marketing website",
+      "heroTitle": "One sentence of value, one action",
+      "heroBody": "The hero says what the product does in plain words and offers a single action — «Request a demo». A real dashboard below proves this is a working product, not a concept.",
+      "proofTitle": "Proof before features",
+      "proofBody": "B2B buyers need numbers to sell the purchase internally. Results (+4% sales, −6% inventory, +15% efficiency) come right after the hero, before any feature list.",
+      "featuresTitle": "Capabilities mapped to buyer jobs",
+      "featuresBody": "Five capabilities — replenishment, assortment, demand, planogram and floor planning — named the way retail teams describe their work, with the product shown next to them.",
+      "pricingTitle": "Pricing that lowers the barrier",
+      "pricingBody": "Two clear tiers. Enterprise is marked as recommended to anchor the choice, and a first-year discount on Standard lowers the risk of the first purchase.",
+      "ctaTitle": "Answer objections, then ask",
+      "ctaBody": "An accordion closes the main objections — integration with existing systems, store-level uniqueness, results. The final CTA lets a prospect upload a CSV and see suggestions on their own data before any sales call."
     },
     "testing": {
-      "title": "Testing",
-      "body": "Of all options, only one didn't interrupt the main flow, didn't distract users from other actions, and appeared only on request. We tested it with a focus group, where 77% immediately understood what the icon meant (survey)."
+      "label": "Usability testing",
+      "title": "Usability tests after every major release",
+      "body": "Each big release went through moderated tests with category managers. Example from one round — key task: «Add a new product to the planogram and fix all placement errors». After round one I added in-place error hints and Quick Tips for the first steps.",
+      "beforeValue": "3 / 6",
+      "beforeLabel": "users completed the task, round 1",
+      "afterValue": "5 / 6",
+      "afterLabel": "users completed the task, round 2"
     },
-    "colors": {
-      "title": "Color alternatives",
-      "body": "We explored alternative color schemes, but bright tones looked odd for hints + some resembled errors."
-    },
-    "final": {
-      "title": "Rolled out two solutions at once:",
-      "body": "Now: if task verification took more than 7 seconds, we changed the spinner to a clock icon on the frontend + gave a hint on click."
+    "clients": {
+      "label": "The product in production",
+      "title": "Used by global retailers every week",
+      "body": "The platform I designed runs real category management for convenience, grocery and health & beauty chains.",
+      "c1Name": "7-Eleven Philippines",
+      "c1Value": "~10k",
+      "c1Label": "store-level planograms created weekly across 3,000+ stores",
+      "c2Name": "Fortune 500 Grocer",
+      "c2Value": "&lt;2 weeks",
+      "c2Label": "to first store-level plans instead of 20+ weeks, in 100+ stores",
+      "c3Name": "Global Health & Beauty Retailer",
+      "c3Value": "+17%",
+      "c3Label": "profit uplift vs. control stores",
+      "quoteText": "«[The platform] successfully managed our network-wide store-level assortment roll-out during a time when shopper behaviour changed more in 6 months than in 35 years.»",
+      "quoteName": "Victor J. Paterno",
+      "quoteRole": "President & CEO, 7-Eleven Philippines"
     },
     "results": {
-      "title": "Result",
-      "summary": "Share of tickets related to task completion verification was up to 75% among all support requests. We reduced it to 15%.",
-      "timeline": "Task was done and rolled out to all users in 3 days."
+      "title": "Results",
+      "stat1Value": "+5–10%",
+      "stat1Label": "Revenue uplift in target categories",
+      "stat2Value": "−5%",
+      "stat2Label": "Inventory, days on hand",
+      "stat3Value": "+18%",
+      "stat3Label": "Gross margin at 7-Eleven Philippines",
+      "details": "Space Planning turned shelf planning from a specialist task into an everyday routine for store office staff. Guided editing, in-place validation and financial reports let non-planners make data-driven decisions — and let the business scale store-level planning without growing the planning team.",
+      "stat4Value": "96%",
+      "stat4Label": "Shelf space utilisation, up from 90%",
+      "stat5Value": "&lt;2 weeks",
+      "stat5Label": "To first store-level plans, down from 20+",
+      "stat6Value": "~10k",
+      "stat6Label": "Store-level planograms created weekly",
+      "source": "Results of retail clients using the platform, as published by the product company."
+    },
+    "next": {
+      "label": "Next case"
     }
   },
   "case3": {
