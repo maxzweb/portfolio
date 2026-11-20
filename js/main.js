@@ -208,16 +208,17 @@
    */
   function updateAbsoluteUrlMeta() {
     const clean = getCleanPageUrl();
+    // Static absolute URLs in the HTML win (they are what crawlers and link previews see).
     const canonical = document.getElementById('seo-canonical');
-    if (canonical) canonical.setAttribute('href', clean);
+    if (canonical && !canonical.getAttribute('href')) canonical.setAttribute('href', clean);
 
     const ogUrl = document.getElementById('seo-og-url');
-    if (ogUrl) ogUrl.setAttribute('content', clean);
+    if (ogUrl && !ogUrl.getAttribute('content')) ogUrl.setAttribute('content', clean);
 
     const ogImg = document.getElementById('seo-og-image');
     const twImg = document.getElementById('seo-twitter-image');
     const relPath =
-      (ogImg && ogImg.getAttribute('content')) || 'images/og-image.png';
+      (ogImg && ogImg.getAttribute('content')) || 'images/og/og-home.jpg';
     let absImg;
     try {
       absImg = /^(https?:|data:)/i.test(relPath)
@@ -237,7 +238,10 @@
     if (!document.getElementById('hero')) return;
 
     const desc = getNestedValue(langData, 'index.seo.description') || '';
-    const clean = getCleanPageUrl();
+    const canonicalEl = document.getElementById('seo-canonical');
+    const clean = (canonicalEl && canonicalEl.getAttribute('href')) || getCleanPageUrl();
+    const ogImgEl = document.getElementById('seo-og-image');
+    const image = ogImgEl ? ogImgEl.getAttribute('content') : undefined;
     const graph = {
       '@context': 'https://schema.org',
       '@graph': [
@@ -255,7 +259,10 @@
           '@id': `${clean}#person`,
           name: 'Max Zlydar',
           url: clean,
-          jobTitle: 'Product designer',
+          image,
+          jobTitle: 'Product Designer',
+          description: desc,
+          knowsAbout: ['Product design', 'UX research', 'UI design', 'Design systems', 'B2B SaaS', 'Fintech', 'iGaming', 'Retail tech'],
           sameAs: [
             'https://www.linkedin.com/in/maxzweb/',
             'https://dribbble.com/max4web',
@@ -285,15 +292,22 @@
 
     const title = getNestedValue(langData, `${slug}.seo.title`) || '';
     const desc = getNestedValue(langData, `${slug}.seo.description`) || '';
-    const clean = getCleanPageUrl();
+    const canonicalEl = document.getElementById('seo-canonical');
+    const clean = (canonicalEl && canonicalEl.getAttribute('href')) || getCleanPageUrl();
+    const ogImgEl = document.getElementById('seo-og-image');
     const graph = {
       '@context': 'https://schema.org',
       '@type': 'CreativeWork',
       name: title,
+      headline: title,
       description: desc,
+      image: ogImgEl ? ogImgEl.getAttribute('content') : undefined,
+      inLanguage: document.documentElement.lang || 'en',
       author: {
         '@type': 'Person',
-        name: 'Max Zlydar'
+        name: 'Max Zlydar',
+        jobTitle: 'Product Designer',
+        url: 'https://maxzweb.github.io/portfolio/'
       },
       url: clean
     };

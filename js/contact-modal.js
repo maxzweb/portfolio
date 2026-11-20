@@ -6,6 +6,17 @@
 
   var SERVICE_ID = 'service_omjf25c';
   var TEMPLATE_ID = 'template_un2hj0j';
+  var PUBLIC_KEY = 'HG-rKxKs9i_JjEaw6';
+  var emailjsReady = false;
+
+  /* EmailJS loads with `defer`, so initialise it lazily right before the first send. */
+  function ensureEmailjs() {
+    if (emailjsReady) return true;
+    if (typeof window.emailjs === 'undefined' || typeof window.emailjs.init !== 'function') return false;
+    window.emailjs.init(PUBLIC_KEY);
+    emailjsReady = true;
+    return true;
+  }
 
   var contactModalTrigger = null;
   var contactModalSavedScrollY = null;
@@ -173,7 +184,7 @@
       if (!form || form.id !== 'contact-form') return;
       e.preventDefault();
 
-      if (typeof window.emailjs === 'undefined' || typeof window.emailjs.sendForm !== 'function') {
+      if (!ensureEmailjs() || typeof window.emailjs.sendForm !== 'function') {
         var feedback = document.getElementById('contact-form-feedback');
         if (feedback) {
           feedback.textContent = t('contact.errorMessage');
