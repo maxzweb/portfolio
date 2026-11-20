@@ -295,24 +295,30 @@
     const canonicalEl = document.getElementById('seo-canonical');
     const clean = (canonicalEl && canonicalEl.getAttribute('href')) || getCleanPageUrl();
     const ogImgEl = document.getElementById('seo-og-image');
-    const graph = {
+    let script = document.getElementById('schema-case-study');
+
+    // Static Article markup in the HTML is the source of truth; only translate its text fields.
+    let base = null;
+    try { base = script ? JSON.parse(script.textContent) : null; } catch (e) { base = null; }
+    const graph = base && base['@type'] ? base : {
       '@context': 'https://schema.org',
-      '@type': 'CreativeWork',
-      name: title,
-      headline: title,
-      description: desc,
+      '@type': 'Article',
       image: ogImgEl ? ogImgEl.getAttribute('content') : undefined,
-      inLanguage: document.documentElement.lang || 'en',
       author: {
         '@type': 'Person',
+        '@id': 'https://maxzweb.github.io/portfolio/#person',
         name: 'Max Zlydar',
         jobTitle: 'Product Designer',
         url: 'https://maxzweb.github.io/portfolio/'
       },
       url: clean
     };
+    graph.name = title || graph.name;
+    graph.headline = getNestedValue(langData, `${slug}.seo.ogTitle`) || title || graph.headline;
+    graph.description = desc || graph.description;
+    graph.inLanguage = document.documentElement.lang || 'en';
+    if (!graph.url) graph.url = clean;
 
-    let script = document.getElementById('schema-case-study');
     if (!script) {
       script = document.createElement('script');
       script.id = 'schema-case-study';

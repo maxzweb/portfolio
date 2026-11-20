@@ -1,0 +1,33 @@
+# Max Zlydar — Product Designer
+
+> Max Zlydar is a product designer with 7+ years of experience in B2B and B2C SaaS, fintech, iGaming and retail tech. He designs products end-to-end — user research, UX, UI, design systems and brand — and measures design decisions against business metrics. Open to new product design projects.
+
+Last updated: 2026-11-20
+
+## About
+
+- Role: Product Designer (Lead / Senior level)
+- Experience: 7+ years, 70+ delivered projects
+- Industries: B2B SaaS, B2C SaaS, fintech, iGaming, e-commerce, grocery retail
+- Skills: user research, Kano prioritization, UX and interaction design, UI design, design systems, data-heavy dashboards, mobile app design, landing pages, usability testing
+- Languages of the site: English, Ukrainian
+- Contact: Telegram https://t.me/MaxZweb
+- Profiles: [LinkedIn](https://www.linkedin.com/in/maxzweb/), [Dribbble](https://dribbble.com/max4web), [Upwork](https://www.upwork.com/freelancers/maxzweb)
+
+## Case studies
+
+- [LuxBox — trust-first iGaming UX](https://maxzweb.github.io/portfolio/cases/case1.html): Mystery-box platform with real luxury prizes (watches, gold, sneakers), designed end-to-end for web and mobile in 2025. Role: Lead Product Designer (research, UX, UI, design system, brand) in a team of a founder, 3 developers and a marketer. Key decisions: transparent odds on every box, live drops, battles and ranks for retention, a regional fallback for legal restrictions. Reported results: +12% visit → first box opened, −25% odds-related support tickets, boxes opened per user per month 3.1 → 3.5.
+- [Space Planning — B2B retail SaaS UX](https://maxzweb.github.io/portfolio/cases/case2.html): Planogram platform for grocery retail (client: OmniOptimise), designed over two years (2024–2025). Role: Senior Product Designer. Turned shelf planning from a specialist task into a routine for store office staff with no planning background: guided shelf editor, in-place validation, quick tips, financial reports and a design system. Retail clients of the platform report +5–10% revenue in target categories, −5% inventory days on hand, +18% gross margin at 7-Eleven Philippines, shelf space utilisation up from 90% to 96%, first store-level plans in under 2 weeks (down from 20+), ~10k store-level planograms created weekly.
+
+## What clients say
+
+- "Max redesigned our onboarding flow and sign-up conversion jumped from 18% to 31%." — John M., Product lead
+- "He revamped our landing page — bounce rate dropped by 24%." — Sarah K., Startup founder
+- "After release, our App Store rating went from 3.8 to 4.7." — Adrien, Mobile lead
+- "Our checkout redesign cut drop-off by 19%." — Joshua L., Operations
+- "Max is one of the best designers I've worked with on Upwork." — Michael T., Upwork client
+
+## Optional
+
+- [Portfolio home](https://maxzweb.github.io/portfolio/): all case studies, UI widgets and testimonials
+- [Sitemap](https://maxzweb.github.io/portfolio/sitemap.xml)
