@@ -3,6 +3,10 @@
     "muzli": {
       "type": "http",
       "url": "https://mcp.muz.li/mcp"
+    },
+    "bluma": {
+      "type": "http",
+      "url": "https://bluma.design/api/mcp"
     }
   }
 }
